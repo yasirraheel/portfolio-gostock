@@ -12,9 +12,9 @@ return [
     | you want to customize your views to better match your application.
     |
     */
-    "welcome_text" => "Laravel Starter Kit",
-    "welcome_subtitle" => "Complete Laravel Application Foundation",
-    "description" => "A comprehensive Laravel starter kit with user management, payments, subscriptions, admin panel, and all essential features for modern web applications.",
-  	"keywords" => "laravel starter,php framework,web application,user management,payment system,admin panel",
+    "welcome_text" => "Portfolio Platform",
+    "welcome_subtitle" => "Professional Portfolio Showcase & Management System",
+    "description" => "A comprehensive portfolio platform with user management, private portfolios, theme customization, contact forms, and all essential features for professional portfolio websites.",
+	"keywords" => "portfolio platform,professional portfolio,portfolio showcase,user management,theme customization,contact forms,private portfolios",
 
 ];

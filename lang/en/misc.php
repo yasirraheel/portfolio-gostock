@@ -8,7 +8,7 @@ return array(
 	|--------------------------------------------------------------------------
 	|
 	*/
-	'title_2_index'             =>      'Powerful Laravel Starter Kit with Complete Features',
+	'title_2_index'             =>      'Professional Portfolio Platform with Complete Features',
 	'search' 		            => 		'Search',
 	'content'                   =>      'Content',
 	'items'                     =>      'Items',
