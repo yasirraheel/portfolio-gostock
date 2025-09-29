@@ -170,6 +170,10 @@
         margin-right: 0 !important;
         border-radius: 0 !important;
     }
+    .portfolio-hero .hero-bio-container .hero-bio {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
     /* Reduce padding on hero container for tablets */
     .portfolio-hero .container.px-5 {
         padding-left: 0 !important;
@@ -184,6 +188,10 @@
         margin-left: 0 !important;
         margin-right: 0 !important;
         border-radius: 0 !important;
+    }
+    .portfolio-hero .hero-bio-container .hero-bio {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
     }
     /* Reduce padding on hero container for mobile */
     .portfolio-hero .container.px-5 {
@@ -849,6 +857,21 @@
     border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
+.projects-section .project-actions {
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.projects-section .project-actions .btn {
+    font-size: 0.8rem !important;
+    padding: 0.4rem 0.8rem !important;
+    border-radius: 6px !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    margin-right: 0.5rem !important;
+    margin-bottom: 0.25rem !important;
+}
+
 .project-header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 1rem;
@@ -1430,4 +1453,519 @@ html {
 
 .portfolio-hero .interactive-element:hover {
     transform: translateY(-2px);
+}
+
+
+/* Mobile Responsive Project Cards */
+
+@media (max-width: 768px) {
+    .projects-section.container {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: calc(-50vw + 50%) !important;
+        margin-right: calc(-50vw + 50%) !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+    .projects-section .project-card {
+        padding: 0.75rem 1rem 0.75rem 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+    .projects-section .project-actions {
+        padding-top: 0.5rem !important;
+    }
+    .projects-section .project-actions .btn {
+        font-size: 0.75rem !important;
+        padding: 0.3rem 0.6rem !important;
+        margin-right: 0.25rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .projects-section.container {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: calc(-50vw + 50%) !important;
+        margin-right: calc(-50vw + 50%) !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+    .projects-section .project-card {
+        padding: 0.5rem 0.75rem 0.5rem 0.75rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    .projects-section .project-actions {
+        padding-top: 0.5rem !important;
+    }
+    .projects-section .project-actions .btn {
+        font-size: 0.7rem !important;
+        padding: 0.25rem 0.5rem !important;
+        margin-right: 0.25rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+}
+
+
+/* Ensure cards take full width with minimal margin */
+
+.experience-section .card,
+.education-section .education-card,
+.certifications-section .certification-card,
+.testimonials-section .testimonial-card,
+.projects-section .project-card,
+.custom-section .custom-section-card,
+.skills-section .card {
+    margin-bottom: 8px !important;
+}
+
+.experience-section .timeline-item {
+    margin-bottom: 1rem !important;
+}
+
+
+/* Card mobile adjustments */
+
+.education-header,
+.certification-header,
+.testimonial-header,
+.project-header {
+    padding: 1rem !important;
+}
+
+.education-body,
+.certification-body,
+.testimonial-body,
+.project-body {
+    padding: 1rem !important;
+}
+
+.custom-section .custom-section-card {
+    padding: 1.5rem !important;
+}
+
+.custom-section-content {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+}
+
+.custom-section-img {
+    max-height: 250px !important;
+}
+
+.education-degree,
+.certification-name,
+.client-name,
+.project-name {
+    font-size: 1rem !important;
+}
+
+.education-institution,
+.certification-organization,
+.client-position,
+.project-description {
+    font-size: 0.9rem !important;
+}
+
+.institution-logo,
+.institution-logo-fallback,
+.organization-logo,
+.organization-logo-fallback,
+.client-photo,
+.client-photo-fallback,
+.project-thumbnail,
+.project-image-fallback {
+    width: 50px !important;
+    height: 50px !important;
+}
+
+.institution-logo-fallback i,
+.organization-logo-fallback i,
+.client-photo-fallback i,
+.project-image-fallback i {
+    font-size: 1.2rem !important;
+}
+
+
+}
+
+/* Text Animations */
+.portfolio-hero .hero-name {
+    animation: fadeInDown 1s ease-out 0.4s both;
+}
+
+/* Typing Animation for Name */
+.portfolio-hero .typing-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: typeWriter 3s steps(40) 1s forwards;
+    vertical-align: top;
+    max-width: 100%;
+}
+.portfolio-hero .typing-cursor {
+    display: inline;
+    animation: blink 1s infinite;
+    animation-delay: 1s;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.8);
+    margin-left: 2px;
+    vertical-align: top;
+}
+.portfolio-hero .hero-name {
+    white-space: nowrap;
+    overflow: visible;
+}
+
+/* Mobile Responsiveness for Typing Name */
+@media (max-width: 991px) {
+    .portfolio-hero .hero-name {
+        white-space: normal;
+        overflow: visible;
+        word-break: break-word;
+        text-align: center;
+    }
+
+    .portfolio-hero .typing-text {
+        white-space: normal;
+        word-break: break-word;
+        max-width: 100%;
+        width: auto;
+        animation: none;
+        overflow: visible;
+    }
+
+    .portfolio-hero .typing-cursor {
+        display: none;
+    }
+}
+@keyframes typeWriter {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: calc(100% - 20px);
+    }
+}
+@keyframes blink {
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+.portfolio-hero .hero-title {
+    animation: fadeInDown 1s ease-out 0.6s both;
+}
+.portfolio-hero .hero-bio {
+    animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+/* Contact Info Animation */
+.portfolio-hero .contact-info {
+    animation: fadeInRight 1s ease-out 1s both;
+}
+.portfolio-hero .contact-info p {
+    transition: color 0.3s ease;
+}
+.portfolio-hero .contact-info p:hover {
+    color: #ffffff !important;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .portfolio-hero .hero-content {
+        text-align: center;
+    }
+
+    .portfolio-hero .hero-actions {
+        justify-content: center !important;
+        flex-wrap: wrap;
+    }
+
+    .portfolio-hero .hero-social {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .portfolio-hero .contact-info {
+        align-items: center !important;
+    }
+
+    .portfolio-hero .contact-info-item {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+/* Loading State */
+.portfolio-hero.loading * {
+    animation-play-state: paused;
+}
+
+/* Smooth Scrolling for Internal Links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Key Achievements Styling */
+.achievements-list {
+    margin-top: 0.5rem;
+}
+.achievements-list ul {
+    margin-bottom: 0;
+    padding-left: 0;
+}
+.achievements-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+.achievements-list li:last-child {
+    margin-bottom: 0;
+}
+.achievements-list .bi-check-circle-fill {
+    color: #28a745 !important;
+    font-size: 0.875rem;
+    margin-top: 0.125rem;
+    flex-shrink: 0;
+}
+.achievements-list span {
+    color: #6c757d;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* Mobile responsive adjustments for achievements */
+@media (max-width: 768px) {
+    .achievements-list li {
+        margin-bottom: 0.5rem;
+    }
+
+    .achievements-list .bi-check-circle-fill {
+        font-size: 0.75rem;
+        margin-top: 0.25rem;
+    }
+
+    .achievements-list span {
+        font-size: 0.8rem;
+    }
+}
+@media (max-width: 575px) {
+    .achievements-list li {
+        margin-bottom: 0.4rem;
+    }
+
+    .achievements-list .bi-check-circle-fill {
+        font-size: 0.7rem;
+        margin-right: 0.5rem;
+    }
+
+    .achievements-list span {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+    /* Skills section edge-to-edge on small mobile */
+
+    .skills-section.container {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: calc(-50vw + 50%) !important;
+        margin-right: calc(-50vw + 50%) !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+    /* Ensure contact info is centered on small mobile */
+
+    .portfolio-hero .contact-info {
+        align-items: center !important;
+    }
+
+    .portfolio-hero .contact-info-item {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+    }
+}
+
+/* Dynamic Achievements Form Styling */
+.achievement-item {
+    animation: fadeInUp 0.3s ease-out;
+}
+.achievement-item .input-group-text {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    color: #28a745;
+}
+.achievement-item .form-control {
+    border-left: 0;
+}
+.achievement-item .form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+.achievement-item .remove-achievement {
+    border-left: 0;
+}
+.achievement-item .remove-achievement:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+}
+#add-achievement {
+    transition: all 0.3s ease;
+}
+#add-achievement:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover Effects for Interactive Elements */
+.portfolio-hero .interactive-element {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-hero .interactive-element:hover {
+    transform: translateY(-2px);
+}
+
+/* Mobile Responsive Project Cards */
+@media (max-width: 768px) {
+    .projects-section.container {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: calc(-50vw + 50%) !important;
+        margin-right: calc(-50vw + 50%) !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    .projects-section .project-card {
+        padding: 0.75rem 1rem 0.75rem 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .projects-section .project-actions {
+        padding-top: 0.5rem !important;
+    }
+
+    .projects-section .project-actions .btn {
+        font-size: 0.75rem !important;
+        padding: 0.3rem 0.6rem !important;
+        margin-right: 0.25rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+}
+@media (max-width: 575px) {
+    .projects-section.container {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: calc(-50vw + 50%) !important;
+        margin-right: calc(-50vw + 50%) !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    .projects-section .project-card {
+        padding: 0.5rem 0.75rem 0.5rem 0.75rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    .projects-section .project-actions {
+        padding-top: 0.5rem !important;
+    }
+
+    .projects-section .project-actions .btn {
+        font-size: 0.7rem !important;
+        padding: 0.25rem 0.5rem !important;
+        margin-right: 0.25rem !important;
+        margin-bottom: 0.25rem !important;
+    }
 }

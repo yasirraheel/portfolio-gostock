@@ -1223,6 +1223,20 @@ class UserController extends Controller
 
 		$data = $request->except('company_logo');
 
+		// Handle achievements as JSON array
+		if ($request->has('achievements') && !empty($request->achievements)) {
+			try {
+				$achievements = json_decode($request->achievements, true);
+				if (is_array($achievements)) {
+					$data['achievements'] = json_encode($achievements);
+				} else {
+					$data['achievements'] = $request->achievements;
+				}
+			} catch (Exception $e) {
+				$data['achievements'] = $request->achievements;
+			}
+		}
+
 		// Handle company logo upload
 		if ($request->hasFile('company_logo')) {
 			$extension = $request->file('company_logo')->getClientOriginalExtension();
@@ -1271,6 +1285,20 @@ class UserController extends Controller
 
 		$experience = auth()->user()->experiences()->findOrFail($request->id);
 		$data = $request->except(['company_logo', 'id']);
+
+		// Handle achievements as JSON array
+		if ($request->has('achievements') && !empty($request->achievements)) {
+			try {
+				$achievements = json_decode($request->achievements, true);
+				if (is_array($achievements)) {
+					$data['achievements'] = json_encode($achievements);
+				} else {
+					$data['achievements'] = $request->achievements;
+				}
+			} catch (Exception $e) {
+				$data['achievements'] = $request->achievements;
+			}
+		}
 
 		// Handle company logo upload
 		if ($request->hasFile('company_logo')) {

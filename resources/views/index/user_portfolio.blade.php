@@ -489,8 +489,44 @@
                                                     @if ($experience->achievements)
                                                         <div class="mb-3">
                                                             <h6 class="fw-semibold mb-2">Key Achievements:</h6>
-                                                            <p class="card-text text-muted">
-                                                                {{ $experience->achievements }}</p>
+                                                            <div class="achievements-list">
+                                                                @php
+                                                                    $achievements = $experience->achievements;
+                                                                    $lines = [];
+
+                                                                    // Try to decode as JSON first (new format)
+                                                                    $jsonAchievements = json_decode($achievements, true);
+                                                                    if (is_array($jsonAchievements)) {
+                                                                        $lines = $jsonAchievements;
+                                                                    } else {
+                                                                        // Fallback to old format - split by common delimiters
+                                                                        $delimiters = ['\n', '\r\n', '•', '-', '*', '1.', '2.', '3.', '4.', '5.', '6.', '7.', '8.', '9.'];
+
+                                                                        foreach ($delimiters as $delimiter) {
+                                                                            if (strpos($achievements, $delimiter) !== false) {
+                                                                                $lines = array_filter(array_map('trim', explode($delimiter, $achievements)));
+                                                                                break;
+                                                                            }
+                                                                        }
+
+                                                                        // If no delimiters found, treat as single line
+                                                                        if (empty($lines)) {
+                                                                            $lines = [$achievements];
+                                                                        }
+                                                                    }
+                                                                @endphp
+
+                                                                <ul class="list-unstyled mb-0">
+                                                                    @foreach ($lines as $line)
+                                                                        @if (!empty(trim($line)))
+                                                                            <li class="d-flex align-items-start mb-2">
+                                                                                <i class="bi bi-check-circle-fill text-success me-2 mt-1 flex-shrink-0" style="font-size: 0.8rem;"></i>
+                                                                                <span class="text-muted small">{{ trim($line) }}</span>
+                                                                            </li>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
                                                         </div>
                                                     @endif
 

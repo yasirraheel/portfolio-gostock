@@ -200,13 +200,17 @@
 								</div>
 
 								<div class="col-12 mb-3">
-									<div class="form-floating">
-										<textarea name="achievements" class="form-control @error('achievements') is-invalid @enderror" style="height: 100px;" placeholder="List your key achievements and accomplishments..." id="achievements">{{ old('achievements', $experience->achievements) }}</textarea>
-										<label for="achievements">{{ __('misc.key_achievements') }}</label>
-										@error('achievements')
-											<div class="invalid-feedback">{{ $message }}</div>
-										@enderror
+									<label class="form-label fw-semibold">{{ __('misc.key_achievements') }}</label>
+									<div id="achievements-container">
+										<!-- Achievements will be added here dynamically -->
 									</div>
+									<button type="button" class="btn btn-outline-primary btn-sm mt-2" id="add-achievement">
+										<i class="bi bi-plus-circle me-1"></i>Add Achievement
+									</button>
+									<input type="hidden" name="achievements" id="achievements-input" value="{{ old('achievements', $experience->achievements) }}">
+									@error('achievements')
+										<div class="invalid-feedback d-block">{{ $message }}</div>
+									@enderror
 								</div>
 
 								<div class="col-12 mb-3">
@@ -290,6 +294,82 @@ document.getElementById('companyLogoInput').addEventListener('change', function(
         }
         reader.readAsDataURL(file);
     }
+});
+
+// Dynamic Achievements Management
+let achievementCount = 0;
+
+// Load existing achievements if any
+document.addEventListener('DOMContentLoaded', function() {
+    const existingAchievements = document.getElementById('achievements-input').value;
+    if (existingAchievements) {
+        try {
+            const achievements = JSON.parse(existingAchievements);
+            if (Array.isArray(achievements)) {
+                achievements.forEach(achievement => {
+                    addAchievementField(achievement);
+                });
+            }
+        } catch (e) {
+            // If not JSON, treat as single achievement
+            if (existingAchievements.trim()) {
+                addAchievementField(existingAchievements);
+            }
+        }
+    }
+});
+
+document.getElementById('add-achievement').addEventListener('click', function() {
+    addAchievementField('');
+});
+
+function addAchievementField(value = '') {
+    achievementCount++;
+    const container = document.getElementById('achievements-container');
+
+    const achievementDiv = document.createElement('div');
+    achievementDiv.className = 'achievement-item mb-2';
+    achievementDiv.innerHTML = `
+        <div class="input-group">
+            <span class="input-group-text">
+                <i class="bi bi-check-circle text-success"></i>
+            </span>
+            <input type="text" class="form-control achievement-input" placeholder="Enter your achievement..." value="${value}">
+            <button type="button" class="btn btn-outline-danger remove-achievement" title="Remove achievement">
+                <i class="bi bi-trash"></i>
+            </button>
+        </div>
+    `;
+
+    container.appendChild(achievementDiv);
+
+    // Add event listener for remove button
+    achievementDiv.querySelector('.remove-achievement').addEventListener('click', function() {
+        achievementDiv.remove();
+        updateAchievementsInput();
+    });
+
+    // Add event listener for input change
+    achievementDiv.querySelector('.achievement-input').addEventListener('input', function() {
+        updateAchievementsInput();
+    });
+
+    // Focus on the new input
+    achievementDiv.querySelector('.achievement-input').focus();
+}
+
+function updateAchievementsInput() {
+    const inputs = document.querySelectorAll('.achievement-input');
+    const achievements = Array.from(inputs)
+        .map(input => input.value.trim())
+        .filter(value => value !== '');
+
+    document.getElementById('achievements-input').value = JSON.stringify(achievements);
+}
+
+// Update achievements input on form submit
+document.querySelector('form').addEventListener('submit', function() {
+    updateAchievementsInput();
 });
 </script>
 @endsection
