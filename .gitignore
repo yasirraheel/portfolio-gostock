@@ -3,6 +3,10 @@
 .env.backup
 .env.production
 
+# Composer dependencies (install on server)
+/vendor/
+composer.lock
+
 # Laravel cache files (essential for performance)
 /storage/framework/cache
 /storage/framework/sessions
