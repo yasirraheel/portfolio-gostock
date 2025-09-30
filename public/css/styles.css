@@ -1854,3 +1854,62 @@ span.highlight::after {
 [data-bs-theme=dark] #closeThanks {
     filter: unset !important;
 }
+
+
+/* Landing Page Styles */
+
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+.hero-mockup {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-mockup i {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+
+/* Feature Cards Hover Effect */
+
+.card:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+
+/* Testimonial Cards */
+
+.testimonial-card {
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+/* CTA Section */
+
+.bg-primary {
+    background: linear-gradient(135deg, var(--color-default, #007bff), #0056b3) !important;
+}
+
+
+/* Responsive adjustments for landing page */
+
+@media (max-width: 768px) {
+    .hero-mockup {
+        padding: 2rem 1rem;
+        margin-top: 2rem;
+    }
+    .min-vh-75 {
+        min-height: 60vh;
+    }
+}
