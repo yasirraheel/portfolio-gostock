@@ -39,6 +39,9 @@ Route::get('home', function() {
     return redirect('/');
 });
 
+// Portfolios listing page
+Route::get('portfolios', [HomeController::class, 'portfolios'])->name('portfolios');
+
 // Authentication
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);

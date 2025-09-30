@@ -353,6 +353,79 @@
     </div>
 </section>
 
+<!-- Featured Portfolios Section -->
+<section class="section py-5 py-large bg-light">
+    <div class="container">
+        <div class="btn-block text-center mb-5">
+            <h3 class="m-0">Featured Portfolios</h3>
+            <p class="text-muted">Discover amazing portfolios created by our talented users</p>
+        </div>
+
+        <div class="row g-4">
+            @php
+                $featuredUsers = \App\Models\User::whereNotNull('portfolio_slug')
+                    ->where('status', 'active')
+                    ->where('portfolio_private', 0)
+                    ->orderBy('created_at', 'desc')
+                    ->take(6)
+                    ->get();
+            @endphp
+            
+            @if($featuredUsers->count() > 0)
+                @foreach($featuredUsers as $user)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body p-4 text-center">
+                                <div class="mb-3">
+                                    @if($user->avatar)
+                                        <img src="{{ url('public/avatar', $user->avatar) }}" alt="{{ $user->name }}" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
+                                    @else
+                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width: 80px; height: 80px;">
+                                            <span class="fw-bold fs-4">{{ substr($user->name, 0, 1) }}</span>
+                                        </div>
+                                    @endif
+                                </div>
+                                <h5 class="card-title mb-2">{{ $user->name }}</h5>
+                                @if($user->profession)
+                                    <p class="text-muted mb-3">{{ $user->profession }}</p>
+                                @endif
+                                @if($user->bio)
+                                    <p class="card-text text-muted small mb-3">{{ Str::limit($user->bio, 100) }}</p>
+                                @endif
+                                <a href="{{ url($user->portfolio_slug) }}" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-eye me-1"></i>View Portfolio
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <!-- Fallback content if no portfolios -->
+                <div class="col-12 text-center">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-5">
+                            <i class="bi bi-person-workspace display-1 text-muted mb-3"></i>
+                            <h5 class="mb-3">No Portfolios Yet</h5>
+                            <p class="text-muted mb-4">Be the first to create an amazing portfolio and get featured here!</p>
+                            <a href="{{ url('register') }}" class="btn btn-primary">
+                                <i class="bi bi-person-plus me-1"></i>Get Started
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        </div>
+
+        @if($featuredUsers->count() > 0)
+            <div class="text-center mt-5">
+                <a href="{{ url('portfolios') }}" class="btn btn-lg btn-outline-primary rounded-pill px-4">
+                    <i class="bi bi-grid me-2"></i>View All Portfolios
+                </a>
+            </div>
+        @endif
+    </div>
+</section>
+
 <!-- Final CTA Section -->
 <section class="section py-5 py-large bg-primary text-white">
     <div class="container">
