@@ -292,6 +292,14 @@
               </li><!-- /end list -->
                 @endif
 
+              @if (auth()->user()->hasPermission('general_settings'))
+              <li class="nav-item">
+                  <a href="{{ url('panel/admin/landing-testimonials') }}" class="nav-link text-truncate @if (request()->is('panel/admin/landing-testimonials*')) active @endif">
+                      <i class="bi-chat-quote me-2"></i> Landing Testimonials
+                  </a>
+              </li><!-- /end list -->
+                @endif
+
                 @if (auth()->user()->hasPermission('payment_settings'))
               <li class="nav-item">
                   <a href="#payments" data-bs-toggle="collapse" class="nav-link text-truncate dropdown-toggle @if (request()->is('panel/admin/payments') || request()->is('panel/admin/payments/*')) active @endif" @if (request()->is('panel/admin/payments') || request()->is('panel/admin/payments/*')) aria-expanded="true" @endif>

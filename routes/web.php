@@ -344,6 +344,14 @@ Route::group(['middleware' => 'role'], function() {
     Route::get('panel/admin/roles-and-permissions', [RolesAndPermissionsController::class, 'index'])->name('role_and_permissions');
     Route::view('panel/admin/roles-and-permissions/create', 'admin.add-role');
     Route::post('panel/admin/roles-and-permissions/create', [RolesAndPermissionsController::class, 'store']);
+
+    // Landing Testimonials Management
+    Route::get('panel/admin/landing-testimonials', [AdminController::class, 'landingTestimonials'])->name('landing_testimonials');
+    Route::get('panel/admin/landing-testimonials/create', [AdminController::class, 'landingTestimonialsCreate']);
+    Route::post('panel/admin/landing-testimonials/create', [AdminController::class, 'landingTestimonialsStore']);
+    Route::get('panel/admin/landing-testimonials/edit/{id}', [AdminController::class, 'landingTestimonialsEdit']);
+    Route::post('panel/admin/landing-testimonials/edit/{id}', [AdminController::class, 'landingTestimonialsUpdate']);
+    Route::post('panel/admin/landing-testimonials/delete/{id}', [AdminController::class, 'landingTestimonialsDelete']);
     Route::get('panel/admin/roles-and-permissions/edit/{id}', [RolesAndPermissionsController::class, 'edit']);
     Route::post('panel/admin/roles-and-permissions/update', [RolesAndPermissionsController::class, 'update']);
     Route::post('panel/admin/roles-and-permissions/delete/{id}', [RolesAndPermissionsController::class, 'destroy']);

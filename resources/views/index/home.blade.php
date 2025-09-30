@@ -243,75 +243,106 @@
         </div>
 
         <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
-                                <span class="fw-bold">JS</span>
-                            </div>
-                            <div>
-                                <h6 class="mb-0">John Smith</h6>
-                                <small class="text-muted">Software Developer</small>
+            @php
+                $testimonials = \App\Models\LandingTestimonial::active()->ordered()->take(3)->get();
+            @endphp
+            
+            @if($testimonials->count() > 0)
+                @foreach($testimonials as $testimonial)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card h-100 border-0 shadow-sm testimonial-card">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                        <span class="fw-bold">{{ $testimonial->initials }}</span>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">{{ $testimonial->client_name }}</h6>
+                                        <small class="text-muted">{{ $testimonial->client_position }}</small>
+                                    </div>
+                                </div>
+                                <p class="card-text text-muted">"{{ $testimonial->testimonial_text }}"</p>
+                                <div class="text-warning">
+                                    @for($i = 1; $i <= 5; $i++)
+                                        <i class="bi bi-star{{ $i <= $testimonial->rating ? '-fill' : '' }}"></i>
+                                    @endfor
+                                </div>
                             </div>
                         </div>
-                        <p class="card-text text-muted">"This platform helped me land my dream job! The portfolio looked so professional that HR was impressed from the first glance."</p>
-                        <div class="text-warning">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+                    </div>
+                @endforeach
+            @else
+                <!-- Fallback testimonials if none in database -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm testimonial-card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                    <span class="fw-bold">JS</span>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">John Smith</h6>
+                                    <small class="text-muted">Software Developer</small>
+                                </div>
+                            </div>
+                            <p class="card-text text-muted">"This platform helped me land my dream job! The portfolio looked so professional that HR was impressed from the first glance."</p>
+                            <div class="text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
-                                <span class="fw-bold">MJ</span>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm testimonial-card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                    <span class="fw-bold">MJ</span>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Maria Johnson</h6>
+                                    <small class="text-muted">UX Designer</small>
+                                </div>
                             </div>
-                            <div>
-                                <h6 class="mb-0">Maria Johnson</h6>
-                                <small class="text-muted">UX Designer</small>
+                            <p class="card-text text-muted">"The private portfolio feature is amazing. I can share my work with specific companies without making it public."</p>
+                            <div class="text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
                             </div>
-                        </div>
-                        <p class="card-text text-muted">"The private portfolio feature is amazing. I can share my work with specific companies without making it public."</p>
-                        <div class="text-warning">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
-                                <span class="fw-bold">DR</span>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm testimonial-card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                                    <span class="fw-bold">DR</span>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">David Rodriguez</h6>
+                                    <small class="text-muted">Marketing Manager</small>
+                                </div>
                             </div>
-                            <div>
-                                <h6 class="mb-0">David Rodriguez</h6>
-                                <small class="text-muted">Marketing Manager</small>
+                            <p class="card-text text-muted">"Free and easy to use! I created my portfolio in 30 minutes and got 3 job interviews the same week."</p>
+                            <div class="text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
                             </div>
-                        </div>
-                        <p class="card-text text-muted">"Free and easy to use! I created my portfolio in 30 minutes and got 3 job interviews the same week."</p>
-                        <div class="text-warning">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endif
         </div>
     </div>
 </section>

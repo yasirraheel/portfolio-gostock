@@ -1482,4 +1482,80 @@ class AdminController extends Controller
 
 		return back()->withSuccessMessage(__('admin.success_update'));
 	}
+
+	/**
+	 * Landing Testimonials Management
+	 */
+	public function landingTestimonials()
+	{
+		$testimonials = \App\Models\LandingTestimonial::orderBy('sort_order')->orderBy('created_at', 'desc')->paginate(20);
+		return view('admin.landing-testimonials', compact('testimonials'));
+	}
+
+	public function landingTestimonialsCreate()
+	{
+		return view('admin.landing-testimonials-create');
+	}
+
+	public function landingTestimonialsStore(Request $request)
+	{
+		$request->validate([
+			'client_name' => 'required|string|max:255',
+			'client_position' => 'required|string|max:255',
+			'testimonial_text' => 'required|string|max:1000',
+			'rating' => 'required|integer|min:1|max:5',
+			'status' => 'required|in:active,inactive',
+			'sort_order' => 'nullable|integer|min:0'
+		]);
+
+		$testimonial = new \App\Models\LandingTestimonial();
+		$testimonial->client_name = $request->client_name;
+		$testimonial->client_position = $request->client_position;
+		$testimonial->testimonial_text = $request->testimonial_text;
+		$testimonial->rating = $request->rating;
+		$testimonial->status = $request->status;
+		$testimonial->is_featured = $request->has('is_featured') ? 1 : 0;
+		$testimonial->sort_order = $request->sort_order ?? 0;
+		$testimonial->save();
+
+		return redirect('panel/admin/landing-testimonials')->withSuccessMessage('Landing testimonial created successfully!');
+	}
+
+	public function landingTestimonialsEdit($id)
+	{
+		$testimonial = \App\Models\LandingTestimonial::findOrFail($id);
+		return view('admin.landing-testimonials-edit', compact('testimonial'));
+	}
+
+	public function landingTestimonialsUpdate(Request $request, $id)
+	{
+		$request->validate([
+			'client_name' => 'required|string|max:255',
+			'client_position' => 'required|string|max:255',
+			'testimonial_text' => 'required|string|max:1000',
+			'rating' => 'required|integer|min:1|max:5',
+			'status' => 'required|in:active,inactive',
+			'sort_order' => 'nullable|integer|min:0'
+		]);
+
+		$testimonial = \App\Models\LandingTestimonial::findOrFail($id);
+		$testimonial->client_name = $request->client_name;
+		$testimonial->client_position = $request->client_position;
+		$testimonial->testimonial_text = $request->testimonial_text;
+		$testimonial->rating = $request->rating;
+		$testimonial->status = $request->status;
+		$testimonial->is_featured = $request->has('is_featured') ? 1 : 0;
+		$testimonial->sort_order = $request->sort_order ?? 0;
+		$testimonial->save();
+
+		return redirect('panel/admin/landing-testimonials')->withSuccessMessage('Landing testimonial updated successfully!');
+	}
+
+	public function landingTestimonialsDelete($id)
+	{
+		$testimonial = \App\Models\LandingTestimonial::findOrFail($id);
+		$testimonial->delete();
+
+		return redirect('panel/admin/landing-testimonials')->withSuccessMessage('Landing testimonial deleted successfully!');
+	}
 }
