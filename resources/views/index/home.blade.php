@@ -25,8 +25,8 @@
                             <a href="{{ url('user/account') }}" class="btn btn-lg btn-main rounded-pill btn-custom px-4 arrow">
                                 <i class="bi bi-person-gear me-2"></i>Manage Portfolio
                             </a>
-                            @if(auth()->user()->custom_slug)
-                                <a href="{{ url(auth()->user()->custom_slug) }}" class="btn btn-lg btn-outline-light rounded-pill px-4">
+                            @if(auth()->user()->portfolio_slug)
+                                <a href="{{ url(auth()->user()->portfolio_slug) }}" class="btn btn-lg btn-outline-light rounded-pill px-4">
                                     <i class="bi bi-eye me-2"></i>View Portfolio
                                 </a>
                             @else
