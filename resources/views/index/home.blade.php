@@ -19,7 +19,7 @@
             <div class="row align-items-center min-vh-75">
                 <div class="col-12 text-center">
                     <h1 class="display-3 fw-bold text-white mb-4">{{ $settings->welcome_text ?? __('seo.welcome_text') }}</h1>
-                    <p class="fs-4 text-white mb-4">{{ $settings->welcome_subtitle ?? __('seo.welcome_subtitle') }}</p>
+                    <p class="fs-4 text-white mb-4 subtitle-blurred">{{ $settings->welcome_subtitle ?? __('seo.welcome_subtitle') }}</p>
                     <div class="d-flex flex-wrap gap-3 justify-content-center">
                         @auth
                             <a href="{{ url('user/account') }}" class="btn btn-lg btn-main rounded-pill btn-custom px-4 arrow">
