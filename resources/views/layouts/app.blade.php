@@ -25,6 +25,25 @@
     @endif
   </head>
   <body>
+    <script>
+      // Preserve scroll position on page refresh
+      (function() {
+        // Save scroll position before page unload
+        window.addEventListener('beforeunload', function() {
+          sessionStorage.setItem('scrollPosition', window.pageYOffset);
+        });
+        
+        // Restore scroll position after page load
+        window.addEventListener('load', function() {
+          const scrollPosition = sessionStorage.getItem('scrollPosition');
+          if (scrollPosition) {
+            window.scrollTo(0, parseInt(scrollPosition));
+            sessionStorage.removeItem('scrollPosition');
+          }
+        });
+      })();
+    </script>
+    
     <div class="overlay" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"></div>
   <div class="popout font-default"></div>
 

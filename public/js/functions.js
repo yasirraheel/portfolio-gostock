@@ -651,7 +651,7 @@
 						if (result.success != false) {
 							$('#removePanel').remove();
 							window.location.href = result.target;
-							$('html, body').animate({ scrollTop: 0 }, 500);
+							// Removed scrollTop: 0 to preserve scroll position
 						}//<-- e
 						else {
 
@@ -695,7 +695,7 @@
 							$('#removePanel').remove();
 							$('#success_response').fadeIn();
 							$('#errors').fadeOut();
-							$('html, body').animate({ scrollTop: 0 }, 500);
+							// Removed scrollTop: 0 to preserve scroll position
 						}//<-- e
 						else {
 
