@@ -160,7 +160,20 @@
             <div class="row mb-3">
 		          <label class="col-sm-2 col-form-label text-lg-end">{{ __('misc.color_default') }}</label>
 		          <div class="col-sm-10">
-                <input type="color" name="color_default" class="form-control form-control-color" value="{{ $settings->color_default }}">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label class="form-label small text-muted">Color Picker</label>
+                    <input type="color" name="color_default" id="colorPicker" class="form-control form-control-color" value="{{ $settings->color_default }}">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small text-muted">Manual Color Code</label>
+                    <div class="input-group">
+                      <span class="input-group-text">#</span>
+                      <input type="text" name="color_default_manual" id="colorManual" class="form-control" value="{{ str_replace('#', '', $settings->color_default) }}" placeholder="007bff" maxlength="6">
+                    </div>
+                    <small class="text-muted">Enter 6-digit hex code (without #)</small>
+                  </div>
+                </div>
 		          </div>
 		        </div>
 
@@ -178,4 +191,41 @@
 
 	</div><!-- end row -->
 </div><!-- end content -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const colorPicker = document.getElementById('colorPicker');
+    const colorManual = document.getElementById('colorManual');
+    
+    // Sync color picker to manual input
+    colorPicker.addEventListener('input', function() {
+        colorManual.value = this.value.replace('#', '');
+    });
+    
+    // Sync manual input to color picker
+    colorManual.addEventListener('input', function() {
+        let value = this.value.replace('#', '');
+        
+        // Validate hex color
+        if (/^[0-9A-Fa-f]{6}$/.test(value)) {
+            colorPicker.value = '#' + value;
+        }
+    });
+    
+    // Format manual input on blur
+    colorManual.addEventListener('blur', function() {
+        let value = this.value.replace('#', '').toUpperCase();
+        
+        // Pad with zeros if needed
+        if (value.length === 3) {
+            value = value.split('').map(char => char + char).join('');
+        }
+        
+        if (/^[0-9A-Fa-f]{6}$/.test(value)) {
+            this.value = value;
+            colorPicker.value = '#' + value;
+        }
+    });
+});
+</script>
 @endsection

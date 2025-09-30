@@ -893,9 +893,16 @@ class AdminController extends Controller
 		} // HasFile
 
 		// Update Color Default, and Button style
+		$colorDefault = $request->color_default;
+		
+		// If manual color input is provided and valid, use it
+		if ($request->color_default_manual && preg_match('/^[0-9A-Fa-f]{6}$/', $request->color_default_manual)) {
+			$colorDefault = '#' . strtoupper($request->color_default_manual);
+		}
+		
 		$this->settings->whereId(1)
 			->update([
-				'color_default' => $request->color_default
+				'color_default' => $colorDefault
 			]);
 
 		//======= CLEAN CACHE
