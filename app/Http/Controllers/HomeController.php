@@ -482,19 +482,4 @@ class HomeController extends Controller
       'description' => __('misc.vectors_desc'),
     ]);
   }
-
-  /**
-   * Show all portfolios listing page
-   */
-  public function portfolios()
-  {
-    $settings = AdminSettings::first();
-    $users = User::whereNotNull('portfolio_slug')
-      ->where('status', 'active')
-      ->where('portfolio_private', 0)
-      ->orderBy('date', 'desc')
-      ->paginate(12);
-
-    return view('index.portfolios', compact('settings', 'users'));
-  }
 }

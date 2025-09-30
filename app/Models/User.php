@@ -137,7 +137,7 @@ class User extends Authenticatable
 
   public function country()
   {
-    return $this->belongsTo(Countries::class, 'countries_id')->first();
+    return $this->belongsTo(Countries::class, 'countries_id');
   }
 
   public function newNotifications()

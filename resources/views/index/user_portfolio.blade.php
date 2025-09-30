@@ -226,11 +226,11 @@
                                         </div>
                                     @endif
 
-                                    @if ($user->country())
+                                    @if ($user->country)
                                         <div class="contact-info-item mb-0">
                                             <p
                                                 class="text-white-50 mb-0 d-flex align-items-center justify-content-lg-end justify-content-center">
-                                                <i class="bi bi-geo-alt me-2"></i>{{ $user->country()->country_name }}
+                                                <i class="bi bi-geo-alt me-2"></i>{{ $user->country ? $user->country->country_name : 'Location not set' }}
                                             </p>
                                         </div>
                                     @endif
