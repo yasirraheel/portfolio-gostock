@@ -366,7 +366,7 @@
                 $featuredUsers = \App\Models\User::whereNotNull('portfolio_slug')
                     ->where('status', 'active')
                     ->where('portfolio_private', 0)
-                    ->orderBy('created_at', 'desc')
+                    ->orderBy('date', 'desc')
                     ->take(6)
                     ->get();
             @endphp
@@ -420,9 +420,9 @@
             <div class="text-center mt-5">
                 <a href="{{ url('portfolios') }}" class="btn btn-lg btn-outline-primary rounded-pill px-4">
                     <i class="bi bi-grid me-2"></i>View All Portfolios
-                </a>
-            </div>
-        @endif
+      </a>
+    </div>
+    @endif
     </div>
 </section>
 
