@@ -2,38 +2,6 @@
 
 @section('title', 'Portfolios - ' . $settings->title)
 
-@section('css')
-<style>
-/* Force admin color for portfolio elements */
-.portfolio-avatar {
-    background-color: {{ $settings->color_default }} !important;
-}
-
-.portfolio-btn-outline {
-    color: {{ $settings->color_default }} !important;
-    border-color: {{ $settings->color_default }} !important;
-}
-
-.portfolio-btn-outline:hover {
-    background-color: {{ $settings->color_default }} !important;
-    color: white !important;
-}
-
-.portfolio-btn-main {
-    background-color: {{ $settings->color_default }} !important;
-    border-color: {{ $settings->color_default }} !important;
-    color: white !important;
-}
-
-.portfolio-btn-main:hover {
-    background-color: {{ $settings->color_default }} !important;
-    border-color: {{ $settings->color_default }} !important;
-    color: white !important;
-    opacity: 0.9;
-}
-</style>
-@endsection
-
 @section('content')
 <!-- Hero Section -->
 <section class="py-5 bg-light">
@@ -60,7 +28,7 @@
                                     @if($user->avatar)
                                         <img src="{{ url('public/avatar', $user->avatar) }}" alt="{{ $user->name }}" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
                                     @else
-                                        <div class="portfolio-avatar text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width: 80px; height: 80px;">
+                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width: 80px; height: 80px;">
                                             <span class="fw-bold fs-4">{{ substr($user->name, 0, 1) }}</span>
                                         </div>
                                     @endif
@@ -72,7 +40,7 @@
                                 @if($user->bio)
                                     <p class="card-text text-muted small mb-3">{{ Str::limit($user->bio, 100) }}</p>
                                 @endif
-                                <a href="{{ url($user->portfolio_slug) }}" class="btn portfolio-btn-outline btn-sm">
+                                <a href="{{ url($user->portfolio_slug) }}" class="btn btn-outline-primary btn-sm">
                                     <i class="bi bi-eye me-1"></i>View Portfolio
                                 </a>
                             </div>
@@ -95,11 +63,11 @@
                             <h5 class="mb-3">No Portfolios Available</h5>
                             <p class="text-muted mb-4">No public portfolios have been created yet. Be the first to create an amazing portfolio!</p>
                             @auth
-                                <a href="{{ url('user/account') }}" class="btn portfolio-btn-main">
+                                <a href="{{ url('user/account') }}" class="btn btn-primary">
                                     <i class="bi bi-person-gear me-1"></i>Create Your Portfolio
                                 </a>
                             @else
-                                <a href="{{ url('register') }}" class="btn portfolio-btn-main">
+                                <a href="{{ url('register') }}" class="btn btn-primary">
                                     <i class="bi bi-person-plus me-1"></i>Get Started
                                 </a>
                             @endauth
@@ -113,7 +81,7 @@
 
 <!-- CTA Section -->
 @if($users->count() > 0)
-<section class="py-5 text-white" style="background: linear-gradient(135deg, var(--color-default, #007bff), #0056b3);">
+<section class="py-5 bg-primary text-white">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-8">

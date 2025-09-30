@@ -1,37 +1,5 @@
 @extends('layouts.app')
 
-@section('css')
-<style>
-/* Force admin color for portfolio elements */
-.portfolio-avatar {
-    background-color: {{ $settings->color_default }} !important;
-}
-
-.portfolio-btn-outline {
-    color: {{ $settings->color_default }} !important;
-    border-color: {{ $settings->color_default }} !important;
-}
-
-.portfolio-btn-outline:hover {
-    background-color: {{ $settings->color_default }} !important;
-    color: white !important;
-}
-
-.portfolio-btn-main {
-    background-color: {{ $settings->color_default }} !important;
-    border-color: {{ $settings->color_default }} !important;
-    color: white !important;
-}
-
-.portfolio-btn-main:hover {
-    background-color: {{ $settings->color_default }} !important;
-    border-color: {{ $settings->color_default }} !important;
-    color: white !important;
-    opacity: 0.9;
-}
-</style>
-@endsection
-
 @section('content')
 <!-- Hero Section -->
 <div class="container-fluid home-cover">
@@ -398,7 +366,7 @@
                 $featuredUsers = \App\Models\User::whereNotNull('portfolio_slug')
                     ->where('status', 'active')
                     ->where('portfolio_private', 0)
-                    ->orderBy('date', 'desc')
+                    ->orderBy('created_at', 'desc')
                     ->take(6)
                     ->get();
             @endphp
@@ -412,7 +380,7 @@
                                     @if($user->avatar)
                                         <img src="{{ url('public/avatar', $user->avatar) }}" alt="{{ $user->name }}" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
                                     @else
-                                        <div class="portfolio-avatar text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width: 80px; height: 80px;">
+                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width: 80px; height: 80px;">
                                             <span class="fw-bold fs-4">{{ substr($user->name, 0, 1) }}</span>
                                         </div>
                                     @endif
@@ -424,7 +392,7 @@
                                 @if($user->bio)
                                     <p class="card-text text-muted small mb-3">{{ Str::limit($user->bio, 100) }}</p>
                                 @endif
-                                <a href="{{ url($user->portfolio_slug) }}" class="btn portfolio-btn-outline btn-sm">
+                                <a href="{{ url($user->portfolio_slug) }}" class="btn btn-outline-primary btn-sm">
                                     <i class="bi bi-eye me-1"></i>View Portfolio
                                 </a>
                             </div>
@@ -439,7 +407,7 @@
                             <i class="bi bi-person-workspace display-1 text-muted mb-3"></i>
                             <h5 class="mb-3">No Portfolios Yet</h5>
                             <p class="text-muted mb-4">Be the first to create an amazing portfolio and get featured here!</p>
-                            <a href="{{ url('register') }}" class="btn portfolio-btn-main">
+                            <a href="{{ url('register') }}" class="btn btn-primary">
                                 <i class="bi bi-person-plus me-1"></i>Get Started
                             </a>
                         </div>
@@ -450,7 +418,7 @@
 
         @if($featuredUsers->count() > 0)
             <div class="text-center mt-5">
-                <a href="{{ url('portfolios') }}" class="btn btn-lg portfolio-btn-outline rounded-pill px-4">
+                <a href="{{ url('portfolios') }}" class="btn btn-lg btn-outline-primary rounded-pill px-4">
                     <i class="bi bi-grid me-2"></i>View All Portfolios
       </a>
     </div>
