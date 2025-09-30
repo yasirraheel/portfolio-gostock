@@ -1869,7 +1869,9 @@ span.highlight::after {
     min-height: 75vh;
 }
 
+
 /* Blurred background for subtitle */
+
 .subtitle-blurred {
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
@@ -1879,6 +1881,66 @@ span.highlight::after {
     display: inline-block;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Animations */
+.hero-title {
+    animation: fadeInDown 1s ease-out 0.2s both;
+    transition: all 0.3s ease;
+}
+
+.hero-subtitle {
+    animation: fadeInUp 1s ease-out 0.4s both;
+    transition: all 0.3s ease;
+}
+
+.hero-buttons {
+    animation: fadeInUp 1s ease-out 0.6s both;
+    transition: all 0.3s ease;
+}
+
+.hero-buttons .btn {
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+.hero-buttons .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Keyframe Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effects for hero elements */
+.hero-title:hover {
+    transform: scale(1.02);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle:hover {
+    transform: scale(1.05);
+    background: rgba(0, 0, 0, 0.4);
 }
 
 
