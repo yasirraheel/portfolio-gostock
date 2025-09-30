@@ -22,12 +22,18 @@
                     <p class="fs-4 text-white mb-4">{{ $settings->welcome_subtitle ?? __('seo.welcome_subtitle') }}</p>
                     <div class="d-flex flex-wrap gap-3">
                         @auth
-                            <a href="{{ url('account') }}" class="btn btn-lg btn-main rounded-pill btn-custom px-4 arrow">
+                            <a href="{{ url('user/account') }}" class="btn btn-lg btn-main rounded-pill btn-custom px-4 arrow">
                                 <i class="bi bi-person-gear me-2"></i>Manage Portfolio
                             </a>
-                            <a href="{{ url('account') }}" class="btn btn-lg btn-outline-light rounded-pill px-4">
-                                <i class="bi bi-eye me-2"></i>View Portfolio
-                            </a>
+                            @if(auth()->user()->custom_slug)
+                                <a href="{{ url(auth()->user()->custom_slug) }}" class="btn btn-lg btn-outline-light rounded-pill px-4">
+                                    <i class="bi bi-eye me-2"></i>View Portfolio
+                                </a>
+                            @else
+                                <a href="{{ url('user/account') }}" class="btn btn-lg btn-outline-light rounded-pill px-4" title="Please set your portfolio URL first">
+                                    <i class="bi bi-eye me-2"></i>View Portfolio
+                                </a>
+		  @endif
                         @else
                             <a href="{{ url('register') }}" class="btn btn-lg btn-main rounded-pill btn-custom px-4 arrow">
                                 <i class="bi bi-person-plus me-2"></i>Get Started Free
