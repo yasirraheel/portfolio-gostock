@@ -63,11 +63,11 @@
                             <h5 class="mb-3">No Portfolios Available</h5>
                             <p class="text-muted mb-4">No public portfolios have been created yet. Be the first to create an amazing portfolio!</p>
                             @auth
-                                <a href="{{ url('user/account') }}" class="btn btn-main">
+                                <a href="{{ url('user/account') }}" class="btn btn-main btn-custom">
                                     <i class="bi bi-person-gear me-1"></i>Create Your Portfolio
                                 </a>
                             @else
-                                <a href="{{ url('register') }}" class="btn btn-main">
+                                <a href="{{ url('register') }}" class="btn btn-main btn-custom">
                                     <i class="bi bi-person-plus me-1"></i>Get Started
                                 </a>
                             @endauth
@@ -81,7 +81,7 @@
 
 <!-- CTA Section -->
 @if($users->count() > 0)
-<section class="py-5 bg-primary text-white">
+<section class="py-5 text-white" style="background: linear-gradient(135deg, var(--color-default, #007bff), #0056b3);">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-8">

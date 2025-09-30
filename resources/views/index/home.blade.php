@@ -407,7 +407,7 @@
                             <i class="bi bi-person-workspace display-1 text-muted mb-3"></i>
                             <h5 class="mb-3">No Portfolios Yet</h5>
                             <p class="text-muted mb-4">Be the first to create an amazing portfolio and get featured here!</p>
-                            <a href="{{ url('register') }}" class="btn btn-main">
+                            <a href="{{ url('register') }}" class="btn btn-main btn-custom">
                                 <i class="bi bi-person-plus me-1"></i>Get Started
                             </a>
                         </div>
@@ -420,7 +420,7 @@
             <div class="text-center mt-5">
                 <a href="{{ url('portfolios') }}" class="btn btn-lg btn-outline-custom rounded-pill px-4">
                     <i class="bi bi-grid me-2"></i>View All Portfolios
-                </a>
+      </a>
     </div>
     @endif
     </div>
