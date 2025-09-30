@@ -17,10 +17,10 @@
             @endif
 
             <div class="row align-items-center min-vh-75">
-                <div class="col-lg-6">
+                <div class="col-12 text-center">
                     <h1 class="display-3 fw-bold text-white mb-4">{{ $settings->welcome_text ?? __('seo.welcome_text') }}</h1>
                     <p class="fs-4 text-white mb-4">{{ $settings->welcome_subtitle ?? __('seo.welcome_subtitle') }}</p>
-                    <div class="d-flex flex-wrap gap-3">
+                    <div class="d-flex flex-wrap gap-3 justify-content-center">
                         @auth
                             <a href="{{ url('user/account') }}" class="btn btn-lg btn-main rounded-pill btn-custom px-4 arrow">
                                 <i class="bi bi-person-gear me-2"></i>Manage Portfolio
@@ -42,12 +42,6 @@
                                 <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
                             </a>
                         @endauth
-                    </div>
-                </div>
-                <div class="col-lg-6 text-center">
-                    <div class="hero-mockup">
-                        <i class="bi bi-laptop display-1 text-white opacity-75"></i>
-                        <p class="text-white mt-3">Professional Portfolio Preview</p>
                     </div>
                 </div>
             </div>
