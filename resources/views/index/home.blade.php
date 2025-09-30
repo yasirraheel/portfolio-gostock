@@ -244,7 +244,7 @@
 
         <div class="row g-4">
             @php
-                $testimonials = \App\Models\LandingTestimonial::active()->ordered()->take(3)->get();
+                $testimonials = \App\Models\LandingTestimonial::active()->ordered()->get();
             @endphp
             
             @if($testimonials->count() > 0)
