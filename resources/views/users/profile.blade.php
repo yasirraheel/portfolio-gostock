@@ -110,7 +110,7 @@
                             @if ($user->countries_id != '')
                                 <div class="d-block w-100 mb-2">
                                     <small>
-                                        <i class="bi bi-geo-alt me-1"></i> {{ $user->country()->country_name }}
+                                        <i class="bi bi-geo-alt me-1"></i> {{ $user->country ? $user->country->country_name : 'Location not set' }}
                                     </small>
                                 </div>
                             @endif
