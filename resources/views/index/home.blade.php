@@ -366,7 +366,7 @@
                 $featuredUsers = \App\Models\User::whereNotNull('portfolio_slug')
                     ->where('status', 'active')
                     ->where('portfolio_private', 0)
-                    ->orderBy('created_at', 'desc')
+                    ->orderBy('date', 'desc')
                     ->take(6)
                     ->get();
             @endphp

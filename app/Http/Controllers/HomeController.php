@@ -492,7 +492,7 @@ class HomeController extends Controller
     $users = User::whereNotNull('portfolio_slug')
       ->where('status', 'active')
       ->where('portfolio_private', 0)
-      ->orderBy('created_at', 'desc')
+      ->orderBy('date', 'desc')
       ->paginate(12);
 
     return view('index.portfolios', compact('settings', 'users'));
