@@ -189,7 +189,7 @@
           </div>
                 <div class="mt-4">
                     @auth
-                        <a href="{{ url('account') }}" class="btn btn-lg btn-main rounded-pill btn-custom px-4 arrow">
+                        <a href="{{ url('user/account') }}" class="btn btn-lg btn-main rounded-pill btn-custom px-4 arrow">
                             Manage Your Portfolio
                         </a>
                     @else
@@ -363,7 +363,7 @@
             </div>
             <div class="col-lg-4 text-lg-end text-center mt-3 mt-lg-0">
                 @auth
-                    <a href="{{ url('account') }}" class="btn btn-lg btn-light rounded-pill px-4 me-2">
+                    <a href="{{ url('user/account') }}" class="btn btn-lg btn-light rounded-pill px-4 me-2">
                         <i class="bi bi-person-gear me-2"></i>Manage Portfolio
                     </a>
                 @else
