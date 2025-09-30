@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="@yield('description_custom'){{ __('seo.description') }}">
-    <meta name="keywords" content="@yield('keywords_custom'){{ __('seo.keywords') }}" />
+    <meta name="description" content="@yield('description_custom'){{ $settings->description ?? __('seo.description') }}">
+    <meta name="keywords" content="@yield('keywords_custom'){{ $settings->keywords ?? __('seo.keywords') }}" />
     <meta name="theme-color" content="{{ $settings->color_default }}">
     <link rel="shortcut icon" href="@yield('favicon', url('public/img', $settings->favicon))" />
 

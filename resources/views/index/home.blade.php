@@ -18,8 +18,8 @@
 
             <div class="row align-items-center min-vh-75">
                 <div class="col-lg-6">
-                    <h1 class="display-3 fw-bold text-white mb-4">Create Your Professional Portfolio</h1>
-                    <p class="fs-4 text-white mb-4">Build, customize, and share your portfolio with HR professionals. Free to use, professional results.</p>
+                    <h1 class="display-3 fw-bold text-white mb-4">{{ $settings->welcome_text ?? __('seo.welcome_text') }}</h1>
+                    <p class="fs-4 text-white mb-4">{{ $settings->welcome_subtitle ?? __('seo.welcome_subtitle') }}</p>
                     <div class="d-flex flex-wrap gap-3">
                         @auth
                             <a href="{{ url('account') }}" class="btn btn-lg btn-main rounded-pill btn-custom px-4 arrow">

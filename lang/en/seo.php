@@ -12,9 +12,9 @@ return [
     | you want to customize your views to better match your application.
     |
     */
-    "welcome_text" => "Portfolio Platform",
-    "welcome_subtitle" => "Professional Portfolio Showcase & Management System",
-    "description" => "A comprehensive portfolio platform with user management, private portfolios, theme customization, contact forms, and all essential features for professional portfolio websites.",
-	"keywords" => "portfolio platform,professional portfolio,portfolio showcase,user management,theme customization,contact forms,private portfolios",
+    "welcome_text" => "Portfolio",
+    "welcome_subtitle" => "Join thousands of professionals who have already found success with our platform. It\'s completely free and takes just minutes to get started.",
+    "description" => "Join thousands of professionals who have already found success with our platform. It\'s completely free and takes just minutes to get started.",
+	"keywords" => "portfolio, cv, resume",
 
 ];

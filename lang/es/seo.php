@@ -12,9 +12,9 @@ return [
     | you want to customize your views to better match your application.
     |
     */
-    "welcome_text" => "ShahabTech",
-    "welcome_subtitle" => "Fotos de stock gratuitas y premium",
-    "description" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut tortor rutrum massa efficitur tincidunt vel nec lacus. Curabitur porta aliquet diam, eu gravida neque lacinia.",
-  	"keywords" => "fotos gratis,stock fotos,stock gratis fotos",
+    "welcome_text" => "Portfolio",
+    "welcome_subtitle" => "Join thousands of professionals who have already found success with our platform. It\'s completely free and takes just minutes to get started.",
+    "description" => "Join thousands of professionals who have already found success with our platform. It\'s completely free and takes just minutes to get started.",
+  	"keywords" => "portfolio, cv, resume",
 
 ];

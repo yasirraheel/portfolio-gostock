@@ -38,6 +38,46 @@
        </div><!-- end row -->
 
        <div class="row mb-3">
+         <label class="col-sm-2 col-form-label text-lg-end">Description</label>
+         <div class="col-sm-10">
+           <textarea name="description" class="form-control" rows="3">{{ $settings->description ?? '' }}</textarea>
+           <small class="text-muted">Meta description for SEO</small>
+         </div>
+       </div><!-- end row -->
+
+       <div class="row mb-3">
+         <label class="col-sm-2 col-form-label text-lg-end">Welcome Text</label>
+         <div class="col-sm-10">
+           <input type="text" value="{{ $settings->welcome_text ?? '' }}" name="welcome_text" class="form-control" placeholder="Main headline for homepage">
+         </div>
+       </div><!-- end row -->
+
+       <div class="row mb-3">
+         <label class="col-sm-2 col-form-label text-lg-end">Welcome Subtitle</label>
+         <div class="col-sm-10">
+           <input type="text" value="{{ $settings->welcome_subtitle ?? '' }}" name="welcome_subtitle" class="form-control" placeholder="Subtitle for homepage">
+         </div>
+       </div><!-- end row -->
+
+       <div class="row mb-3">
+         <label class="col-sm-2 col-form-label text-lg-end">Keywords</label>
+         <div class="col-sm-10">
+           <input type="text" value="{{ $settings->keywords ?? '' }}" name="keywords" class="form-control" placeholder="SEO keywords separated by commas">
+           <small class="text-muted">Keywords for SEO (comma separated)</small>
+         </div>
+       </div><!-- end row -->
+
+       <div class="row mb-4">
+         <div class="col-12">
+           <hr class="my-4">
+           <h5 class="mb-3 text-primary">
+             <i class="bi bi-search me-2"></i>SEO Settings
+           </h5>
+           <p class="text-muted mb-4">Configure SEO meta tags and homepage content. These will be used for all languages.</p>
+         </div>
+       </div>
+
+       <div class="row mb-3">
          <label class="col-sm-2 col-form-labe text-lg-end">{{ __('admin.link_terms') }}</label>
          <div class="col-sm-10">
            <input type="text" value="{{ $settings->link_terms }}" name="link_terms" class="form-control">

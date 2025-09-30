@@ -334,6 +334,10 @@ class AdminController extends Controller
 
 		$sql                      = AdminSettings::first();
 		$sql->title               = $request->title;
+		$sql->description         = $request->description;
+		$sql->welcome_text        = $request->welcome_text;
+		$sql->welcome_subtitle    = $request->welcome_subtitle;
+		$sql->keywords            = $request->keywords;
 		$sql->link_terms          = $request->link_terms;
 		$sql->link_privacy        = $request->link_privacy;
 		$sql->link_license        = $request->link_license;
@@ -357,6 +361,9 @@ class AdminController extends Controller
 		$sql->banner_cookies       = $request->banner_cookies ?? false;
 		$sql->save();
 
+		// Update language files dynamically
+		$this->updateLanguageFiles($request);
+
 		// Default locale
 		Helper::envUpdate('DEFAULT_LOCALE', $request->default_language);
 
@@ -374,6 +381,51 @@ class AdminController extends Controller
 		}
 
 		return redirect('panel/admin/settings')->withSuccessMessage(__('admin.success_update'));
+	}
+
+	/**
+	 * Update language files dynamically
+	 */
+	private function updateLanguageFiles($request)
+	{
+		// Use the main fields for both languages
+		$content = [
+			'welcome_text' => $request->welcome_text ?: 'Portfolio Platform',
+			'welcome_subtitle' => $request->welcome_subtitle ?: 'Professional Portfolio Showcase & Management System',
+			'description' => $request->description ?: 'A comprehensive portfolio platform with user management, private portfolios, theme customization, contact forms, and all essential features for professional portfolio websites.',
+			'keywords' => $request->keywords ?: 'portfolio platform,professional portfolio,portfolio showcase,user management,theme customization,contact forms,private portfolios'
+		];
+
+		// Update both language files with the same content
+		$this->updateLanguageFile('en', $content);
+		$this->updateLanguageFile('es', $content);
+	}
+
+	/**
+	 * Update specific language file
+	 */
+	private function updateLanguageFile($locale, $data)
+	{
+		$filePath = lang_path($locale . '/seo.php');
+
+		// Read current file content
+		$content = file_exists($filePath) ? file_get_contents($filePath) : '';
+
+		// Update each key-value pair
+		foreach ($data as $key => $value) {
+			$pattern = '/"' . $key . '"\s*=>\s*"[^"]*"/';
+			$replacement = '"' . $key . '" => "' . addslashes($value) . '"';
+
+			if (preg_match($pattern, $content)) {
+				$content = preg_replace($pattern, $replacement, $content);
+			} else {
+				// If key doesn't exist, add it before the closing bracket
+				$content = str_replace('];', '    "' . $key . '" => "' . addslashes($value) . '",' . "\n];", $content);
+			}
+		}
+
+		// Write updated content back to file
+		file_put_contents($filePath, $content);
 	}
 
 	public function settingsLimits()
