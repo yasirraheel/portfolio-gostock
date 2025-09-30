@@ -61,15 +61,6 @@
 
 
               @auth
-              <li class="position-relative">
-              <span class="noti_notifications notify @if (auth()->user()->unseenNotifications()) d-block @else display-none @endif">
-              {{ auth()->user()->unseenNotifications() }}
-              </span>
-
-              <a href="{{ url('notifications') }}" class="nav-link px-2 link-dark"><i class="bi bi-bell me-2"></i></a>
-              </li>
-
-
               @endauth
 
             </ul><!-- End Nav -->
@@ -179,15 +170,6 @@
 				</li>
 
 
-			<li class="flex-fill position-relative">
-        <span class="noti_notifications notify notify-mobile d-lg-none @if (auth()->user()->unseenNotifications()) d-block @else display-none @endif">
-        {{ auth()->user()->unseenNotifications() }}
-        </span>
-
-				<a href="{{ url('notifications') }}" class="p-3 btn-mobile position-relative">
-					<i class="bi-bell{{ request()->is('notifications') ? '-fill' : null }} icon-navbar"></i>
-				</a>
-			</li>
 
       <li class="flex-fill">
 				<a href="{{ url(auth()->user()->username) }}" class="p-3 btn-mobile position-relative">
