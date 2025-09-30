@@ -3,78 +3,23 @@
   <li><hr class="dropdown-divider"></li>
 @endif
 
-@if ($settings->sell_option == 'on')
 <li>
-  <span class="dropdown-item disable-item">
-    <i class="bi bi-cash-stack me-2"></i> {{ __('misc.balance') }}: {{ Helper::amountFormatDecimal(auth()->user()->balance) }}</span>
-  </li>
-
-<li>
-<a class="dropdown-item" href="{{ url('user/dashboard/add/funds') }}">
-  <i class="bi bi-wallet2 me-2"></i> {{ __('misc.wallet') }}: {{ Helper::amountFormatDecimal(auth()->user()->funds) }}
-</a>
+<a class="dropdown-item" href="{{ url('user/account') }}">
+    <i class="bi bi-gear me-2"></i> {{ __('users.account_settings') }}
+    </a>
 </li>
-@endif
 
-@if ($settings->daily_limit_downloads != 0 && auth()->user()->role != 'admin')
-    <li>
-        <span class="dropdown-item disable-item">
-        <i class="bi bi-download me-2"></i> {{ __('misc.downloads') }}: {{ auth()->user()->freeDailyDownloads() }}/{{ $settings->daily_limit_downloads }}
-    </span>
-    </li>
-@endif
-
-@if ($settings->sell_option == 'on')
-  <li>
-  <a class="dropdown-item" href="{{ url('user/dashboard') }}">
-      <i class="bi bi-speedometer2 me-2"></i> {{ __('admin.dashboard') }}
-      </a>
-  </li>
+@if(auth()->user()->portfolio_slug)
+<li>
+<a class="dropdown-item" href="{{ url(auth()->user()->portfolio_slug) }}">
+    <i class="bi bi-eye me-2"></i> {{ __('users.view_portfolio') }}
+    </a>
+</li>
 @endif
 
 <li>
 <a class="dropdown-item" href="{{ url(auth()->user()->username) }}">
     <i class="bi bi-person me-2"></i> {{ __('users.my_profile') }}
-    </a>
-</li>
-
-@if ($settings->sell_option == 'on')
-<li>
-<a class="dropdown-item" href="{{ url('account/subscription') }}">
-    <i class="bi-arrow-repeat me-2"></i> {{ __('misc.subscription') }}
-    </a>
-</li>
-
-<li>
-<a class="dropdown-item" href="{{ url('user/dashboard/purchases') }}">
-    <i class="bi-bag-check me-2"></i> {{ __('misc.my_purchases') }}
-    </a>
-</li>
-@endif
-
-<li>
-<a class="dropdown-item" href="{{ url(auth()->user()->username, 'collections') }}">
-    <i class="bi bi-plus-square me-2"></i> {{ __('misc.collections') }}
-    </a>
-</li>
-
-<li>
-<a class="dropdown-item" href="{{ url('likes') }}">
-    <i class="bi bi-heart me-2"></i> {{ __('users.likes') }}
-    </a>
-</li>
-
-@if ($settings->referral_system == 'on')
-<li>
-<a class="dropdown-item" href="{{ url('my/referrals') }}">
-    <i class="bi-person-plus me-2"></i> {{ __('misc.referrals') }}
-    </a>
-</li>
-@endif
-
-<li>
-<a class="dropdown-item" href="{{ url('user/account') }}">
-    <i class="bi bi-gear me-2"></i> {{ __('users.account_settings') }}
     </a>
 </li>
 
