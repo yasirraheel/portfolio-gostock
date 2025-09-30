@@ -1904,7 +1904,7 @@ span.highlight::after {
 /* CTA Section */
 
 .bg-primary {
-    background: linear-gradient(135deg, var(--color-default, #007bff), #0056b3) !important;
+    background: linear-gradient(135deg, var(--color-default), var(--color-default)) !important;
 }
 
 

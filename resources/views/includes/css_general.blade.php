@@ -142,5 +142,49 @@ var thanks = "{{ __('misc.thanks') }}";
 :root {
   --color-default: {{ $settings->color_default }} !important;
   --bg-auth: url('{{ url('public/img', $settings->image_header) }}');
+  /* Override Bootstrap primary color with admin color */
+  --bs-primary: {{ $settings->color_default }} !important;
+  --bs-primary-rgb: {{ implode(',', array_map('hexdec', str_split(substr($settings->color_default, 1), 2))) }} !important;
+}
+
+/* Force all Bootstrap primary elements to use admin color */
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary:disabled,
+.btn-primary[disabled],
+.bg-primary,
+.text-primary,
+.border-primary,
+.btn-outline-primary,
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active,
+.btn-outline-primary.active,
+.nav-pills .nav-link.active,
+.page-link:hover,
+.page-item.active .page-link,
+.list-group-item.active,
+.form-check-input:checked,
+.dropdown-item.active {
+  background-color: {{ $settings->color_default }} !important;
+  border-color: {{ $settings->color_default }} !important;
+  color: #fff !important;
+}
+
+.btn-outline-primary {
+  color: {{ $settings->color_default }} !important;
+  border-color: {{ $settings->color_default }} !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: {{ $settings->color_default }} !important;
+  color: #fff !important;
+}
+
+.text-primary {
+  color: {{ $settings->color_default }} !important;
 }
 </style>
