@@ -69,13 +69,6 @@
               <a href="{{ url('notifications') }}" class="nav-link px-2 link-dark"><i class="bi bi-bell me-2"></i></a>
               </li>
 
-              @if (auth()->user()->authorized_to_upload == 'yes' || auth()->user()->isSuperAdmin())
-              <li>
-                <a href="{{ url('upload') }}" class="btn btn-custom me-2 animate-up-2 d-none d-lg-block" title="{{ __('users.upload') }}">
-                  <strong><i class="bi-cloud-arrow-up-fill me-1"></i> {{ __('users.upload') }}</strong>
-                </a>
-              </li>
-              @endif
 
               @endauth
 
@@ -185,13 +178,6 @@
 					</a>
 				</li>
 
-        @if (auth()->user()->authorized_to_upload == 'yes' || auth()->user()->isSuperAdmin())
-          <li class="flex-fill">
-  					<a class="p-3 btn-mobile" href="{{ url('upload') }}">
-  						<i class="bi-plus-circle{{ request()->is('upload') ? '-fill' : null }} icon-navbar"></i>
-  					</a>
-  				</li>
-        @endif
 
 			<li class="flex-fill position-relative">
         <span class="noti_notifications notify notify-mobile d-lg-none @if (auth()->user()->unseenNotifications()) d-block @else display-none @endif">
