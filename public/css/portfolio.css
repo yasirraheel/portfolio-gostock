@@ -505,9 +505,10 @@
     transition: all 0.3s ease;
 }
 
+/* Remove content scaling on hover - only card should scale */
 .experience-section .card:hover .card-body img,
 .experience-section .card:hover .card-body .bg-light {
-    transform: scale(1.1);
+    transform: none;
 }
 
 .experience-section .badge {
