@@ -380,7 +380,7 @@
                                     @if($user->avatar)
                                         <img src="{{ url('public/avatar', $user->avatar) }}" alt="{{ $user->name }}" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
                                     @else
-                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width: 80px; height: 80px;">
+                                        <div class="text-white rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width: 80px; height: 80px; background-color: var(--color-default);">
                                             <span class="fw-bold fs-4">{{ substr($user->name, 0, 1) }}</span>
                                         </div>
                                     @endif
@@ -392,7 +392,7 @@
                                 @if($user->bio)
                                     <p class="card-text text-muted small mb-3">{{ Str::limit($user->bio, 100) }}</p>
                                 @endif
-                                <a href="{{ url($user->portfolio_slug) }}" class="btn btn-outline-primary btn-sm">
+                                <a href="{{ url($user->portfolio_slug) }}" class="btn btn-outline-custom btn-sm">
                                     <i class="bi bi-eye me-1"></i>View Portfolio
                                 </a>
                             </div>
@@ -407,7 +407,7 @@
                             <i class="bi bi-person-workspace display-1 text-muted mb-3"></i>
                             <h5 class="mb-3">No Portfolios Yet</h5>
                             <p class="text-muted mb-4">Be the first to create an amazing portfolio and get featured here!</p>
-                            <a href="{{ url('register') }}" class="btn btn-primary">
+                            <a href="{{ url('register') }}" class="btn btn-main">
                                 <i class="bi bi-person-plus me-1"></i>Get Started
                             </a>
                         </div>
@@ -418,9 +418,9 @@
 
         @if($featuredUsers->count() > 0)
             <div class="text-center mt-5">
-                <a href="{{ url('portfolios') }}" class="btn btn-lg btn-outline-primary rounded-pill px-4">
+                <a href="{{ url('portfolios') }}" class="btn btn-lg btn-outline-custom rounded-pill px-4">
                     <i class="bi bi-grid me-2"></i>View All Portfolios
-      </a>
+                </a>
     </div>
     @endif
     </div>
