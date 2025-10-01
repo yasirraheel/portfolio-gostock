@@ -122,13 +122,19 @@
                                                    border: 4px solid {{ $user->portfolio_primary_color ?? 'rgba(255,255,255,0.2)' }};"
                                             alt="{{ $user->name }}"
                                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center user-avatar"
+                                            style="width: 120px; height: 120px;
+                                                   border: 4px solid {{ $user->portfolio_primary_color ?? 'rgba(255,255,255,0.2)' }};
+                                                   display: none;">
+                                            <span class="fw-bold" style="font-size: 2.5rem;">{{ substr($user->name, 0, 2) }}</span>
+                                        </div>
+                                    @else
+                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center user-avatar"
+                                            style="width: 120px; height: 120px;
+                                                   border: 4px solid {{ $user->portfolio_primary_color ?? 'rgba(255,255,255,0.2)' }};">
+                                            <span class="fw-bold" style="font-size: 2.5rem;">{{ substr($user->name, 0, 2) }}</span>
+                                        </div>
                                     @endif
-                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center user-avatar"
-                                        style="width: 120px; height: 120px;
-                                               border: 4px solid {{ $user->portfolio_primary_color ?? 'rgba(255,255,255,0.2)' }};
-                                               {{ $user->avatar && file_exists(public_path('avatar/' . $user->avatar)) ? 'display: none;' : '' }}">
-                                        <span class="fw-bold" style="font-size: 2.5rem;">{{ substr($user->name, 0, 2) }}</span>
-                                    </div>
                                 </div>
                                 <div class="hero-info">
                                     <h1 class="display-4 fw-bold text-white mb-2 hero-name">

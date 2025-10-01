@@ -30,31 +30,31 @@
       (function() {
         // Add loading class to prevent smooth scrolling during load
         document.documentElement.classList.add('loading');
-        
+
         // Flag to prevent multiple scroll restorations
         let scrollRestored = false;
-        
+
         // Save scroll position before page unload
         window.addEventListener('beforeunload', function() {
           sessionStorage.setItem('scrollPosition', window.pageYOffset);
         });
-        
+
         // Function to restore scroll position
         function restoreScrollPosition() {
           if (scrollRestored) return;
-          
+
           const scrollPosition = sessionStorage.getItem('scrollPosition');
           if (scrollPosition && parseInt(scrollPosition) > 0) {
             scrollRestored = true;
-            
+
             // Disable smooth scrolling temporarily
             const originalScrollBehavior = document.documentElement.style.scrollBehavior;
             document.documentElement.style.scrollBehavior = 'auto';
-            
+
             // Restore scroll position
             window.scrollTo(0, parseInt(scrollPosition));
             sessionStorage.removeItem('scrollPosition');
-            
+
             // Re-enable smooth scrolling after a delay
             setTimeout(function() {
               document.documentElement.style.scrollBehavior = originalScrollBehavior;
@@ -64,26 +64,26 @@
             document.documentElement.classList.remove('loading');
           }
         }
-        
+
         // Restore scroll position after page load
         window.addEventListener('load', function() {
           requestAnimationFrame(restoreScrollPosition);
         });
-        
+
         // Also restore scroll position on DOMContentLoaded as backup
         document.addEventListener('DOMContentLoaded', function() {
           if (!scrollRestored) {
             setTimeout(restoreScrollPosition, 50);
           }
         });
-        
+
         // Fallback: remove loading class after 2 seconds if not already removed
         setTimeout(function() {
           if (!scrollRestored) {
             document.documentElement.classList.remove('loading');
           }
         }, 2000);
-        
+
         // Prevent any jQuery scroll animations from interfering
         if (typeof $ !== 'undefined') {
           $(document).ready(function() {
@@ -100,7 +100,7 @@
         }
       })();
     </script>
-    
+
     <div class="overlay" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"></div>
   <div class="popout font-default"></div>
 

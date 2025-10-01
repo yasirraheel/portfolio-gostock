@@ -81,10 +81,14 @@
                                                  class="rounded-circle"
                                                  style="width: 50px; height: 50px; object-fit: cover;"
                                                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; display: none;">
+                                                <span class="fw-bold">{{ substr($portfolioUser->name, 0, 2) }}</span>
+                                            </div>
+                                        @else
+                                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                                <span class="fw-bold">{{ substr($portfolioUser->name, 0, 2) }}</span>
+                                            </div>
                                         @endif
-                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; {{ $portfolioUser->avatar && file_exists(public_path('avatar/' . $portfolioUser->avatar)) ? 'display: none;' : '' }}">
-                                            <span class="fw-bold">{{ substr($portfolioUser->name, 0, 2) }}</span>
-                                        </div>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
                                         <h5 class="mb-1 fw-bold text-truncate">{{ $portfolioUser->name }}</h5>

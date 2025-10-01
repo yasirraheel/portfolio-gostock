@@ -6,7 +6,9 @@ html {
     scroll-behavior: smooth;
 }
 
+
 /* Disable smooth scrolling during page load to prevent scroll jumps */
+
 html.loading {
     scroll-behavior: auto !important;
 }
