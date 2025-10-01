@@ -123,20 +123,25 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-8">
-                <h3 class="mb-3">Ready to Create Your Own Portfolio?</h3>
-                <p class="mb-0 fs-5" style="color: rgba(255, 255, 255, 0.8);">Join thousands of professionals who have already created their portfolios and are showcasing their talents to the world.</p>
+                @auth
+                    <h3 class="mb-3">Ready to Update Your Portfolio?</h3>
+                    <p class="mb-0 fs-5" style="color: rgba(255, 255, 255, 0.8);">Keep your portfolio fresh and up-to-date with your latest projects, skills, and achievements.</p>
+                @else
+                    <h3 class="mb-3">Ready to Create Your Own Portfolio?</h3>
+                    <p class="mb-0 fs-5" style="color: rgba(255, 255, 255, 0.8);">Join thousands of professionals who have already created their portfolios and are showcasing their talents to the world.</p>
+                @endauth
             </div>
             <div class="col-lg-4 text-lg-end text-center mt-3 mt-lg-0">
                 <div class="d-flex flex-column flex-lg-row gap-2 justify-content-lg-end justify-content-center">
                     @auth
-                        <a href="{{ url('user/account') }}" class="btn btn-custom btn-lg">
+                        <a href="{{ url('user/account') }}" class="btn btn-light btn-lg" style="color: var(--color-default, #007bff); font-weight: 600;">
                             <i class="bi bi-gear me-2"></i>Manage Portfolio
                         </a>
                     @else
-                        <a href="{{ url('register') }}" class="btn btn-custom btn-lg">
+                        <a href="{{ url('register') }}" class="btn btn-light btn-lg" style="color: var(--color-default, #007bff); font-weight: 600;">
                             <i class="bi bi-person-plus me-2"></i>Get Started Free
                         </a>
-                        <a href="{{ url('login') }}" class="btn btn-outline-custom btn-lg">
+                        <a href="{{ url('login') }}" class="btn btn-outline-light btn-lg" style="border-color: rgba(255, 255, 255, 0.5); color: white;">
                             <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
                         </a>
                     @endauth
