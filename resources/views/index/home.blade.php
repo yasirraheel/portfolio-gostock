@@ -386,14 +386,14 @@
             <div class="col-lg-4 text-lg-end text-center mt-3 mt-lg-0">
                 <div class="d-flex flex-column flex-lg-row gap-2 justify-content-lg-end justify-content-center">
                     @auth
-                        <a href="{{ url('user/account') }}" class="btn btn-lg btn-light rounded-pill px-4">
+                        <a href="{{ url('user/account') }}" class="btn btn-lg btn-light rounded-pill px-4" style="color: var(--color-default, #007bff); font-weight: 600;">
                             <i class="bi bi-person-gear me-2"></i>Manage Portfolio
                         </a>
                     @else
-                        <a href="{{ url('register') }}" class="btn btn-lg btn-light rounded-pill px-4">
+                        <a href="{{ url('register') }}" class="btn btn-lg btn-light rounded-pill px-4" style="color: var(--color-default, #007bff); font-weight: 600;">
                             <i class="bi bi-person-plus me-2"></i>Get Started Free
                         </a>
-                        <a href="{{ url('login') }}" class="btn btn-lg btn-outline-light rounded-pill px-4">
+                        <a href="{{ url('login') }}" class="btn btn-lg btn-outline-light rounded-pill px-4" style="border-color: rgba(255, 255, 255, 0.5); color: white;">
                             <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
                         </a>
                     @endauth
