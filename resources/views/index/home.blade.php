@@ -14,6 +14,19 @@
     box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
     border-color: var(--color-default, #007bff) !important;
 }
+
+.testimonial-card {
+    background-color: #ffffff !important;
+    border: 1px solid #e9ecef !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    border-color: var(--color-default, #007bff) !important;
+}
 </style>
 @endpush
 
@@ -358,7 +371,7 @@
             @if($testimonials->count() > 0)
                 @foreach($testimonials as $testimonial)
                     <div class="col-lg-4 col-md-6">
-                        <div class="card h-100 border-0 shadow-sm testimonial-card">
+                        <div class="card h-100 testimonial-card">
                             <div class="card-body p-4">
                                 <div class="d-flex align-items-center mb-3">
                                     <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
