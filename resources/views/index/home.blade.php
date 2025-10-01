@@ -71,15 +71,51 @@
 
 @section('content')
 <!-- Hero Section -->
-<div class="container-fluid py-5 bg-primary text-white" style="margin-top: 80px;">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-12 text-center">
-                <h1 class="display-4 fw-bold mb-3">Professional Portfolios</h1>
-                <p class="fs-5 mb-0">Discover amazing portfolios created by talented professionals from around the world</p>
+<div class="container-fluid home-cover">
+      <div class="mb-4 position-relative custom-pt-6">
+        <div class="container px-2 px-lg-4">
+          @if ($settings->announcement != '' && $settings->announcement_show == 'all'
+              || $settings->announcement != '' && $settings->announcement_show == 'users' && auth()->check())
+            <div class="alert alert-{{$settings->type_announcement}} announcements display-none alert-dismissible fade show" role="alert">
+              <h4 class="alert-heading"><i class="bi-megaphone me-2"></i> {{ __('admin.announcements') }}</h4>
+                    <p class="update-text">{!! $settings->announcement !!}</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" id="closeAnnouncements">
+                  <i class="bi bi-x-lg"></i>
+                </button>
+                </div>
+            @endif
+
+            <div class="row align-items-center min-vh-75">
+                <div class="col-12 text-center">
+                    <h1 class="display-3 fw-bold text-white mb-4 hero-title">{{ $settings->welcome_text ?? __('seo.welcome_text') }}</h1>
+                    <p class="fs-4 text-white mb-4 subtitle-blurred hero-subtitle">{{ $settings->welcome_subtitle ?? __('seo.welcome_subtitle') }}</p>
+                    <div class="d-flex flex-wrap gap-3 justify-content-center hero-buttons">
+                        @auth
+                            <a href="{{ url('user/account') }}" class="btn btn-lg btn-main rounded-pill btn-custom px-4 arrow">
+                                <i class="bi bi-person-gear me-2"></i>Manage Portfolio
+                            </a>
+                            @if(auth()->user()->portfolio_slug)
+                                <a href="{{ url(auth()->user()->portfolio_slug) }}" class="btn btn-lg btn-outline-light rounded-pill px-4">
+                                    <i class="bi bi-eye me-2"></i>View Portfolio
+                                </a>
+                            @else
+                                <a href="{{ url('user/account') }}" class="btn btn-lg btn-outline-light rounded-pill px-4" title="Please set your portfolio URL first">
+                                    <i class="bi bi-eye me-2"></i>View Portfolio
+                                </a>
+		  @endif
+                        @else
+                            <a href="{{ url('register') }}" class="btn btn-lg btn-main rounded-pill btn-custom px-4 arrow">
+                                <i class="bi bi-person-plus me-2"></i>Get Started Free
+                            </a>
+                            <a href="{{ url('login') }}" class="btn btn-lg btn-outline-light rounded-pill px-4">
+                                <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
+                            </a>
+                        @endauth
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+      </div>
 </div>
 
 
