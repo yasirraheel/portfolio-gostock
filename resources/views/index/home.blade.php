@@ -129,6 +129,96 @@
     </div>
 </div>
 
+<!-- Portfolio Showcase Section -->
+<div class="container-fluid py-5 py-large bg-light">
+    <div class="container">
+        <div class="btn-block text-center mb-5">
+            <h3 class="m-0">Featured Portfolios</h3>
+            <p class="text-muted">Discover amazing portfolios created by our talented users</p>
+        </div>
+
+        <div class="row g-4">
+            @php
+                $featuredPortfolios = \App\Models\User::where('status', 'active')
+                    ->whereNotNull('portfolio_slug')
+                    ->where('portfolio_slug', '!=', '')
+                    ->where('portfolio_private', 0)
+                    ->with(['country'])
+                    ->take(6)
+                    ->get();
+            @endphp
+            
+            @if($featuredPortfolios->count() > 0)
+                @foreach($featuredPortfolios as $user)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="flex-shrink-0">
+                                        @if($user->avatar)
+                                            <img src="{{ url('public/avatar', $user->avatar) }}" 
+                                                 alt="{{ $user->name }}" 
+                                                 class="rounded-circle" 
+                                                 style="width: 50px; height: 50px; object-fit: cover;">
+                                        @else
+                                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                                <span class="fw-bold">{{ substr($user->name, 0, 2) }}</span>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h6 class="mb-0">{{ $user->name }}</h6>
+                                        <small class="text-muted">{{ $user->profession ?? 'Professional' }}</small>
+                                    </div>
+                                </div>
+                                
+                                @if($user->bio)
+                                    <p class="card-text text-muted small mb-3">
+                                        {{ Str::limit($user->bio, 100) }}
+                                    </p>
+                                @endif
+                                
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="text-muted small">
+                                        <i class="bi bi-geo-alt me-1"></i>
+                                        {{ $user->country ? $user->country->country_name : 'Location not set' }}
+                                    </div>
+                                    <a href="{{ url($user->portfolio_slug) }}" 
+                                       class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-eye me-1"></i>View Portfolio
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <!-- Fallback content if no portfolios -->
+                <div class="col-12">
+                    <div class="text-center py-5">
+                        <i class="bi bi-person-workspace display-1 text-muted"></i>
+                        <h5 class="mt-3">No Portfolios Yet</h5>
+                        <p class="text-muted">Be the first to create an amazing portfolio!</p>
+                        @guest
+                            <a href="{{ url('register') }}" class="btn btn-primary">
+                                <i class="bi bi-person-plus me-1"></i>Get Started
+                            </a>
+                        @endguest
+                    </div>
+                </div>
+            @endif
+        </div>
+
+        @if($featuredPortfolios->count() > 0)
+            <div class="text-center mt-5">
+                <a href="{{ url('portfolios') }}" class="btn btn-outline-primary">
+                    <i class="bi bi-grid me-2"></i>View All Portfolios
+                </a>
+            </div>
+        @endif
+    </div>
+</div>
+
 <!-- How It Works Section -->
     <section class="section py-5 py-large bg-light">
       <div class="container">
