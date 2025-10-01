@@ -122,18 +122,20 @@
                                 class="d-flex align-items-center mb-4 hero-profile d-lg-flex d-block text-lg-start text-center">
                                 <div class="hero-avatar me-lg-4 mx-auto mx-lg-0 mb-3 mb-lg-0">
                                     @if ($user->avatar && file_exists(public_path('avatar/' . $user->avatar)))
-                                        <img src="{{ url('public/avatar', $user->avatar) }}"
-                                            class="rounded-circle user-avatar"
-                                            style="width: 120px; height: 120px; object-fit: cover;
-                                                   border: 4px solid {{ $user->portfolio_primary_color ?? 'rgba(255,255,255,0.2)' }};"
-                                            alt="{{ $user->name }}"
-                                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center user-avatar"
-                                            style="width: 120px; height: 120px;
-                                                   border: 4px solid {{ $user->portfolio_primary_color ?? 'rgba(255,255,255,0.2)' }};
-                                                   display: none;"
-                                            id="avatar-fallback-{{ $user->id }}">
-                                            <span class="fw-bold" style="font-size: 2.5rem;">{{ substr($user->name, 0, 2) }}</span>
+                                        <div class="avatar-container" style="position: relative; width: 120px; height: 120px;">
+                                            <img src="{{ url('public/avatar', $user->avatar) }}"
+                                                class="rounded-circle avatar-image"
+                                                style="width: 120px; height: 120px; object-fit: cover;
+                                                       border: 4px solid {{ $user->portfolio_primary_color ?? 'rgba(255,255,255,0.2)' }};
+                                                       position: absolute; top: 0; left: 0; z-index: 2;"
+                                                alt="{{ $user->name }}"
+                                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center avatar-fallback"
+                                                style="width: 120px; height: 120px;
+                                                       border: 4px solid {{ $user->portfolio_primary_color ?? 'rgba(255,255,255,0.2)' }};
+                                                       position: absolute; top: 0; left: 0; z-index: 1; display: none;">
+                                                <span class="fw-bold" style="font-size: 2.5rem;">{{ substr($user->name, 0, 2) }}</span>
+                                            </div>
                                         </div>
                                     @else
                                         <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center user-avatar"
@@ -1208,8 +1210,8 @@
     <script type="text/javascript">
         // Ensure avatar fallback works properly
         document.addEventListener('DOMContentLoaded', function() {
-            const avatarImg = document.querySelector('.hero-avatar img');
-            const avatarFallback = document.querySelector('.hero-avatar .user-avatar[style*="display: none"]');
+            const avatarImg = document.querySelector('.hero-avatar .avatar-image');
+            const avatarFallback = document.querySelector('.hero-avatar .avatar-fallback');
             
             if (avatarImg && avatarFallback) {
                 // Check if image loaded successfully
