@@ -441,7 +441,7 @@
     transition: all 0.3s ease;
     transform: translateY(30px);
     opacity: 0;
-    background: rgba(255, 255, 255, 0.1) !important;
+    background-color: var(--bs-body-bg, #ffffff) !important;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -477,10 +477,9 @@
 }
 
 .skills-section .card:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
-    background: rgba(255, 255, 255, 0.15) !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+    border-color: var(--bs-primary, #007bff) !important;
 }
 
 
@@ -654,11 +653,12 @@
     margin-bottom: 1rem !important;
 }
 
-/* Skills Section Cards - Special Background */
+
+/* Skills Section Cards - Theme Background */
+
 .skills-section .card {
-    background: rgba(255, 255, 255, 0.1) !important;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background-color: var(--bs-body-bg, #ffffff) !important;
+    border: 1px solid var(--bs-border-color, #e9ecef) !important;
     transition: all 0.3s ease !important;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
     border-radius: 0.375rem !important;
@@ -689,12 +689,13 @@
     border-color: var(--bs-primary, #007bff) !important;
 }
 
+
 /* Skills Section Cards - Special Hover Effect */
+
 .skills-section .card:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
-    background: rgba(255, 255, 255, 0.15) !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+    border-color: var(--bs-primary, #007bff) !important;
 }
 
 
@@ -840,7 +841,7 @@
 
 .experience-section .card {
     transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.1) !important;
+    background-color: var(--bs-body-bg, #ffffff) !important;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -866,7 +867,7 @@
 .experience-section .card:hover {
     transform: translateY(-3px) !important;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
-    background: rgba(255, 255, 255, 0.15) !important;
+    background-color: var(--bs-body-bg, #ffffff) !important;
     border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
@@ -907,7 +908,7 @@
     transition: all 0.3s ease;
     transform: translateY(30px);
     opacity: 0;
-    background: rgba(255, 255, 255, 0.1) !important;
+    background-color: var(--bs-body-bg, #ffffff) !important;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -937,7 +938,7 @@
 .education-card:hover {
     transform: translateY(-3px) !important;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
-    background: rgba(255, 255, 255, 0.15) !important;
+    background-color: var(--bs-body-bg, #ffffff) !important;
     border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
@@ -1019,7 +1020,7 @@
 }
 
 .education-activities .badge {
-    background: rgba(255, 255, 255, 0.1) !important;
+    background-color: var(--bs-body-bg, #ffffff) !important;
     color: rgba(255, 255, 255, 0.9) !important;
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
     font-size: 0.7rem;
@@ -1033,7 +1034,7 @@
     transition: all 0.3s ease;
     transform: translateY(30px);
     opacity: 0;
-    background: rgba(255, 255, 255, 0.1) !important;
+    background-color: var(--bs-body-bg, #ffffff) !important;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -1049,7 +1050,7 @@
 .certification-card:hover {
     transform: translateY(-3px) !important;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
-    background: rgba(255, 255, 255, 0.15) !important;
+    background-color: var(--bs-body-bg, #ffffff) !important;
     border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
@@ -1131,7 +1132,7 @@
 }
 
 .certification-skills .badge {
-    background: rgba(255, 255, 255, 0.1) !important;
+    background-color: var(--bs-body-bg, #ffffff) !important;
     color: rgba(255, 255, 255, 0.9) !important;
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
     font-size: 0.7rem;
@@ -1145,7 +1146,7 @@
     transition: all 0.3s ease;
     transform: translateY(30px);
     opacity: 0;
-    background: rgba(255, 255, 255, 0.1) !important;
+    background-color: var(--bs-body-bg, #ffffff) !important;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -1161,7 +1162,7 @@
 .testimonial-card:hover {
     transform: translateY(-3px) !important;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
-    background: rgba(255, 255, 255, 0.15) !important;
+    background-color: var(--bs-body-bg, #ffffff) !important;
     border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
@@ -1248,7 +1249,7 @@
 .projects-section .project-card:hover {
     transform: translateY(-3px) !important;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
-    background: rgba(255, 255, 255, 0.15) !important;
+    background-color: var(--bs-body-bg, #ffffff) !important;
     border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
@@ -1397,7 +1398,7 @@
 .custom-section .custom-section-card:hover {
     transform: translateY(-3px) !important;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
-    background: rgba(255, 255, 255, 0.15) !important;
+    background-color: var(--bs-body-bg, #ffffff) !important;
     border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
