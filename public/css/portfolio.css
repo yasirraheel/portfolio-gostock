@@ -53,11 +53,26 @@
     -webkit-backdrop-filter: none !important;
 }
 
+
 /* Mobile-friendly hero area */
+
 @media (max-width: 768px) {
     .portfolio-hero.home-cover {
-        min-height: 100vh !important;
-        height: 100vh !important;
+        min-height: auto !important;
+        height: auto !important;
+        padding: 80px 0 40px 0 !important;
+        background-size: cover !important;
+        background-position: center center !important;
+    }
+    
+    .portfolio-hero.home-cover .container-fluid {
+        min-height: auto !important;
+        height: auto !important;
+        padding: 0 !important;
+    }
+    
+    .portfolio-hero.home-cover .custom-pt-6 {
+        height: auto !important;
         padding: 0 !important;
     }
     
@@ -65,6 +80,9 @@
         padding: 20px 15px !important;
         width: 100% !important;
         max-width: 100% !important;
+        background: rgba(0, 0, 0, 0.4) !important;
+        border-radius: 10px !important;
+        margin: 20px !important;
     }
     
     .portfolio-hero .hero-content {
@@ -78,6 +96,13 @@
     
     .portfolio-hero .hero-avatar {
         margin: 0 auto 20px auto !important;
+        display: block !important;
+    }
+    
+    .portfolio-hero .hero-avatar .avatar-container,
+    .portfolio-hero .hero-avatar .user-avatar {
+        display: block !important;
+        margin: 0 auto !important;
     }
     
     .portfolio-hero .hero-name {
@@ -89,6 +114,8 @@
         max-width: 100% !important;
         margin: 0 auto !important;
         padding: 15px !important;
+        background: rgba(0, 0, 0, 0.3) !important;
+        border-radius: 8px !important;
     }
     
     .portfolio-hero .hero-actions {
@@ -104,8 +131,13 @@
 }
 
 @media (max-width: 576px) {
+    .portfolio-hero.home-cover {
+        padding: 70px 0 30px 0 !important;
+    }
+    
     .portfolio-hero.home-cover .container {
         padding: 15px 10px !important;
+        margin: 10px !important;
     }
     
     .portfolio-hero .hero-name {
@@ -119,6 +151,17 @@
     .portfolio-hero .hero-actions .btn {
         width: 100% !important;
         margin-bottom: 10px !important;
+    }
+    
+    .portfolio-hero .hero-avatar {
+        width: 100px !important;
+        height: 100px !important;
+    }
+    
+    .portfolio-hero .hero-avatar .avatar-container,
+    .portfolio-hero .hero-avatar .user-avatar {
+        width: 100px !important;
+        height: 100px !important;
     }
 }
 
