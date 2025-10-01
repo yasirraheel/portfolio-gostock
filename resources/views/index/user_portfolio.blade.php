@@ -43,27 +43,27 @@
     }
 @endphp
 
-    @section('css')
-        <link rel="stylesheet" href="{{ url('public/css/portfolio.css') }}">
-        <style>
-            .home-cover {
+@section('css')
+    <link rel="stylesheet" href="{{ url('public/css/portfolio.css') }}">
+    <style>
+        .home-cover {
             background-image: url('{{ $heroBackground }}') !important;
         }
 
         /* Override global admin colors with user's custom colors on portfolio pages */
         :root {
             --color-default: {{ $user->portfolio_primary_color ?? '#268707' }} !important;
-            }
-        </style>
-    @endsection
+        }
+    </style>
+@endsection
 
 @section('favicon')
     @if($user->portfolio_favicon)
         {{ url('public/portfolio_assets', $user->portfolio_favicon) }}
-@else
+    @else
         {{ url('favicon/' . $user->portfolio_slug . '.svg') }}
     @endif
-    @endsection
+@endsection
 
 @section('head')
     <!-- Open Graph Meta Tags -->
@@ -83,7 +83,7 @@
         <meta property="og:image" content="{{ url('public/cover', $user->hero_image) }}">
     @elseif($user->avatar)
         <meta property="og:image" content="{{ url('public/avatar', $user->avatar) }}">
-@endif
+    @endif
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
@@ -123,9 +123,9 @@
                                 <div class="hero-avatar me-lg-4 mx-auto mx-lg-0 mb-3 mb-lg-0">
                                     @if ($user->avatar && file_exists(public_path('avatar/' . $user->avatar)))
                                         <div class="avatar-container" style="position: relative; width: 120px; height: 120px;">
-                                        <img src="{{ url('public/avatar', $user->avatar) }}"
+                                            <img src="{{ url('public/avatar', $user->avatar) }}"
                                                 class="rounded-circle avatar-image"
-                                            style="width: 120px; height: 120px; object-fit: cover;
+                                                style="width: 120px; height: 120px; object-fit: cover;
                                                        border: 4px solid {{ $user->portfolio_primary_color ?? 'rgba(255,255,255,0.2)' }};
                                                        position: absolute; top: 0; left: 0; z-index: 2;"
                                                 alt="{{ $user->name }}"
@@ -432,69 +432,71 @@
                 </div>
 
                 <div class="row g-4">
-                            @foreach ($experiences->where('status', 'active') as $experience)
+                    @foreach ($experiences->where('status', 'active') as $experience)
                         <div class="col-lg-6 col-md-12">
                             <div class="card h-100 border-0 shadow-sm">
-                                <div class="card-body text-center p-4">
+                                <div class="card-body p-4">
                                     {{-- Timeline Date Badge --}}
                                     <div class="text-center mb-4">
                                         <span class="badge px-3 py-2 fs-6 mb-2"
                                             style="background-color: {{ $user->portfolio_primary_color ?? '#007bff' }} !important; color: white;">
-                                                    {{ $experience->date_range }}
-                                                </span>
+                                            {{ $experience->date_range }}
+                                        </span>
                                         <div class="text-muted small">{{ $experience->duration }}</div>
-                                        </div>
+                                    </div>
 
                                     {{-- Company Logo and Info --}}
-                                    <div class="mb-3">
-                                                        @if ($experience->company_logo)
-                                                            <img src="{{ url('public/portfolio_assets', $experience->company_logo) }}"
-                                                class="rounded mb-3"
-                                                                style="width: 60px; height: 60px; object-fit: cover;"
-                                                                alt="{{ $experience->company_name }}">
-                                                        @else
-                                            <div class="text-white rounded mb-3 d-flex align-items-center justify-content-center mx-auto"
-                                                style="width: 60px; height: 60px; font-size: 1.5rem; background-color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
-                                                                {{ substr($experience->company_name, 0, 1) }}
-                                                            </div>
-                                                        @endif
+                                    <div class="d-flex align-items-start mb-3">
+                                        @if ($experience->company_logo)
+                                            <img src="{{ url('public/portfolio_assets', $experience->company_logo) }}"
+                                                class="rounded me-3"
+                                                style="width: 60px; height: 60px; object-fit: cover;"
+                                                alt="{{ $experience->company_name }}">
+                                        @else
+                                            <div class="text-white rounded me-3 d-flex align-items-center justify-content-center"
+                                                style="width: 60px; height: 60px; min-width: 60px; font-size: 1.5rem; background-color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
+                                                {{ substr($experience->company_name, 0, 1) }}
+                                            </div>
+                                        @endif
 
-                                        <h5 class="card-title mb-1 fw-bold">{{ $experience->job_title }}</h5>
-                                                            <h6 class="card-subtitle mb-2"
-                                                                style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
-                                                                @if ($experience->company_website)
-                                                                    <a href="{{ $experience->company_website }}"
-                                                                        target="_blank" class="text-decoration-none"
-                                                                        style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
-                                                                        {{ $experience->company_name }}
-                                                                        <i class="bi bi-box-arrow-up-right ms-1 small"></i>
-                                                                    </a>
-                                                                @else
-                                                                    {{ $experience->company_name }}
-                                                                @endif
-                                                            </h6>
+                                        <div class="flex-grow-1">
+                                            <h5 class="card-title mb-1 fw-bold">{{ $experience->job_title }}</h5>
+                                            <h6 class="card-subtitle mb-2"
+                                                style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
+                                                @if ($experience->company_website)
+                                                    <a href="{{ $experience->company_website }}"
+                                                        target="_blank" class="text-decoration-none"
+                                                        style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
+                                                        {{ $experience->company_name }}
+                                                        <i class="bi bi-box-arrow-up-right ms-1 small"></i>
+                                                    </a>
+                                                @else
+                                                    {{ $experience->company_name }}
+                                                @endif
+                                            </h6>
 
-                                        <div class="d-flex flex-wrap gap-2 justify-content-center mb-2">
-                                            <span class="badge bg-secondary">{{ $experience->employment_type_display }}</span>
-                                                                @if ($experience->location)
-                                                                    <span class="badge bg-outline-secondary text-muted">
-                                                    <i class="bi bi-geo-alt me-1"></i>{{ $experience->location }}
-                                                                    </span>
-                                                                @endif
-                                                                @if ($experience->is_current)
-                                                                    <span class="badge bg-success">Current Position</span>
-                                                                @endif
-                                                        </div>
-                                                    </div>
+                                            <div class="d-flex flex-wrap gap-2 mb-2">
+                                                <span class="badge bg-secondary">{{ $experience->employment_type_display }}</span>
+                                                @if ($experience->location)
+                                                    <span class="badge bg-outline-secondary text-muted">
+                                                        <i class="bi bi-geo-alt me-1"></i>{{ $experience->location }}
+                                                    </span>
+                                                @endif
+                                                @if ($experience->is_current)
+                                                    <span class="badge bg-success">Current Position</span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                                    @if ($experience->description)
-                                                        <p class="card-text mb-3">{{ $experience->description }}</p>
-                                                    @endif
+                                    @if ($experience->description)
+                                        <p class="card-text mb-3">{{ $experience->description }}</p>
+                                    @endif
 
                                     @if ($experience->achievements)
                                         <div class="mb-3">
                                             <h6 class="fw-semibold mb-2">Key Achievements:</h6>
-                                            <div class="achievements-list text-start">
+                                            <div class="achievements-list">
                                                 @php
                                                     $achievements = $experience->achievements;
                                                     $lines = [];
@@ -538,17 +540,17 @@
                                     @if ($experience->technologies_used)
                                         <div class="technologies-used">
                                             <h6 class="fw-semibold mb-2">Technologies Used:</h6>
-                                            <div class="d-flex flex-wrap gap-1 justify-content-center">
+                                            <div class="d-flex flex-wrap gap-1">
                                                 @foreach ($experience->technologies_array as $tech)
                                                     <span class="badge bg-light text-dark border">{{ $tech }}</span>
                                                 @endforeach
                                             </div>
                                         </div>
                                     @endif
-                                        </div>
-                                    </div>
                                 </div>
-                            @endforeach
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         @endif
