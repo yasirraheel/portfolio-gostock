@@ -130,7 +130,7 @@
 </div>
 
 <!-- Portfolio Showcase Section -->
-<div class="container-fluid py-5 py-large bg-light">
+<div id="featured-portfolios" class="container-fluid py-5 py-large bg-light">
     <div class="container">
         <div class="btn-block text-center mb-5">
             <h3 class="m-0">Featured Portfolios</h3>
@@ -172,20 +172,20 @@
                                         <small class="text-muted">{{ $user->profession ?? 'Professional' }}</small>
                                     </div>
                                 </div>
- 
+
                                 @if($user->bio)
                                     <p class="card-text text-muted small mb-3">
                                         {{ Str::limit($user->bio, 100) }}
                                     </p>
                                 @endif
- 
+
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="text-muted small">
                                         <i class="bi bi-geo-alt me-1"></i>
                                         {{ $user->country ? $user->country->country_name : 'Location not set' }}
                                     </div>
                                     <a href="{{ url($user->portfolio_slug) }}"
-                                       class="btn btn-sm btn-outline-primary">
+                                       class="btn btn-sm btn-outline-custom">
                                         <i class="bi bi-eye me-1"></i>View Portfolio
                                     </a>
                                 </div>
@@ -212,7 +212,7 @@
 
         @if($featuredPortfolios->count() > 0)
             <div class="text-center mt-5">
-                <a href="{{ url('portfolios') }}" class="btn btn-primary">
+                <a href="{{ url('#featured-portfolios') }}" class="btn btn-custom">
                     <i class="bi bi-grid me-2"></i>View All Portfolios
                 </a>
             </div>
