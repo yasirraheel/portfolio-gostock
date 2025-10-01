@@ -1,5 +1,22 @@
 @extends('layouts.app')
 
+@push('styles')
+<style>
+.feature-card {
+    background-color: #ffffff !important;
+    border: 1px solid #e9ecef !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    border-color: var(--color-default, #007bff) !important;
+}
+</style>
+@endpush
+
 @section('content')
 <!-- Hero Section -->
 <div class="container-fluid home-cover">
@@ -60,7 +77,7 @@
 
         <div class="row g-4">
             <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
+                <div class="card h-100 feature-card">
                     <div class="card-body text-center p-4">
                         <div class="mb-3">
                             <i class="bi bi-palette display-4 text-primary"></i>
@@ -71,7 +88,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
+                <div class="card h-100 feature-card">
                     <div class="card-body text-center p-4">
                         <div class="mb-3">
                             <i class="bi bi-shield-lock display-4 text-primary"></i>
@@ -82,7 +99,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
+                <div class="card h-100 feature-card">
                     <div class="card-body text-center p-4">
                         <div class="mb-3">
                             <i class="bi bi-phone display-4 text-primary"></i>
@@ -93,7 +110,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
+                <div class="card h-100 feature-card">
                     <div class="card-body text-center p-4">
                         <div class="mb-3">
                             <i class="bi bi-envelope display-4 text-primary"></i>
@@ -104,7 +121,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
+                <div class="card h-100 feature-card">
                     <div class="card-body text-center p-4">
                         <div class="mb-3">
                             <i class="bi bi-file-earmark-text display-4 text-primary"></i>
@@ -115,7 +132,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 shadow-sm">
+                <div class="card h-100 feature-card">
                     <div class="card-body text-center p-4">
                         <div class="mb-3">
                             <i class="bi bi-gift display-4 text-primary"></i>
