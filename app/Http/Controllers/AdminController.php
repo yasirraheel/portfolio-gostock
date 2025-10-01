@@ -873,22 +873,26 @@ class AdminController extends Controller
 			$this->settings->save();
 		} // HasFile
 
-		//======== img_category
-		if ($request->hasFile('img_category')) {
+		//======== default_portfolio_hero_image (formerly img_category)
+		if ($request->hasFile('default_portfolio_hero_image')) {
 
-			$extension  = $request->file('img_category')->getClientOriginalExtension();
+			$extension  = $request->file('default_portfolio_hero_image')->getClientOriginalExtension();
 			$file       = 'default-' . time() . '.' . $extension;
 
-			if ($request->file('img_category')->move($temp, $file)) {
+			if ($request->file('default_portfolio_hero_image')->move($temp, $file)) {
 
-				Image::read($temp . $file)->cover(width: 457, height: 359)
+				Image::read($temp . $file)->cover(width: 1280, height: 850)
 						->encodeByExtension($extension)
 						->save($pathCategory . $file);
 
-				\File::delete($pathCategory . $this->settings->img_category);
+				// Delete old file if it exists
+				$oldFile = $this->settings->default_portfolio_hero_image ?? $this->settings->img_category;
+				if ($oldFile) {
+					\File::delete($pathCategory . $oldFile);
+				}
 			} // End File
 
-			$this->settings->img_category = $file;
+			$this->settings->default_portfolio_hero_image = $file;
 			$this->settings->save();
 		} // HasFile
 

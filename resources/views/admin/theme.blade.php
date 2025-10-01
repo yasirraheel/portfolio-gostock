@@ -144,16 +144,16 @@
 		        </div>
 
             <div class="row mb-3">
-		          <label class="col-sm-2 col-form-label text-lg-end">Image default in categories</label>
+		          <label class="col-sm-2 col-form-label text-lg-end">Default Portfolio Hero Image</label>
 		          <div class="col-lg-5 col-sm-10">
                 <div class="d-block mb-2">
-                  <img src="{{url('public/img-category', $settings->img_category)}}" style="width:250px">
+                  <img src="{{url('public/img-category', $settings->default_portfolio_hero_image ?? $settings->img_category)}}" style="width:250px">
                 </div>
 
                 <div class="input-group mb-1">
-                  <input name="img_category" type="file" class="form-control custom-file rounded-pill">
+                  <input name="default_portfolio_hero_image" type="file" class="form-control custom-file rounded-pill">
                 </div>
-                <small class="d-block">{{ __('misc.recommended_size') }} 457x357 px (JPG)</small>
+                <small class="d-block">{{ __('misc.recommended_size') }} 1280x850 px (JPG) - Used as fallback when users haven't uploaded their own hero image</small>
 		          </div>
 		        </div>
 

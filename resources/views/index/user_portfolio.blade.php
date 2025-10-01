@@ -33,8 +33,14 @@
 @endif
 
 @php
-    // Determine hero background - use user's hero_image if available, otherwise fall back to global cover
-    $heroBackground = $user->hero_image ? url('public/cover', $user->hero_image) : url('public/cover', $settings->cover);
+    // Determine hero background - use user's hero_image if available, otherwise fall back to default portfolio hero image, then global cover
+    if ($user->hero_image) {
+        $heroBackground = url('public/cover', $user->hero_image);
+    } elseif ($settings->default_portfolio_hero_image ?? $settings->img_category) {
+        $heroBackground = url('public/img-category', $settings->default_portfolio_hero_image ?? $settings->img_category);
+    } else {
+        $heroBackground = url('public/cover', $settings->cover);
+    }
 @endphp
 
 @section('css')

@@ -31,6 +31,13 @@ This stock photo application has been successfully converted into a universal La
 - Cleaned ViewServiceProvider of deleted model references
 - All caches cleared and autoloader regenerated
 
+### 6. Portfolio-Specific Updates
+- **UPDATED**: "Image default in categories" field renamed to "Default Portfolio Hero Image"
+- **ENHANCED**: User portfolio hero image fallback system now uses default portfolio hero image
+- **IMPROVED**: Admin panel now clearly indicates this image is for portfolio hero backgrounds
+- **MIGRATED**: Database column `img_category` renamed to `default_portfolio_hero_image`
+- **UPDATED**: Image dimensions changed from 457x357px to 1280x850px for better hero display
+
 ## 🔧 What You Now Have - Universal Laravel Starter Kit
 
 ### Authentication System
