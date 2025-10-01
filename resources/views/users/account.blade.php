@@ -391,20 +391,20 @@
 document.addEventListener('DOMContentLoaded', function() {
     const accountAvatarImg = document.querySelector('.account-avatar-image');
     const accountAvatarFallback = document.querySelector('.account-avatar-fallback');
-    
+
     if (accountAvatarImg && accountAvatarFallback) {
         // Check if image loaded successfully
         accountAvatarImg.addEventListener('load', function() {
             // Image loaded successfully, ensure fallback is hidden
             accountAvatarFallback.style.display = 'none';
         });
-        
+
         accountAvatarImg.addEventListener('error', function() {
             // Image failed to load, show fallback
             this.style.display = 'none';
             accountAvatarFallback.style.display = 'flex';
         });
-        
+
         // Additional check after a short delay
         setTimeout(function() {
             if (accountAvatarImg.complete && accountAvatarImg.naturalHeight === 0) {

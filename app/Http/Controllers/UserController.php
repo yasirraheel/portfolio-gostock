@@ -568,17 +568,8 @@ class UserController extends Controller
 					if (!is_dir(public_path('cover'))) {
 						mkdir(public_path('cover'), 0755, true);
 					}
-					// Store directly in public/cover directory
+					// Store directly in public/cover directory without any resizing
 					$file->move(public_path('cover'), $fileName);
-					// Resize hero image to max 1920x600 while maintaining aspect ratio
-					try {
-						$image = Image::read(public_path('cover/' . $fileName));
-						$image->scaleDown(1920, 600);
-						$image->save(public_path('cover/' . $fileName));
-					} catch (\Exception $e) {
-						// If image processing fails, continue with original file
-						\Log::warning('Hero image processing failed: ' . $e->getMessage());
-					}
 					break;
 
 				case 'og':
