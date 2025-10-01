@@ -4,7 +4,7 @@
 <!-- Hero Section -->
 <div class="container-fluid home-cover">
       <div class="mb-4 position-relative custom-pt-6">
-        <div class="container px-5">
+        <div class="container px-2 px-lg-4">
           @if ($settings->announcement != '' && $settings->announcement_show == 'all'
               || $settings->announcement != '' && $settings->announcement_show == 'users' && auth()->check())
             <div class="alert alert-{{$settings->type_announcement}} announcements display-none alert-dismissible fade show" role="alert">
