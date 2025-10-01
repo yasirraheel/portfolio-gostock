@@ -27,6 +27,19 @@
     box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
     border-color: var(--color-default, #007bff) !important;
 }
+
+.featured-portfolio-card {
+    background-color: #ffffff !important;
+    border: 1px solid #e9ecef !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+}
+
+.featured-portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    border-color: var(--color-default, #007bff) !important;
+}
 </style>
 @endpush
 
@@ -182,7 +195,7 @@
             @if($featuredPortfolios->count() > 0)
                 @foreach($featuredPortfolios as $user)
                     <div class="col-lg-4 col-md-6">
-                        <div class="card h-100 border-0 shadow-sm">
+                        <div class="card h-100 featured-portfolio-card">
                             <div class="card-body p-4">
                                 <div class="d-flex align-items-center mb-3">
                                     <div class="flex-shrink-0">
