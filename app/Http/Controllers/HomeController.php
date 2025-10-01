@@ -517,10 +517,10 @@ class HomeController extends Controller
 
       // Get user initials
       $initials = strtoupper(substr($user->name, 0, 2));
-      
+
       // Get user's primary color or default
       $primaryColor = $user->portfolio_primary_color ?? '#268707';
-      
+
       // Create SVG favicon
       $svg = '<?xml version="1.0" encoding="UTF-8"?>
 <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">

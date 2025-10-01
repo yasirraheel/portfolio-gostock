@@ -131,7 +131,8 @@
                                         <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center user-avatar"
                                             style="width: 120px; height: 120px;
                                                    border: 4px solid {{ $user->portfolio_primary_color ?? 'rgba(255,255,255,0.2)' }};
-                                                   display: none;">
+                                                   display: none;"
+                                            id="avatar-fallback-{{ $user->id }}">
                                             <span class="fw-bold" style="font-size: 2.5rem;">{{ substr($user->name, 0, 2) }}</span>
                                         </div>
                                     @else
@@ -1205,6 +1206,35 @@
 
 @section('javascript')
     <script type="text/javascript">
+        // Ensure avatar fallback works properly
+        document.addEventListener('DOMContentLoaded', function() {
+            const avatarImg = document.querySelector('.hero-avatar img');
+            const avatarFallback = document.querySelector('.hero-avatar .user-avatar[style*="display: none"]');
+            
+            if (avatarImg && avatarFallback) {
+                // Check if image loaded successfully
+                avatarImg.addEventListener('load', function() {
+                    // Image loaded successfully, ensure fallback is hidden
+                    avatarFallback.style.display = 'none';
+                });
+                
+                avatarImg.addEventListener('error', function() {
+                    // Image failed to load, show fallback
+                    this.style.display = 'none';
+                    avatarFallback.style.display = 'flex';
+                });
+                
+                // Additional check after a short delay
+                setTimeout(function() {
+                    if (avatarImg.complete && avatarImg.naturalHeight === 0) {
+                        // Image failed to load
+                        avatarImg.style.display = 'none';
+                        avatarFallback.style.display = 'flex';
+                    }
+                }, 100);
+            }
+        });
+
         $('#imagesFlex').flexImages({
             rowHeight: 320,
             maxRows: 8,
