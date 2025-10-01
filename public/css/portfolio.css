@@ -639,6 +639,7 @@
 
 
 /* Portfolio Cards - Match Home Page Design System */
+
 .experience-section .card,
 .education-section .education-card,
 .certifications-section .certification-card,
@@ -646,15 +647,17 @@
 .projects-section .project-card,
 .custom-section .custom-section-card,
 .skills-section .card {
-    background-color: #ffffff !important;
-    border: 1px solid #e9ecef !important;
+    background-color: var(--bs-body-bg, #ffffff) !important;
+    border: 1px solid var(--bs-border-color, #e9ecef) !important;
     transition: all 0.3s ease !important;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
     border-radius: 0.375rem !important;
     margin-bottom: 1rem !important;
 }
 
+
 /* Portfolio Card Body - Match Home Page */
+
 .experience-section .card .card-body,
 .education-section .education-card .card-body,
 .certifications-section .certification-card .card-body,
@@ -673,11 +676,13 @@
 .custom-section .custom-section-card:hover,
 .skills-section .card:hover {
     transform: translateY(-5px) !important;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
-    border-color: var(--color-default, #007bff) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+    border-color: var(--bs-primary, #007bff) !important;
 }
 
+
 /* Portfolio Section Containers - Match Home Page */
+
 .experience-section.container,
 .education-section.container,
 .certifications-section.container,
@@ -688,7 +693,9 @@
     padding: 3rem 0 !important;
 }
 
+
 /* Portfolio Section Rows - Match Home Page */
+
 .experience-section .row,
 .education-section .row,
 .certifications-section .row,
@@ -700,7 +707,9 @@
     gap: 1rem !important;
 }
 
+
 /* Portfolio Section Columns - Match Home Page */
+
 .experience-section .col-12,
 .experience-section .col-md-6,
 .experience-section .col-md-3,
@@ -720,7 +729,9 @@
     padding: 0 !important;
 }
 
+
 /* Mobile Responsiveness - Match Home Page */
+
 @media (max-width: 768px) {
     .experience-section .card,
     .education-section .education-card,
@@ -731,7 +742,6 @@
     .skills-section .card {
         margin-bottom: 0.75rem !important;
     }
-    
     .experience-section.container,
     .education-section.container,
     .certifications-section.container,
@@ -2238,7 +2248,7 @@ html {
     animation: fadeInUp 0.3s ease-out;
 }
 .achievement-item .input-group-text {
-    background-color: #f8f9fa;
+    background-color: var(--bs-light, #f8f9fa);
     border-color: #dee2e6;
     color: #28a745;
 }
@@ -2253,7 +2263,7 @@ html {
     border-left: 0;
 }
 .achievement-item .remove-achievement:hover {
-    background-color: #dc3545;
+    background-color: var(--bs-danger, #dc3545);
     border-color: #dc3545;
     color: white;
 }
