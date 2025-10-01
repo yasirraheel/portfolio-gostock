@@ -6,7 +6,7 @@
 
 @section('content')
 <!-- Hero Section -->
-<div class="container-fluid py-5 bg-primary text-white">
+<div class="container-fluid py-5 bg-primary text-white" style="margin-top: 80px;">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-12 text-center">
@@ -102,12 +102,12 @@
 
 <!-- Call to Action Section -->
 @if($portfolios->count() > 0)
-<div class="container-fluid py-5 bg-light">
+<div class="container-fluid py-5" style="background-color: var(--color-default, #007bff); color: white;">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-8">
                 <h3 class="mb-3">Ready to Create Your Own Portfolio?</h3>
-                <p class="mb-0 fs-5 text-muted">Join thousands of professionals who have already created their portfolios and are showcasing their talents to the world.</p>
+                <p class="mb-0 fs-5" style="color: rgba(255, 255, 255, 0.8);">Join thousands of professionals who have already created their portfolios and are showcasing their talents to the world.</p>
             </div>
             <div class="col-lg-4 text-lg-end text-center mt-3 mt-lg-0">
                 <div class="d-flex flex-column flex-lg-row gap-2 justify-content-lg-end justify-content-center">
