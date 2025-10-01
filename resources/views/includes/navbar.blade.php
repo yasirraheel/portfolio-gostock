@@ -78,11 +78,22 @@
               <a href="javascript:void(0);" class="d-block link-dark text-decoration-none" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
                 @if(isset($user) && $user)
                   @if($user->avatar && file_exists(public_path('avatar/' . $user->avatar)))
-                    <img src="{{ url('public/avatar', $user->avatar) }}" width="32" height="32" class="rounded-circle" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="navbar-avatar-container" style="position: relative; width: 32px; height: 32px;">
+                      <img src="{{ url('public/avatar', $user->avatar) }}" 
+                           width="32" height="32" 
+                           class="rounded-circle navbar-avatar-image" 
+                           style="position: absolute; top: 0; left: 0; z-index: 2;"
+                           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                      <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center navbar-avatar-fallback" 
+                           style="width: 32px; height: 32px; position: absolute; top: 0; left: 0; z-index: 1; display: none;">
+                        <span class="fw-bold small">{{ substr($user->name, 0, 2) }}</span>
+                      </div>
+                    </div>
+                  @else
+                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                      <span class="fw-bold small">{{ substr($user->name, 0, 2) }}</span>
+                    </div>
                   @endif
-                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px; {{ $user->avatar && file_exists(public_path('avatar/' . $user->avatar)) ? 'display: none;' : '' }}">
-                    <span class="fw-bold small">{{ substr($user->name, 0, 2) }}</span>
-                  </div>
                 @else
                   <i class="bi bi-person-circle fs-3"></i>
                 @endif

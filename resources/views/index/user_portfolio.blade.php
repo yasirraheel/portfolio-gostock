@@ -1212,20 +1212,20 @@
         document.addEventListener('DOMContentLoaded', function() {
             const avatarImg = document.querySelector('.hero-avatar .avatar-image');
             const avatarFallback = document.querySelector('.hero-avatar .avatar-fallback');
-            
+
             if (avatarImg && avatarFallback) {
                 // Check if image loaded successfully
                 avatarImg.addEventListener('load', function() {
                     // Image loaded successfully, ensure fallback is hidden
                     avatarFallback.style.display = 'none';
                 });
-                
+
                 avatarImg.addEventListener('error', function() {
                     // Image failed to load, show fallback
                     this.style.display = 'none';
                     avatarFallback.style.display = 'flex';
                 });
-                
+
                 // Additional check after a short delay
                 setTimeout(function() {
                     if (avatarImg.complete && avatarImg.naturalHeight === 0) {
