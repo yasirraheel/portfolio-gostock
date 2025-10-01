@@ -431,140 +431,126 @@
                     </p>
                 </div>
 
-                <div class="row">
-                    <div class="col-12">
-                        <div class="timeline-container">
-                            @foreach ($experiences->where('status', 'active') as $experience)
-                                <div class="timeline-item mb-5">
-                                    <div class="row align-items-start">
-                                        <div class="col-md-3 text-md-end text-start mb-3">
-                                            <div class="timeline-date">
-                                                <span class="badge bg-primary px-3 py-2 fs-6"
-                                                    style="background-color: {{ $user->portfolio_primary_color ?? '#007bff' }} !important;">
-                                                    {{ $experience->date_range }}
-                                                </span>
-                                                <div class="mt-2 text-muted small">
-                                                    {{ $experience->duration }}
-                                                </div>
+                <div class="row g-4">
+                    @foreach ($experiences->where('status', 'active') as $experience)
+                        <div class="col-lg-6 col-md-12">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body p-4">
+                                    {{-- Timeline Date Badge --}}
+                                    <div class="text-center mb-4">
+                                        <span class="badge px-3 py-2 fs-6 mb-2"
+                                            style="background-color: {{ $user->portfolio_primary_color ?? '#007bff' }} !important; color: white;">
+                                            {{ $experience->date_range }}
+                                        </span>
+                                        <div class="text-muted small">{{ $experience->duration }}</div>
+                                    </div>
+
+                                    {{-- Company Logo and Info --}}
+                                    <div class="d-flex align-items-start mb-3">
+                                        @if ($experience->company_logo)
+                                            <img src="{{ url('public/portfolio_assets', $experience->company_logo) }}"
+                                                class="rounded me-3"
+                                                style="width: 60px; height: 60px; object-fit: cover;"
+                                                alt="{{ $experience->company_name }}">
+                                        @else
+                                            <div class="text-white rounded me-3 d-flex align-items-center justify-content-center"
+                                                style="width: 60px; height: 60px; min-width: 60px; font-size: 1.5rem; background-color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
+                                                {{ substr($experience->company_name, 0, 1) }}
                                             </div>
-                                        </div>
+                                        @endif
 
-                                        <div class="col-md-9">
-                                            <div class="card border-0 shadow-sm h-100">
-                                                <div class="card-body p-4">
-                                                    <div class="d-flex align-items-start mb-3">
-                                                        @if ($experience->company_logo)
-                                                            <img src="{{ url('public/portfolio_assets', $experience->company_logo) }}"
-                                                                class="rounded me-3"
-                                                                style="width: 60px; height: 60px; object-fit: cover;"
-                                                                alt="{{ $experience->company_name }}">
-                                                        @else
-                                                            <div class="bg-primary text-white rounded me-3 d-flex align-items-center justify-content-center"
-                                                                style="width: 60px; height: 60px; min-width: 60px; font-size: 1.5rem;">
-                                                                {{ substr($experience->company_name, 0, 1) }}
-                                                            </div>
-                                                        @endif
+                                        <div class="flex-grow-1">
+                                            <h5 class="card-title mb-1 fw-bold">{{ $experience->job_title }}</h5>
+                                            <h6 class="card-subtitle mb-2"
+                                                style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
+                                                @if ($experience->company_website)
+                                                    <a href="{{ $experience->company_website }}"
+                                                        target="_blank" class="text-decoration-none"
+                                                        style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
+                                                        {{ $experience->company_name }}
+                                                        <i class="bi bi-box-arrow-up-right ms-1 small"></i>
+                                                    </a>
+                                                @else
+                                                    {{ $experience->company_name }}
+                                                @endif
+                                            </h6>
 
-                                                        <div class="flex-grow-1">
-                                                            <h5 class="card-title mb-1 fw-bold">
-                                                                {{ $experience->job_title }}</h5>
-                                                            <h6 class="card-subtitle mb-2"
-                                                                style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
-                                                                @if ($experience->company_website)
-                                                                    <a href="{{ $experience->company_website }}"
-                                                                        target="_blank" class="text-decoration-none"
-                                                                        style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
-                                                                        {{ $experience->company_name }}
-                                                                        <i class="bi bi-box-arrow-up-right ms-1 small"></i>
-                                                                    </a>
-                                                                @else
-                                                                    {{ $experience->company_name }}
-                                                                @endif
-                                                            </h6>
-
-                                                            <div class="d-flex flex-wrap gap-2 mb-2">
-                                                                <span
-                                                                    class="badge bg-secondary">{{ $experience->employment_type_display }}</span>
-                                                                @if ($experience->location)
-                                                                    <span class="badge bg-outline-secondary text-muted">
-                                                                        <i
-                                                                            class="bi bi-geo-alt me-1"></i>{{ $experience->location }}
-                                                                    </span>
-                                                                @endif
-                                                                @if ($experience->is_current)
-                                                                    <span class="badge bg-success">Current Position</span>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    @if ($experience->description)
-                                                        <p class="card-text mb-3">{{ $experience->description }}</p>
-                                                    @endif
-
-                                                    @if ($experience->achievements)
-                                                        <div class="mb-3">
-                                                            <h6 class="fw-semibold mb-2">Key Achievements:</h6>
-                                                            <div class="achievements-list">
-                                                                @php
-                                                                    $achievements = $experience->achievements;
-                                                                    $lines = [];
-
-                                                                    // Try to decode as JSON first (new format)
-                                                                    $jsonAchievements = json_decode($achievements, true);
-                                                                    if (is_array($jsonAchievements)) {
-                                                                        $lines = $jsonAchievements;
-                                                                    } else {
-                                                                        // Fallback to old format - split by common delimiters
-                                                                        $delimiters = ['\n', '\r\n', '•', '-', '*', '1.', '2.', '3.', '4.', '5.', '6.', '7.', '8.', '9.'];
-
-                                                                        foreach ($delimiters as $delimiter) {
-                                                                            if (strpos($achievements, $delimiter) !== false) {
-                                                                                $lines = array_filter(array_map('trim', explode($delimiter, $achievements)));
-                                                                                break;
-                                                                            }
-                                                                        }
-
-                                                                        // If no delimiters found, treat as single line
-                                                                        if (empty($lines)) {
-                                                                            $lines = [$achievements];
-                                                                        }
-                                                                    }
-                                                                @endphp
-
-                                                                <ul class="list-unstyled mb-0">
-                                                                    @foreach ($lines as $line)
-                                                                        @if (!empty(trim($line)))
-                                                                            <li class="d-flex align-items-start mb-2">
-                                                                                <i class="bi bi-check-circle-fill text-success me-2 mt-1 flex-shrink-0" style="font-size: 0.8rem;"></i>
-                                                                                <span class="text-muted small">{{ trim($line) }}</span>
-                                                                            </li>
-                                                                        @endif
-                                                                    @endforeach
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    @endif
-
-                                                    @if ($experience->technologies_used)
-                                                        <div class="technologies-used">
-                                                            <h6 class="fw-semibold mb-2">Technologies Used:</h6>
-                                                            <div class="d-flex flex-wrap gap-1">
-                                                                @foreach ($experience->technologies_array as $tech)
-                                                                    <span
-                                                                        class="badge bg-light text-dark border">{{ $tech }}</span>
-                                                                @endforeach
-                                                            </div>
-                                                        </div>
-                                                    @endif
-                                                </div>
+                                            <div class="d-flex flex-wrap gap-2 mb-2">
+                                                <span class="badge bg-secondary">{{ $experience->employment_type_display }}</span>
+                                                @if ($experience->location)
+                                                    <span class="badge bg-outline-secondary text-muted">
+                                                        <i class="bi bi-geo-alt me-1"></i>{{ $experience->location }}
+                                                    </span>
+                                                @endif
+                                                @if ($experience->is_current)
+                                                    <span class="badge bg-success">Current Position</span>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
+
+                                    @if ($experience->description)
+                                        <p class="card-text mb-3">{{ $experience->description }}</p>
+                                    @endif
+
+                                    @if ($experience->achievements)
+                                        <div class="mb-3">
+                                            <h6 class="fw-semibold mb-2">Key Achievements:</h6>
+                                            <div class="achievements-list">
+                                                @php
+                                                    $achievements = $experience->achievements;
+                                                    $lines = [];
+
+                                                    // Try to decode as JSON first (new format)
+                                                    $jsonAchievements = json_decode($achievements, true);
+                                                    if (is_array($jsonAchievements)) {
+                                                        $lines = $jsonAchievements;
+                                                    } else {
+                                                        // Fallback to old format - split by common delimiters
+                                                        $delimiters = ['\n', '\r\n', '•', '-', '*', '1.', '2.', '3.', '4.', '5.', '6.', '7.', '8.', '9.'];
+
+                                                        foreach ($delimiters as $delimiter) {
+                                                            if (strpos($achievements, $delimiter) !== false) {
+                                                                $lines = array_filter(array_map('trim', explode($delimiter, $achievements)));
+                                                                break;
+                                                            }
+                                                        }
+
+                                                        // If no delimiters found, treat as single line
+                                                        if (empty($lines)) {
+                                                            $lines = [$achievements];
+                                                        }
+                                                    }
+                                                @endphp
+
+                                                <ul class="list-unstyled mb-0">
+                                                    @foreach ($lines as $line)
+                                                        @if (!empty(trim($line)))
+                                                            <li class="d-flex align-items-start mb-2">
+                                                                <i class="bi bi-check-circle-fill text-success me-2 mt-1 flex-shrink-0" style="font-size: 0.8rem;"></i>
+                                                                <span class="text-muted small">{{ trim($line) }}</span>
+                                                            </li>
+                                                        @endif
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if ($experience->technologies_used)
+                                        <div class="technologies-used">
+                                            <h6 class="fw-semibold mb-2">Technologies Used:</h6>
+                                            <div class="d-flex flex-wrap gap-1">
+                                                @foreach ($experience->technologies_array as $tech)
+                                                    <span class="badge bg-light text-dark border">{{ $tech }}</span>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endif
                                 </div>
-                            @endforeach
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         @endif
