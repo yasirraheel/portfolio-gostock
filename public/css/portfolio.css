@@ -382,7 +382,7 @@
 
 .portfolio-hero .hero-bio-container:hover {
     background: rgba(0, 0, 0, 0.5);
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--bs-border-color, #e9ecef);
     transform: translateY(-2px);
 }
 
@@ -401,7 +401,7 @@
 
 .portfolio-hero .contact-info-item:hover {
     background: rgba(0, 0, 0, 0.4);
-    border-color: rgba(255, 255, 255, 0.12);
+    border-color: var(--bs-border-color, #e9ecef);
     transform: translateX(-3px);
 }
 
@@ -865,10 +865,9 @@
 }
 
 .experience-section .card:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
-    background-color: var(--bs-body-bg, #ffffff) !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+    border-color: var(--bs-primary, #007bff) !important;
 }
 
 .experience-section .timeline-date .badge {
@@ -939,7 +938,7 @@
     transform: translateY(-3px) !important;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
     background-color: var(--bs-body-bg, #ffffff) !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    border-color: var(--bs-border-color, #e9ecef) !important;
 }
 
 .education-header {
@@ -1051,7 +1050,7 @@
     transform: translateY(-3px) !important;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
     background-color: var(--bs-body-bg, #ffffff) !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    border-color: var(--bs-border-color, #e9ecef) !important;
 }
 
 .certification-header {
@@ -1163,7 +1162,7 @@
     transform: translateY(-3px) !important;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
     background-color: var(--bs-body-bg, #ffffff) !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    border-color: var(--bs-border-color, #e9ecef) !important;
 }
 
 .testimonial-header {
@@ -1247,10 +1246,9 @@
 }
 
 .projects-section .project-card:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
-    background-color: var(--bs-body-bg, #ffffff) !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+    border-color: var(--bs-primary, #007bff) !important;
 }
 
 .projects-section .project-actions {
@@ -1372,7 +1370,7 @@
 
 .project-actions .btn:hover {
     background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: var(--bs-border-color, #e9ecef);
     color: #fff;
     transform: translateY(-1px);
 }
@@ -1399,7 +1397,7 @@
     transform: translateY(-3px) !important;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
     background-color: var(--bs-body-bg, #ffffff) !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    border-color: var(--bs-border-color, #e9ecef) !important;
 }
 
 .custom-section-img {
@@ -1435,7 +1433,7 @@
 
 .custom-section-actions .btn:hover {
     background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: var(--bs-border-color, #e9ecef);
     color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
