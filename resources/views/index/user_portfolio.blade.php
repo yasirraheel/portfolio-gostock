@@ -383,7 +383,7 @@
 
                 <div class="row g-4">
                     @foreach ($skills->where('status', 'active') as $skill)
-                        <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="col-lg-4 col-md-4 col-12">
                             <div class="card h-100 border-0 shadow-sm">
                                 <div class="card-body text-center p-4">
                                     @if ($skill->fas_icon)
