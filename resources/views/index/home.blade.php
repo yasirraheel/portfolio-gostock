@@ -288,18 +288,20 @@
                 <p class="mb-0 fs-5">Join thousands of professionals who have already found success with our platform. It's completely free and takes just minutes to get started.</p>
             </div>
             <div class="col-lg-4 text-lg-end text-center mt-3 mt-lg-0">
-                @auth
-                    <a href="{{ url('user/account') }}" class="btn btn-lg btn-light rounded-pill px-4 me-2">
-                        <i class="bi bi-person-gear me-2"></i>Manage Portfolio
-                    </a>
-                @else
-                    <a href="{{ url('register') }}" class="btn btn-lg btn-light rounded-pill px-4 me-2">
-                        <i class="bi bi-person-plus me-2"></i>Get Started Free
-                    </a>
-                    <a href="{{ url('login') }}" class="btn btn-lg btn-outline-light rounded-pill px-4">
-                        <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
-                    </a>
-                @endauth
+                <div class="d-flex flex-column flex-lg-row gap-2 justify-content-lg-end justify-content-center">
+                    @auth
+                        <a href="{{ url('user/account') }}" class="btn btn-lg btn-light rounded-pill px-4">
+                            <i class="bi bi-person-gear me-2"></i>Manage Portfolio
+                        </a>
+                    @else
+                        <a href="{{ url('register') }}" class="btn btn-lg btn-light rounded-pill px-4">
+                            <i class="bi bi-person-plus me-2"></i>Get Started Free
+                        </a>
+                        <a href="{{ url('login') }}" class="btn btn-lg btn-outline-light rounded-pill px-4">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
+                        </a>
+                    @endauth
+                </div>
             </div>
         </div>
     </div>
