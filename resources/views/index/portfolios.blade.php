@@ -18,6 +18,36 @@
     box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
     border-color: var(--color-default, #007bff) !important;
 }
+
+/* Mobile responsiveness improvements */
+@media (max-width: 576px) {
+    .portfolio-card .card-body {
+        padding: 1rem !important;
+    }
+    
+    .portfolio-card .d-flex.flex-column.flex-sm-row {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+    }
+    
+    .portfolio-card .btn {
+        width: 100% !important;
+        font-size: 0.875rem;
+    }
+    
+    .portfolio-card h5 {
+        font-size: 1.1rem;
+    }
+    
+    .portfolio-card .card-text {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+    
+    .portfolio-card .text-muted {
+        font-size: 0.75rem;
+    }
+}
 </style>
 @endpush
 
@@ -40,46 +70,47 @@
         <div class="row g-4">
             @if($portfolios->count() > 0)
                 @foreach($portfolios as $portfolioUser)
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 mb-4">
                         <div class="card h-100 portfolio-card">
-                            <div class="card-body p-4">
+                            <div class="card-body p-3 p-md-4">
                                 <div class="d-flex align-items-center mb-3">
                                     <div class="flex-shrink-0">
                                         @if($portfolioUser->avatar && file_exists(public_path('avatar/' . $portfolioUser->avatar)))
                                             <img src="{{ url('public/avatar', $portfolioUser->avatar) }}"
                                                  alt="{{ $portfolioUser->name }} Portfolio"
                                                  class="rounded-circle"
-                                                 style="width: 60px; height: 60px; object-fit: cover;"
+                                                 style="width: 50px; height: 50px; object-fit: cover;"
                                                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                         @endif
-                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; {{ $portfolioUser->avatar && file_exists(public_path('avatar/' . $portfolioUser->avatar)) ? 'display: none;' : '' }}">
-                                            <span class="fw-bold fs-5">{{ substr($portfolioUser->name, 0, 2) }}</span>
+                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; {{ $portfolioUser->avatar && file_exists(public_path('avatar/' . $portfolioUser->avatar)) ? 'display: none;' : '' }}">
+                                            <span class="fw-bold">{{ substr($portfolioUser->name, 0, 2) }}</span>
                                         </div>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <h5 class="mb-1">{{ $portfolioUser->name }}</h5>
-                                        <p class="text-muted mb-0 small">{{ $portfolioUser->profession ?? 'Professional' }}</p>
+                                        <h5 class="mb-1 fw-bold text-truncate">{{ $portfolioUser->name }}</h5>
+                                        <p class="text-muted mb-1 small text-truncate">{{ $portfolioUser->profession ?? 'Professional' }}</p>
                                         @if($portfolioUser->country)
-                                            <p class="text-muted mb-0 small">
-                                                <i class="bi bi-geo-alt me-1"></i>{{ $portfolioUser->country->country_name }}
+                                            <p class="text-muted mb-0 small d-flex align-items-center">
+                                                <i class="bi bi-geo-alt me-1"></i>
+                                                <span class="text-truncate">{{ $portfolioUser->country->country_name }}</span>
                                             </p>
                                         @endif
                                     </div>
                                 </div>
 
                                 @if($portfolioUser->bio)
-                                    <p class="card-text text-muted mb-3">
-                                        {{ Str::limit($portfolioUser->bio, 120) }}
+                                    <p class="card-text text-muted mb-3 small" style="line-height: 1.4;">
+                                        {{ Str::limit($portfolioUser->bio, 100) }}
                                     </p>
                                 @endif
 
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <small class="text-muted">
+                                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2">
+                                    <small class="text-muted d-flex align-items-center">
                                         <i class="bi bi-calendar me-1"></i>
-                                        {{ \Carbon\Carbon::parse($portfolioUser->date)->format('M Y') }}
+                                        <span>{{ \Carbon\Carbon::parse($portfolioUser->date)->format('M Y') }}</span>
                                     </small>
                                     <a href="{{ url($portfolioUser->portfolio_slug) }}"
-                                       class="btn btn-outline-custom btn-sm">
+                                       class="btn btn-outline-custom btn-sm w-100 w-sm-auto">
                                         <i class="bi bi-eye me-1"></i>View Portfolio
                                     </a>
                                 </div>
