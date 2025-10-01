@@ -11,7 +11,8 @@
                 $isUserPortfolio = false;
 
                 // Check if we're on a user profile page (regardless of auth status)
-                if (isset($user) && $user) {
+                // Only use user portfolio settings if we're actually on a user's portfolio page
+                if (isset($user) && $user && request()->is($user->portfolio_slug)) {
                     $isUserPortfolio = true;
                     // We're viewing someone's profile, use their logos and link to their portfolio
                     if ($user->portfolio_logo) {
