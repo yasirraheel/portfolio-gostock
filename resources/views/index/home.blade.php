@@ -193,41 +193,41 @@
             @endphp
 
             @if($featuredPortfolios->count() > 0)
-                @foreach($featuredPortfolios as $user)
+                @foreach($featuredPortfolios as $portfolioUser)
                     <div class="col-lg-4 col-md-6">
                         <div class="card h-100 featured-portfolio-card">
                             <div class="card-body p-4">
                                 <div class="d-flex align-items-center mb-3">
                                     <div class="flex-shrink-0">
-                                        @if($user->avatar && file_exists(public_path('avatar/' . $user->avatar)))
-                                            <img src="{{ url('public/avatar', $user->avatar) }}"
-                                                 alt="{{ $user->name }}"
+                                        @if($portfolioUser->avatar && file_exists(public_path('avatar/' . $portfolioUser->avatar)))
+                                            <img src="{{ url('public/avatar', $portfolioUser->avatar) }}"
+                                                 alt="{{ $portfolioUser->name }}"
                                                  class="rounded-circle"
                                                  style="width: 50px; height: 50px; object-fit: cover;"
                                                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                         @endif
-                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; {{ $user->avatar && file_exists(public_path('avatar/' . $user->avatar)) ? 'display: none;' : '' }}">
-                                            <span class="fw-bold">{{ substr($user->name, 0, 2) }}</span>
+                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; {{ $portfolioUser->avatar && file_exists(public_path('avatar/' . $portfolioUser->avatar)) ? 'display: none;' : '' }}">
+                                            <span class="fw-bold">{{ substr($portfolioUser->name, 0, 2) }}</span>
                                         </div>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <h6 class="mb-0">{{ $user->name }}</h6>
-                                        <small class="text-muted">{{ $user->profession ?? 'Professional' }}</small>
+                                        <h6 class="mb-0">{{ $portfolioUser->name }}</h6>
+                                        <small class="text-muted">{{ $portfolioUser->profession ?? 'Professional' }}</small>
                                     </div>
                                 </div>
 
-                                @if($user->bio)
+                                @if($portfolioUser->bio)
                                     <p class="card-text text-muted small mb-3">
-                                        {{ Str::limit($user->bio, 100) }}
+                                        {{ Str::limit($portfolioUser->bio, 100) }}
                                     </p>
                                 @endif
 
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="text-muted small">
                                         <i class="bi bi-geo-alt me-1"></i>
-                                        {{ $user->country ? $user->country->country_name : 'Location not set' }}
+                                        {{ $portfolioUser->country ? $portfolioUser->country->country_name : 'Location not set' }}
                                     </div>
-                                    <a href="{{ url($user->portfolio_slug) }}"
+                                    <a href="{{ url($portfolioUser->portfolio_slug) }}"
                                        class="btn btn-sm btn-outline-custom">
                                         <i class="bi bi-eye me-1"></i>View Portfolio
                                     </a>

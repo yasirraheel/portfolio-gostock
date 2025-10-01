@@ -39,46 +39,46 @@
     <div class="container">
         <div class="row g-4">
             @if($portfolios->count() > 0)
-                @foreach($portfolios as $user)
+                @foreach($portfolios as $portfolioUser)
                     <div class="col-lg-4 col-md-6">
                         <div class="card h-100 portfolio-card">
                             <div class="card-body p-4">
                                 <div class="d-flex align-items-center mb-3">
                                     <div class="flex-shrink-0">
-                                        @if($user->avatar && file_exists(public_path('avatar/' . $user->avatar)))
-                                            <img src="{{ url('public/avatar', $user->avatar) }}"
-                                                 alt="{{ $user->name }} Portfolio"
+                                        @if($portfolioUser->avatar && file_exists(public_path('avatar/' . $portfolioUser->avatar)))
+                                            <img src="{{ url('public/avatar', $portfolioUser->avatar) }}"
+                                                 alt="{{ $portfolioUser->name }} Portfolio"
                                                  class="rounded-circle"
                                                  style="width: 60px; height: 60px; object-fit: cover;"
                                                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                         @endif
-                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; {{ $user->avatar && file_exists(public_path('avatar/' . $user->avatar)) ? 'display: none;' : '' }}">
-                                            <span class="fw-bold fs-5">{{ substr($user->name, 0, 2) }}</span>
+                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; {{ $portfolioUser->avatar && file_exists(public_path('avatar/' . $portfolioUser->avatar)) ? 'display: none;' : '' }}">
+                                            <span class="fw-bold fs-5">{{ substr($portfolioUser->name, 0, 2) }}</span>
                                         </div>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <h5 class="mb-1">{{ $user->name }}</h5>
-                                        <p class="text-muted mb-0 small">{{ $user->profession ?? 'Professional' }}</p>
-                                        @if($user->country)
+                                        <h5 class="mb-1">{{ $portfolioUser->name }}</h5>
+                                        <p class="text-muted mb-0 small">{{ $portfolioUser->profession ?? 'Professional' }}</p>
+                                        @if($portfolioUser->country)
                                             <p class="text-muted mb-0 small">
-                                                <i class="bi bi-geo-alt me-1"></i>{{ $user->country->country_name }}
+                                                <i class="bi bi-geo-alt me-1"></i>{{ $portfolioUser->country->country_name }}
                                             </p>
                                         @endif
                                     </div>
                                 </div>
 
-                                @if($user->bio)
+                                @if($portfolioUser->bio)
                                     <p class="card-text text-muted mb-3">
-                                        {{ Str::limit($user->bio, 120) }}
+                                        {{ Str::limit($portfolioUser->bio, 120) }}
                                     </p>
                                 @endif
 
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted">
                                         <i class="bi bi-calendar me-1"></i>
-                                        {{ \Carbon\Carbon::parse($user->date)->format('M Y') }}
+                                        {{ \Carbon\Carbon::parse($portfolioUser->date)->format('M Y') }}
                                     </small>
-                                    <a href="{{ url($user->portfolio_slug) }}"
+                                    <a href="{{ url($portfolioUser->portfolio_slug) }}"
                                        class="btn btn-outline-custom btn-sm">
                                         <i class="bi bi-eye me-1"></i>View Portfolio
                                     </a>
@@ -187,20 +187,20 @@
     "@type": "ItemList",
     "numberOfItems": "{{ $portfolios->total() }}",
     "itemListElement": [
-      @foreach($portfolios as $index => $user)
+      @foreach($portfolios as $index => $portfolioUser)
       {
         "@type": "Person",
         "position": {{ $index + 1 }},
-        "name": "{{ $user->name }}",
-        "jobTitle": "{{ $user->profession ?? 'Professional' }}",
-        "url": "{{ url($user->portfolio_slug) }}",
-        @if($user->country)
+        "name": "{{ $portfolioUser->name }}",
+        "jobTitle": "{{ $portfolioUser->profession ?? 'Professional' }}",
+        "url": "{{ url($portfolioUser->portfolio_slug) }}",
+        @if($portfolioUser->country)
         "address": {
           "@type": "PostalAddress",
-          "addressCountry": "{{ $user->country->country_name }}"
+          "addressCountry": "{{ $portfolioUser->country->country_name }}"
         },
         @endif
-        "description": "{{ Str::limit($user->bio ?? 'Professional portfolio', 150) }}"
+        "description": "{{ Str::limit($portfolioUser->bio ?? 'Professional portfolio', 150) }}"
       }{{ $index < $portfolios->count() - 1 ? ',' : '' }}
       @endforeach
     ]

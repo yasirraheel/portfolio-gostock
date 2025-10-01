@@ -38,7 +38,7 @@
                 // The default values above already handle this case
             @endphp
 
-            @if(isset($user) && $user && request()->is($user->portfolio_slug))
+            @if(isset($user) && $user && request()->is($user->portfolio_slug) && !request()->is('/') && !request()->is('portfolios'))
             <style>
                 /* Override global admin colors with user's custom colors on portfolio pages */
                 :root {
