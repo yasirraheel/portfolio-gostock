@@ -29,9 +29,9 @@
                                 <div class="d-flex align-items-center mb-3">
                                     <div class="flex-shrink-0">
                                         @if($user->avatar)
-                                            <img src="{{ url('public/avatar', $user->avatar) }}" 
-                                                 alt="{{ $user->name }} Portfolio" 
-                                                 class="rounded-circle" 
+                                            <img src="{{ url('public/avatar', $user->avatar) }}"
+                                                 alt="{{ $user->name }} Portfolio"
+                                                 class="rounded-circle"
                                                  style="width: 60px; height: 60px; object-fit: cover;">
                                         @else
                                             <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
@@ -49,19 +49,19 @@
                                         @endif
                                     </div>
                                 </div>
-                                
+
                                 @if($user->bio)
                                     <p class="card-text text-muted mb-3">
                                         {{ Str::limit($user->bio, 120) }}
                                     </p>
                                 @endif
-                                
+
                                 <div class="d-flex justify-content-between align-items-center">
                                     <small class="text-muted">
                                         <i class="bi bi-calendar me-1"></i>
-                                        {{ $user->created_at->format('M Y') }}
+                                        {{ \Carbon\Carbon::parse($user->date)->format('M Y') }}
                                     </small>
-                                    <a href="{{ url($user->portfolio_slug) }}" 
+                                    <a href="{{ url($user->portfolio_slug) }}"
                                        class="btn btn-outline-custom btn-sm">
                                         <i class="bi bi-eye me-1"></i>View Portfolio
                                     </a>

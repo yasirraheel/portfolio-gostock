@@ -71,9 +71,9 @@ class HomeController extends Controller
         ->whereNotNull('portfolio_slug')
         ->where('portfolio_slug', '!=', '')
         ->where('portfolio_private', 0)
-        ->select(['id', 'name', 'username', 'avatar', 'profession', 'bio', 'portfolio_slug', 'countries_id', 'created_at'])
+        ->select(['id', 'name', 'username', 'avatar', 'profession', 'bio', 'portfolio_slug', 'countries_id', 'date'])
         ->with(['country:id,country_name'])
-        ->orderBy('created_at', 'desc')
+        ->orderBy('date', 'desc')
         ->paginate(12);
 
     return view('index.portfolios', compact('settings', 'portfolios'));
