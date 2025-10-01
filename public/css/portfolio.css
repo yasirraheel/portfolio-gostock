@@ -77,8 +77,8 @@
         padding: 20px 15px !important;
         width: 100% !important;
         max-width: 100% !important;
-        background: rgba(0, 0, 0, 0.4) !important;
-        border-radius: 10px !important;
+        background: transparent !important;
+        border-radius: 0 !important;
         margin: 20px !important;
     }
     .portfolio-hero .hero-content {
@@ -97,7 +97,6 @@
         display: block !important;
         margin: 0 auto !important;
     }
-    
     .portfolio-hero .hero-avatar .avatar-image,
     .portfolio-hero .hero-avatar .avatar-fallback {
         border-radius: 50% !important;
@@ -132,6 +131,8 @@
     .portfolio-hero.home-cover .container {
         padding: 15px 10px !important;
         margin: 10px !important;
+        background: transparent !important;
+        border-radius: 0 !important;
     }
     .portfolio-hero .hero-name {
         font-size: 2rem !important;
@@ -147,12 +148,10 @@
         width: 100px !important;
         height: 100px !important;
     }
-    
     .portfolio-hero .hero-avatar .avatar-container {
         width: 100px !important;
         height: 100px !important;
     }
-    
     .portfolio-hero .hero-avatar .avatar-image,
     .portfolio-hero .hero-avatar .avatar-fallback,
     .portfolio-hero .hero-avatar .user-avatar {
