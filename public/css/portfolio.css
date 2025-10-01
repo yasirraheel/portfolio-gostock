@@ -1,6 +1,8 @@
 /* Portfolio Specific Styles */
 
+
 /* Global Edge-to-Edge Fix for All Sections */
+
 .portfolio-content .container-fluid {
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -598,7 +600,9 @@
     max-width: 100% !important;
 }
 
+
 /* All Sections Row Edge-to-Edge */
+
 .experience-section .row,
 .education-section .row,
 .certifications-section .row,
@@ -610,7 +614,9 @@
     margin-right: 0 !important;
 }
 
+
 /* All Sections Column Edge-to-Edge */
+
 .experience-section .col-12,
 .experience-section .col-md-6,
 .experience-section .col-md-3,
@@ -631,18 +637,77 @@
     padding-right: 0 !important;
 }
 
+
 /* All Cards Edge-to-Edge */
-.experience-section .card,
-.education-section .education-card,
-.certifications-section .certification-card,
-.testimonials-section .testimonial-card,
-.projects-section .project-card,
-.custom-section .custom-section-card,
-.skills-section .card {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    width: 100% !important;
-    border-radius: 0 !important;
+
+/* All Cards Edge-to-Edge - Desktop */
+@media (min-width: 769px) {
+    .experience-section .card,
+    .education-section .education-card,
+    .certifications-section .certification-card,
+    .testimonials-section .testimonial-card,
+    .projects-section .project-card,
+    .custom-section .custom-section-card,
+    .skills-section .card {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        border-radius: 0 !important;
+        margin-bottom: 15px !important;
+    }
+    
+    /* Add margin between cards in same row on desktop */
+    .experience-section .col-md-6:not(:last-child),
+    .education-section .col-lg-6:not(:last-child),
+    .certifications-section .col-lg-6:not(:last-child),
+    .testimonials-section .col-lg-6:not(:last-child),
+    .projects-section .col-lg-6:not(:last-child),
+    .custom-section .col-lg-10:not(:last-child),
+    .skills-section .col-lg-4:not(:last-child) {
+        margin-right: 15px !important;
+    }
+}
+
+/* All Cards Edge-to-Edge - Mobile */
+@media (max-width: 768px) {
+    .experience-section .card,
+    .education-section .education-card,
+    .certifications-section .certification-card,
+    .testimonials-section .testimonial-card,
+    .projects-section .project-card,
+    .custom-section .custom-section-card,
+    .skills-section .card {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        border-radius: 0 !important;
+        margin-bottom: 10px !important;
+    }
+    
+    /* Center cards on mobile */
+    .experience-section .col-12,
+    .education-section .col-md-12,
+    .certifications-section .col-md-12,
+    .testimonials-section .col-md-12,
+    .projects-section .col-md-12,
+    .custom-section .col-md-12,
+    .skills-section .col-md-6 {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    
+    /* Ensure cards are centered and full width on mobile */
+    .experience-section .col-12 .card,
+    .education-section .col-md-12 .education-card,
+    .certifications-section .col-md-12 .certification-card,
+    .testimonials-section .col-md-12 .testimonial-card,
+    .projects-section .col-md-12 .project-card,
+    .custom-section .col-md-12 .custom-section-card,
+    .skills-section .col-md-6 .card {
+        margin: 0 auto !important;
+        max-width: 100% !important;
+    }
 }
 
 
