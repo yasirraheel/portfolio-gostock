@@ -10,9 +10,12 @@
     min-height: auto !important;
     height: auto !important;
     padding: 0 !important;
+    margin-top: 80px !important; /* Account for fixed navbar */
 }
 
+
 /* Make hero container fit the image size */
+
 .portfolio-hero.home-cover .container-fluid {
     min-height: auto !important;
     height: auto !important;
