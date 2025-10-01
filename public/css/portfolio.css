@@ -439,12 +439,10 @@
 
 .skills-section .card {
     transition: all 0.3s ease;
-    transform: translateY(30px);
-    opacity: 0;
+    transform: translateY(0);
+    opacity: 1;
     background-color: var(--bs-body-bg, #ffffff) !important;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid var(--bs-border-color, #e9ecef) !important;
 }
 
 .skills-section .card.animate-in {
@@ -631,7 +629,7 @@
 .custom-section .col-lg-10,
 .custom-section .col-md-12,
 .skills-section .col-lg-4,
-.skills-section .col-md-6 {
+.skills-section .col-md-4 {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
@@ -743,7 +741,7 @@
 .custom-section .col-lg-10,
 .custom-section .col-md-12,
 .skills-section .col-lg-4,
-.skills-section .col-md-6 {
+.skills-section .col-md-4 {
     padding: 0 !important;
 }
 
@@ -1559,8 +1557,8 @@
     .custom-section .col-lg-10,
     .custom-section .col-md-12,
     .skills-section .col-lg-4,
-    .skills-section .col-md-6,
-    .skills-section .col-sm-6 {
+    .skills-section .col-md-4,
+    .skills-section .col-12 {
         padding-left: 4px !important;
         padding-right: 4px !important;
     }
