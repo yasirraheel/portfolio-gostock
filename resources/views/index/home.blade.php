@@ -143,11 +143,12 @@
                     ->whereNotNull('portfolio_slug')
                     ->where('portfolio_slug', '!=', '')
                     ->where('portfolio_private', 0)
-                    ->with(['country'])
+                    ->select(['id', 'name', 'username', 'avatar', 'profession', 'bio', 'portfolio_slug', 'countries_id'])
+                    ->with(['country:id,country_name'])
                     ->take(6)
                     ->get();
             @endphp
-            
+
             @if($featuredPortfolios->count() > 0)
                 @foreach($featuredPortfolios as $user)
                     <div class="col-lg-4 col-md-6">
@@ -156,9 +157,9 @@
                                 <div class="d-flex align-items-center mb-3">
                                     <div class="flex-shrink-0">
                                         @if($user->avatar)
-                                            <img src="{{ url('public/avatar', $user->avatar) }}" 
-                                                 alt="{{ $user->name }}" 
-                                                 class="rounded-circle" 
+                                            <img src="{{ url('public/avatar', $user->avatar) }}"
+                                                 alt="{{ $user->name }}"
+                                                 class="rounded-circle"
                                                  style="width: 50px; height: 50px; object-fit: cover;">
                                         @else
                                             <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
@@ -171,19 +172,19 @@
                                         <small class="text-muted">{{ $user->profession ?? 'Professional' }}</small>
                                     </div>
                                 </div>
-                                
+ 
                                 @if($user->bio)
                                     <p class="card-text text-muted small mb-3">
                                         {{ Str::limit($user->bio, 100) }}
                                     </p>
                                 @endif
-                                
+ 
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="text-muted small">
                                         <i class="bi bi-geo-alt me-1"></i>
                                         {{ $user->country ? $user->country->country_name : 'Location not set' }}
                                     </div>
-                                    <a href="{{ url($user->portfolio_slug) }}" 
+                                    <a href="{{ url($user->portfolio_slug) }}"
                                        class="btn btn-sm btn-outline-primary">
                                         <i class="bi bi-eye me-1"></i>View Portfolio
                                     </a>
@@ -211,7 +212,7 @@
 
         @if($featuredPortfolios->count() > 0)
             <div class="text-center mt-5">
-                <a href="{{ url('portfolios') }}" class="btn btn-outline-primary">
+                <a href="{{ url('portfolios') }}" class="btn btn-primary">
                     <i class="bi bi-grid me-2"></i>View All Portfolios
                 </a>
             </div>
