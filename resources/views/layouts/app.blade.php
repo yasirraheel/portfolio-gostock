@@ -104,20 +104,20 @@
       document.addEventListener('DOMContentLoaded', function() {
         const navbarAvatarImg = document.querySelector('.navbar-avatar-image');
         const navbarAvatarFallback = document.querySelector('.navbar-avatar-fallback');
-        
+
         if (navbarAvatarImg && navbarAvatarFallback) {
           // Check if image loaded successfully
           navbarAvatarImg.addEventListener('load', function() {
             // Image loaded successfully, ensure fallback is hidden
             navbarAvatarFallback.style.display = 'none';
           });
-          
+
           navbarAvatarImg.addEventListener('error', function() {
             // Image failed to load, show fallback
             this.style.display = 'none';
             navbarAvatarFallback.style.display = 'flex';
           });
-          
+
           // Additional check after a short delay
           setTimeout(function() {
             if (navbarAvatarImg.complete && navbarAvatarImg.naturalHeight === 0) {

@@ -154,16 +154,18 @@
          <div class="position-relative d-inline-block" style="cursor: pointer;" onclick="document.getElementById('avatarInput').click();">
                       <div id="avatarPreview" style="width: 120px; height: 120px; margin: 0 auto; position: relative;">
              @if(auth()->user()->avatar)
-               <img src="{{ url('public/avatar', auth()->user()->avatar) }}"
-                    class="img-fluid rounded-circle mb-2"
-                    style="width: 120px; height: 120px; object-fit: cover; display: block;"
-                    onerror="this.style.display='none'; this.parentNode.querySelector('.placeholder-div').style.display='flex';">
-               <div class="bg-primary text-white rounded-circle mb-2 d-flex align-items-center justify-content-center placeholder-div"
-                    style="width: 120px; height: 120px; display: none; position: absolute; top: 0; left: 0;">
-                 <span class="fw-bold" style="font-size: 2.5rem;">{{ substr(auth()->user()->name, 0, 2) }}</span>
+               <div class="account-avatar-container" style="position: relative; width: 120px; height: 120px;">
+                 <img src="{{ url('public/avatar', auth()->user()->avatar) }}"
+                      class="img-fluid rounded-circle account-avatar-image"
+                      style="width: 120px; height: 120px; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 2;"
+                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                 <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center account-avatar-fallback"
+                      style="width: 120px; height: 120px; position: absolute; top: 0; left: 0; z-index: 1; display: none;">
+                   <span class="fw-bold" style="font-size: 2.5rem;">{{ substr(auth()->user()->name, 0, 2) }}</span>
+                 </div>
                </div>
              @else
-               <div class="bg-primary text-white rounded-circle mb-2 d-flex align-items-center justify-content-center placeholder-div"
+               <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center placeholder-div"
                     style="width: 120px; height: 120px;">
                  <span class="fw-bold" style="font-size: 2.5rem;">{{ substr(auth()->user()->name, 0, 2) }}</span>
                </div>
@@ -385,6 +387,35 @@
 
 @section('javascript')
 <script type="text/javascript">
+// Fix account settings avatar display
+document.addEventListener('DOMContentLoaded', function() {
+    const accountAvatarImg = document.querySelector('.account-avatar-image');
+    const accountAvatarFallback = document.querySelector('.account-avatar-fallback');
+    
+    if (accountAvatarImg && accountAvatarFallback) {
+        // Check if image loaded successfully
+        accountAvatarImg.addEventListener('load', function() {
+            // Image loaded successfully, ensure fallback is hidden
+            accountAvatarFallback.style.display = 'none';
+        });
+        
+        accountAvatarImg.addEventListener('error', function() {
+            // Image failed to load, show fallback
+            this.style.display = 'none';
+            accountAvatarFallback.style.display = 'flex';
+        });
+        
+        // Additional check after a short delay
+        setTimeout(function() {
+            if (accountAvatarImg.complete && accountAvatarImg.naturalHeight === 0) {
+                // Image failed to load
+                accountAvatarImg.style.display = 'none';
+                accountAvatarFallback.style.display = 'flex';
+            }
+        }, 100);
+    }
+});
+
 // Toggle password field visibility
 function togglePasswordField() {
     const privateSwitch = document.getElementById('flexSwitchPrivate');
