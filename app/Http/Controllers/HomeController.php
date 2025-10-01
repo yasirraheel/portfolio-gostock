@@ -499,4 +499,50 @@ class HomeController extends Controller
       'description' => __('misc.vectors_desc'),
     ]);
   }
+
+  /**
+   * Generate dynamic favicon with user initials
+   */
+  public function generateFavicon($slug)
+  {
+    try {
+      // Find user by portfolio slug
+      $user = User::where('portfolio_slug', $slug)
+                  ->where('status', 'active')
+                  ->first();
+
+      if (!$user) {
+        abort(404);
+      }
+
+      // Get user initials
+      $initials = strtoupper(substr($user->name, 0, 2));
+      
+      // Get user's primary color or default
+      $primaryColor = $user->portfolio_primary_color ?? '#268707';
+      
+      // Create SVG favicon
+      $svg = '<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" rx="6" fill="' . $primaryColor . '"/>
+  <text x="16" y="22" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">' . $initials . '</text>
+</svg>';
+
+      return response($svg)
+        ->header('Content-Type', 'image/svg+xml')
+        ->header('Cache-Control', 'public, max-age=3600'); // Cache for 1 hour
+
+    } catch (\Exception $e) {
+      // Return a default favicon if something goes wrong
+      $defaultSvg = '<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" rx="6" fill="#268707"/>
+  <text x="16" y="22" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">P</text>
+</svg>';
+
+      return response($defaultSvg)
+        ->header('Content-Type', 'image/svg+xml')
+        ->header('Cache-Control', 'public, max-age=3600');
+    }
+  }
 }

@@ -196,31 +196,31 @@
 document.addEventListener('DOMContentLoaded', function() {
     const colorPicker = document.getElementById('colorPicker');
     const colorManual = document.getElementById('colorManual');
-    
+
     // Sync color picker to manual input
     colorPicker.addEventListener('input', function() {
         colorManual.value = this.value.replace('#', '');
     });
-    
+
     // Sync manual input to color picker
     colorManual.addEventListener('input', function() {
         let value = this.value.replace('#', '');
-        
+
         // Validate hex color
         if (/^[0-9A-Fa-f]{6}$/.test(value)) {
             colorPicker.value = '#' + value;
         }
     });
-    
+
     // Format manual input on blur
     colorManual.addEventListener('blur', function() {
         let value = this.value.replace('#', '').toUpperCase();
-        
+
         // Pad with zeros if needed
         if (value.length === 3) {
             value = value.split('').map(char => char + char).join('');
         }
-        
+
         if (/^[0-9A-Fa-f]{6}$/.test(value)) {
             this.value = value;
             colorPicker.value = '#' + value;

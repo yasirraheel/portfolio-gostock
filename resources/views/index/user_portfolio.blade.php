@@ -61,7 +61,7 @@
     @if($user->portfolio_favicon)
         {{ url('public/portfolio_assets', $user->portfolio_favicon) }}
     @else
-        {{ url('public/img', $settings->favicon) }}
+        {{ url('favicon/' . $user->portfolio_slug . '.svg') }}
     @endif
 @endsection
 

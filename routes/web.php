@@ -188,6 +188,9 @@ Route::post('portfolio/password', [UserController::class, 'verifyPortfolioPasswo
 // All Portfolios Page
 Route::get('portfolios', [HomeController::class, 'portfolios'])->name('portfolios');
 
+// Dynamic Favicon for Portfolio Pages
+Route::get('favicon/{slug}.svg', [HomeController::class, 'generateFavicon'])->where('slug','[A-Za-z0-9\_-]+')->name('portfolio.favicon');
+
 // User Profiles
 Route::get('{slug}', [UserController::class, 'profile'])->where('slug','[A-Za-z0-9\_-]+')->name('profile');
 Route::get('{slug}/followers', [UserController::class, 'followers'])->where('slug','[A-Za-z0-9\_-]+');
