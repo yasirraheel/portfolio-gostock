@@ -47,9 +47,16 @@
                                     </form><!-- *********** AVATAR ************* -->
                                 @endif
 
-                                <img class="mb-3 shadow rounded-circle avatar-profile avatarUser profile-user-over"
-                                    src="{{ Storage::url(config('path.avatar') . $user->avatar) }}" width="150"
-                                    height="150" />
+                                @if($user->avatar)
+                                    <img class="mb-3 shadow rounded-circle avatar-profile avatarUser profile-user-over"
+                                        src="{{ Storage::url(config('path.avatar') . $user->avatar) }}" width="150"
+                                        height="150" />
+                                @else
+                                    <div class="mb-3 shadow rounded-circle avatar-profile profile-user-over d-flex align-items-center justify-content-center bg-primary text-white" 
+                                         style="width: 150px; height: 150px;">
+                                        <span class="fw-bold" style="font-size: 3rem;">{{ substr($user->name, 0, 2) }}</span>
+                                    </div>
+                                @endif
                             </div>
 
                         </div>

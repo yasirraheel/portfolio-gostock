@@ -372,7 +372,13 @@
 
         <div class="flex-shrink-0 dropdown">
           <a href="#" class="d-block link-dark text-decoration-none" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-           <img src="{{ Storage::url(config('path.avatar').auth()->user()->avatar) }}" width="32" height="32" class="rounded-circle">
+           @if(auth()->user()->avatar)
+             <img src="{{ Storage::url(config('path.avatar').auth()->user()->avatar) }}" width="32" height="32" class="rounded-circle">
+           @else
+             <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+               <span class="fw-bold small">{{ substr(auth()->user()->name, 0, 2) }}</span>
+             </div>
+           @endif
           </a>
           <ul class="dropdown-menu dropdown-menu-macos arrow-dm" aria-labelledby="dropdownUser2">
             @include('includes.menu-dropdown')

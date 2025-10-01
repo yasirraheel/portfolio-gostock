@@ -80,7 +80,9 @@
                   @if($user->avatar)
                     <img src="{{ url('public/avatar', $user->avatar) }}" width="32" height="32" class="rounded-circle">
                   @else
-                    <i class="bi bi-person-circle fs-3"></i>
+                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                      <span class="fw-bold small">{{ substr($user->name, 0, 2) }}</span>
+                    </div>
                   @endif
                 @else
                   <i class="bi bi-person-circle fs-3"></i>

@@ -3,7 +3,13 @@
 	 <div class="media media-comments position-relative" id="comment{{$comment->id}}">
 			<span class="float-start me-3">
 				<a href="{{url($comment->author->username)}}">
-				<img width="50" height="50" class="media-object rounded-circle" src="{{Storage::url(config('path.avatar').$comment->author->avatar)}}">
+				@if($comment->author->avatar)
+					<img width="50" height="50" class="media-object rounded-circle" src="{{Storage::url(config('path.avatar').$comment->author->avatar)}}">
+				@else
+					<div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+						<span class="fw-bold small">{{ substr($comment->author->name, 0, 2) }}</span>
+					</div>
+				@endif
 			</a>
 			</span>
 			<div class="media-body media-body-comments  border-bottom pb-2">

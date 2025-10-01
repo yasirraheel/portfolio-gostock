@@ -24,7 +24,13 @@ if (auth()->check()) {
 	<div class="card-cover" style="background: @if ($user->cover != '') url({{ Storage::url(config('path.cover').$user->cover) }})  @endif #505050 center center; background-size: cover;"></div>
 	<div class="card-avatar">
 		<a href="{{url($user->username)}}">
-		<img src="{{Storage::url(config('path.avatar').$user->avatar)}}" width="95" height="95" alt="{{$user->name}}" class="img-user-small">
+		@if($user->avatar)
+			<img src="{{Storage::url(config('path.avatar').$user->avatar)}}" width="95" height="95" alt="{{$user->name}}" class="img-user-small">
+		@else
+			<div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center img-user-small" style="width: 95px; height: 95px;">
+				<span class="fw-bold" style="font-size: 2rem;">{{ substr($user->name, 0, 2) }}</span>
+			</div>
+		@endif
 		</a>
 	</div>
 	<div class="card-body text-center">

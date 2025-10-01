@@ -158,14 +158,14 @@
                     class="img-fluid rounded-circle mb-2"
                     style="width: 120px; height: 120px; object-fit: cover; display: block;"
                     onerror="this.style.display='none'; this.parentNode.querySelector('.placeholder-div').style.display='flex';">
-               <div class="bg-light rounded-circle mb-2 align-items-center justify-content-center placeholder-div"
+               <div class="bg-primary text-white rounded-circle mb-2 d-flex align-items-center justify-content-center placeholder-div"
                     style="width: 120px; height: 120px; display: none; position: absolute; top: 0; left: 0;">
-                 <i class="bi bi-person-fill text-muted" style="font-size: 3rem;"></i>
+                 <span class="fw-bold" style="font-size: 2.5rem;">{{ substr(auth()->user()->name, 0, 2) }}</span>
                </div>
              @else
-               <div class="bg-light rounded-circle mb-2 d-flex align-items-center justify-content-center placeholder-div"
+               <div class="bg-primary text-white rounded-circle mb-2 d-flex align-items-center justify-content-center placeholder-div"
                     style="width: 120px; height: 120px;">
-                 <i class="bi bi-person-fill text-muted" style="font-size: 3rem;"></i>
+                 <span class="fw-bold" style="font-size: 2.5rem;">{{ substr(auth()->user()->name, 0, 2) }}</span>
                </div>
              @endif
            </div>

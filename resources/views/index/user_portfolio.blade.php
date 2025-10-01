@@ -122,10 +122,10 @@
                                                    border: 4px solid {{ $user->portfolio_primary_color ?? 'rgba(255,255,255,0.2)' }};"
                                             alt="{{ $user->name }}">
                                     @else
-                                        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center user-avatar"
+                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center user-avatar"
                                             style="width: 120px; height: 120px;
                                                    border: 4px solid {{ $user->portfolio_primary_color ?? 'rgba(255,255,255,0.2)' }};">
-                                            <i class="bi bi-person-fill text-muted" style="font-size: 3rem;"></i>
+                                            <span class="fw-bold" style="font-size: 2.5rem;">{{ substr($user->name, 0, 2) }}</span>
                                         </div>
                                     @endif
                                 </div>
