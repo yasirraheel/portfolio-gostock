@@ -1,5 +1,11 @@
 /* Portfolio Specific Styles */
 
+/* Portfolio Hero Background - No Zooming */
+.portfolio-hero.home-cover {
+    background-size: auto !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+}
 
 /* Hero Section Animations */
 
