@@ -375,8 +375,13 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-8">
-                <h2 class="mb-3">Ready to Create Your Professional Portfolio?</h2>
-                <p class="mb-0 fs-5">Join thousands of professionals who have already found success with our platform. It's completely free and takes just minutes to get started.</p>
+                @auth
+                    <h2 class="mb-3">Ready to Update Your Professional Portfolio?</h2>
+                    <p class="mb-0 fs-5">Keep your portfolio fresh and up-to-date with your latest projects, skills, and achievements to stay ahead in your career.</p>
+                @else
+                    <h2 class="mb-3">Ready to Create Your Professional Portfolio?</h2>
+                    <p class="mb-0 fs-5">Join thousands of professionals who have already found success with our platform. It's completely free and takes just minutes to get started.</p>
+                @endauth
             </div>
             <div class="col-lg-4 text-lg-end text-center mt-3 mt-lg-0">
                 <div class="d-flex flex-column flex-lg-row gap-2 justify-content-lg-end justify-content-center">
