@@ -1,5 +1,17 @@
 /* Portfolio Specific Styles */
 
+/* Global Edge-to-Edge Fix for All Sections */
+.portfolio-content .container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.portfolio-content .container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: 100% !important;
+}
+
 
 /* Portfolio Hero Background - Perfect Display */
 
@@ -571,12 +583,66 @@
     margin-top: -2rem !important;
 }
 
-/* Experience and Education Container Edge-to-Edge */
+
+/* All Sections Container Edge-to-Edge */
+
 .experience-section.container,
-.education-section.container {
+.education-section.container,
+.certifications-section.container,
+.testimonials-section.container,
+.projects-section.container,
+.custom-section.container,
+.skills-section.container {
     padding-left: 0 !important;
     padding-right: 0 !important;
     max-width: 100% !important;
+}
+
+/* All Sections Row Edge-to-Edge */
+.experience-section .row,
+.education-section .row,
+.certifications-section .row,
+.testimonials-section .row,
+.projects-section .row,
+.custom-section .row,
+.skills-section .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* All Sections Column Edge-to-Edge */
+.experience-section .col-12,
+.experience-section .col-md-6,
+.experience-section .col-md-3,
+.experience-section .col-md-9,
+.education-section .col-lg-6,
+.education-section .col-md-12,
+.certifications-section .col-lg-6,
+.certifications-section .col-md-12,
+.testimonials-section .col-lg-6,
+.testimonials-section .col-md-12,
+.projects-section .col-lg-6,
+.projects-section .col-md-12,
+.custom-section .col-lg-10,
+.custom-section .col-md-12,
+.skills-section .col-lg-4,
+.skills-section .col-md-6 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* All Cards Edge-to-Edge */
+.experience-section .card,
+.education-section .education-card,
+.certifications-section .certification-card,
+.testimonials-section .testimonial-card,
+.projects-section .project-card,
+.custom-section .custom-section-card,
+.skills-section .card {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    border-radius: 0 !important;
 }
 
 
