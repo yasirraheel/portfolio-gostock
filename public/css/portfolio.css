@@ -1,36 +1,54 @@
 /* Portfolio Specific Styles */
 
 
-/* Portfolio Hero Background - No Zooming */
+/* Portfolio Hero Background - Perfect Display */
 
 .portfolio-hero.home-cover {
-    background-size: auto !important;
+    background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
-    min-height: auto !important;
-    height: auto !important;
+    min-height: 100vh !important;
+    height: 100vh !important;
     padding: 0 !important;
-    margin-top: 80px !important; /* Account for fixed navbar */
+    margin: 0 !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
-
-/* Make hero container fit the image size */
-
+/* Remove black line and fix container */
 .portfolio-hero.home-cover .container-fluid {
-    min-height: auto !important;
-    height: auto !important;
+    min-height: 100vh !important;
+    height: 100vh !important;
     padding: 0 !important;
+    margin: 0 !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .portfolio-hero.home-cover .custom-pt-6 {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .portfolio-hero.home-cover .container {
     min-height: auto !important;
     height: auto !important;
-    padding: 20px !important;
+    padding: 40px 20px !important;
+    margin: 0 !important;
+    position: relative !important;
+    z-index: 2 !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-radius: 15px !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
 }
 
 
