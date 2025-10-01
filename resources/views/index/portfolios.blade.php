@@ -24,26 +24,26 @@
     .portfolio-card .card-body {
         padding: 1rem !important;
     }
-    
+
     .portfolio-card .d-flex.flex-column.flex-sm-row {
         flex-direction: column !important;
         gap: 0.75rem !important;
     }
-    
+
     .portfolio-card .btn {
         width: 100% !important;
         font-size: 0.875rem;
     }
-    
+
     .portfolio-card h5 {
         font-size: 1.1rem;
     }
-    
+
     .portfolio-card .card-text {
         font-size: 0.8rem;
         line-height: 1.3;
     }
-    
+
     .portfolio-card .text-muted {
         font-size: 0.75rem;
     }

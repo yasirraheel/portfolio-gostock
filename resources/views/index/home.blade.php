@@ -46,21 +46,21 @@
     .featured-portfolio-card .card-body {
         padding: 1rem !important;
     }
-    
+
     .featured-portfolio-card .d-flex.flex-column.flex-sm-row {
         flex-direction: column !important;
         gap: 0.75rem !important;
     }
-    
+
     .featured-portfolio-card .btn {
         width: 100% !important;
         font-size: 0.875rem;
     }
-    
+
     .featured-portfolio-card h6 {
         font-size: 1rem;
     }
-    
+
     .featured-portfolio-card .card-text {
         font-size: 0.8rem;
         line-height: 1.3;
