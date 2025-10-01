@@ -115,19 +115,20 @@
                             <div
                                 class="d-flex align-items-center mb-4 hero-profile d-lg-flex d-block text-lg-start text-center">
                                 <div class="hero-avatar me-lg-4 mx-auto mx-lg-0 mb-3 mb-lg-0">
-                                    @if ($user->avatar)
+                                    @if ($user->avatar && file_exists(public_path('avatar/' . $user->avatar)))
                                         <img src="{{ url('public/avatar', $user->avatar) }}"
                                             class="rounded-circle user-avatar"
                                             style="width: 120px; height: 120px; object-fit: cover;
                                                    border: 4px solid {{ $user->portfolio_primary_color ?? 'rgba(255,255,255,0.2)' }};"
-                                            alt="{{ $user->name }}">
-                                    @else
-                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center user-avatar"
-                                            style="width: 120px; height: 120px;
-                                                   border: 4px solid {{ $user->portfolio_primary_color ?? 'rgba(255,255,255,0.2)' }};">
-                                            <span class="fw-bold" style="font-size: 2.5rem;">{{ substr($user->name, 0, 2) }}</span>
-                                        </div>
+                                            alt="{{ $user->name }}"
+                                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                     @endif
+                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center user-avatar"
+                                        style="width: 120px; height: 120px;
+                                               border: 4px solid {{ $user->portfolio_primary_color ?? 'rgba(255,255,255,0.2)' }};
+                                               {{ $user->avatar && file_exists(public_path('avatar/' . $user->avatar)) ? 'display: none;' : '' }}">
+                                        <span class="fw-bold" style="font-size: 2.5rem;">{{ substr($user->name, 0, 2) }}</span>
+                                    </div>
                                 </div>
                                 <div class="hero-info">
                                     <h1 class="display-4 fw-bold text-white mb-2 hero-name">

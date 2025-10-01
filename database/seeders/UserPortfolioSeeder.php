@@ -158,7 +158,7 @@ class UserPortfolioSeeder extends Seeder
                 'profession' => $profession,
                 'bio' => $this->generateBio($profession, $name),
                 'countries_id' => $this->getCountryId($city),
-                'avatar' => 'default-avatar.png', // Default avatar
+                'avatar' => null, // No avatar - will show initials
                 'portfolio_slug' => $portfolioSlug,
                 'portfolio_private' => rand(0, 1), // Mix of public and private
                 'portfolio_primary_color' => $this->getRandomColor(),

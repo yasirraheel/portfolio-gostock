@@ -45,16 +45,16 @@
                             <div class="card-body p-4">
                                 <div class="d-flex align-items-center mb-3">
                                     <div class="flex-shrink-0">
-                                        @if($user->avatar)
+                                        @if($user->avatar && file_exists(public_path('avatar/' . $user->avatar)))
                                             <img src="{{ url('public/avatar', $user->avatar) }}"
                                                  alt="{{ $user->name }} Portfolio"
                                                  class="rounded-circle"
-                                                 style="width: 60px; height: 60px; object-fit: cover;">
-                                        @else
-                                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                                                <span class="fw-bold fs-5">{{ substr($user->name, 0, 2) }}</span>
-                                            </div>
+                                                 style="width: 60px; height: 60px; object-fit: cover;"
+                                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                         @endif
+                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; {{ $user->avatar && file_exists(public_path('avatar/' . $user->avatar)) ? 'display: none;' : '' }}">
+                                            <span class="fw-bold fs-5">{{ substr($user->name, 0, 2) }}</span>
+                                        </div>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
                                         <h5 class="mb-1">{{ $user->name }}</h5>
