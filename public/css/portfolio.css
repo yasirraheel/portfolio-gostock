@@ -64,18 +64,15 @@
         background-size: cover !important;
         background-position: center center !important;
     }
-    
     .portfolio-hero.home-cover .container-fluid {
         min-height: auto !important;
         height: auto !important;
         padding: 0 !important;
     }
-    
     .portfolio-hero.home-cover .custom-pt-6 {
         height: auto !important;
         padding: 0 !important;
     }
-    
     .portfolio-hero.home-cover .container {
         padding: 20px 15px !important;
         width: 100% !important;
@@ -84,32 +81,32 @@
         border-radius: 10px !important;
         margin: 20px !important;
     }
-    
     .portfolio-hero .hero-content {
         text-align: center !important;
     }
-    
     .portfolio-hero .hero-profile {
         flex-direction: column !important;
         text-align: center !important;
     }
-    
     .portfolio-hero .hero-avatar {
         margin: 0 auto 20px auto !important;
         display: block !important;
     }
-    
     .portfolio-hero .hero-avatar .avatar-container,
     .portfolio-hero .hero-avatar .user-avatar {
         display: block !important;
         margin: 0 auto !important;
     }
     
+    .portfolio-hero .hero-avatar .avatar-image,
+    .portfolio-hero .hero-avatar .avatar-fallback {
+        border-radius: 50% !important;
+        object-fit: cover !important;
+    }
     .portfolio-hero .hero-name {
         font-size: 2.5rem !important;
         margin-bottom: 1rem !important;
     }
-    
     .portfolio-hero .hero-bio-container {
         max-width: 100% !important;
         margin: 0 auto !important;
@@ -117,13 +114,11 @@
         background: rgba(0, 0, 0, 0.3) !important;
         border-radius: 8px !important;
     }
-    
     .portfolio-hero .hero-actions {
         justify-content: center !important;
         flex-wrap: wrap !important;
         gap: 10px !important;
     }
-    
     .portfolio-hero .hero-social {
         text-align: center !important;
         margin-top: 1.5rem !important;
@@ -134,34 +129,37 @@
     .portfolio-hero.home-cover {
         padding: 70px 0 30px 0 !important;
     }
-    
     .portfolio-hero.home-cover .container {
         padding: 15px 10px !important;
         margin: 10px !important;
     }
-    
     .portfolio-hero .hero-name {
         font-size: 2rem !important;
     }
-    
     .portfolio-hero .hero-bio-container {
         padding: 10px !important;
     }
-    
     .portfolio-hero .hero-actions .btn {
         width: 100% !important;
         margin-bottom: 10px !important;
     }
-    
     .portfolio-hero .hero-avatar {
         width: 100px !important;
         height: 100px !important;
     }
     
-    .portfolio-hero .hero-avatar .avatar-container,
+    .portfolio-hero .hero-avatar .avatar-container {
+        width: 100px !important;
+        height: 100px !important;
+    }
+    
+    .portfolio-hero .hero-avatar .avatar-image,
+    .portfolio-hero .hero-avatar .avatar-fallback,
     .portfolio-hero .hero-avatar .user-avatar {
         width: 100px !important;
         height: 100px !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
     }
 }
 
