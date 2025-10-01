@@ -571,6 +571,14 @@
     margin-top: -2rem !important;
 }
 
+/* Experience and Education Container Edge-to-Edge */
+.experience-section.container,
+.education-section.container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: 100% !important;
+}
+
 
 /* Experience Section Styles */
 
@@ -645,9 +653,23 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    margin-left: -15px !important;
-    margin-right: -15px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     border-radius: 0 !important;
+    width: 100% !important;
+}
+
+.experience-section .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.experience-section .col-12,
+.experience-section .col-md-6,
+.experience-section .col-md-3,
+.experience-section .col-md-9 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 .experience-section .card:hover {
@@ -700,8 +722,20 @@
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 0 !important;
     overflow: hidden;
-    margin-left: -15px !important;
-    margin-right: -15px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+}
+
+.education-section .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.education-section .col-lg-6,
+.education-section .col-md-12 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 .education-card.animate-in {
