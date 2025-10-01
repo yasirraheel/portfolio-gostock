@@ -185,6 +185,9 @@ Route::post('comments/likes',[CommentsController::class, 'getLikes']);
 Route::get('portfolio/password/{slug}', [UserController::class, 'portfolioPassword'])->where('slug','[A-Za-z0-9\_-]+')->name('portfolio.password');
 Route::post('portfolio/password', [UserController::class, 'verifyPortfolioPassword'])->name('portfolio.verify.password');
 
+// All Portfolios Page
+Route::get('portfolios', [HomeController::class, 'portfolios'])->name('portfolios');
+
 // User Profiles
 Route::get('{slug}', [UserController::class, 'profile'])->where('slug','[A-Za-z0-9\_-]+')->name('profile');
 Route::get('{slug}/followers', [UserController::class, 'followers'])->where('slug','[A-Za-z0-9\_-]+');

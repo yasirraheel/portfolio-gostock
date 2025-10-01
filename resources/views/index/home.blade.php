@@ -212,7 +212,7 @@
 
         @if($featuredPortfolios->count() > 0)
             <div class="text-center mt-5">
-                <a href="{{ url('#featured-portfolios') }}" class="btn btn-custom">
+                <a href="{{ url('portfolios') }}" class="btn btn-custom">
                     <i class="bi bi-grid me-2"></i>View All Portfolios
                 </a>
             </div>

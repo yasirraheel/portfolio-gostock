@@ -62,6 +62,23 @@ class HomeController extends Controller
     );
   }
 
+  public function portfolios()
+  {
+    $settings = AdminSettings::first();
+    
+    // Get all public portfolios with pagination
+    $portfolios = \App\Models\User::where('status', 'active')
+        ->whereNotNull('portfolio_slug')
+        ->where('portfolio_slug', '!=', '')
+        ->where('portfolio_private', 0)
+        ->select(['id', 'name', 'username', 'avatar', 'profession', 'bio', 'portfolio_slug', 'countries_id', 'created_at'])
+        ->with(['country:id,country_name'])
+        ->orderBy('created_at', 'desc')
+        ->paginate(12);
+    
+    return view('index.portfolios', compact('settings', 'portfolios'));
+  }
+
   public function getVerifyAccount($confirmation_code)
   {
     if (
