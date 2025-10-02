@@ -1071,26 +1071,7 @@
         @endif
     </div><!-- container photos -->
 
-    @if ($images->count() != 0)
-        <section class="section py-5 py-large bg-light">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-12 col-lg-7 text-center mb-3 px-5">
-                        <img src="{{ url('public/img', $settings->img_section) }}" class="img-fluid">
-                    </div>
-                    <div class="col-12 col-lg-5 text-lg-start text-center">
-                        <h1 class="m-0 card-profile">{{ __('misc.title_section_home') }}</h1>
-                        <div class="col-12 p-0">
-                            <p class="py-4 m-0 text-muted">{{ __('misc.desc_section_home') }}</p>
-                        </div>
-                        <a href="{{ url('latest') }}" class="btn btn-lg btn-main rounded-pill btn-custom  px-4 arrow">
-                            {{ __('misc.explore') }}
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
+   
 
     @if ($settings->show_counter == 'on')
         <section class="section py-4 bg-dark text-white counter-stats">
