@@ -643,10 +643,6 @@
 
 /* All Sections Column Edge-to-Edge - Exclude Skills Section */
 
-.experience-section .col-12,
-.experience-section .col-md-6,
-.experience-section .col-md-3,
-.experience-section .col-md-9,
 .education-section .col-lg-6,
 .education-section .col-md-12,
 .certifications-section .col-lg-6,
@@ -664,7 +660,6 @@
 
 /* Force all sections to use 2 cards per row on desktop */
 
-.experience-section .row .col-lg-6,
 .education-section .row .col-lg-6,
 .certifications-section .row .col-lg-6,
 .testimonials-section .row .col-lg-6,
@@ -710,7 +705,6 @@
         max-width: 50% !important;
     }
     /* All sections - 2 cards per row on tablet */
-    .experience-section .row .col-lg-6,
     .education-section .row .col-lg-6,
     .certifications-section .row .col-lg-6,
     .testimonials-section .row .col-lg-6,
@@ -728,7 +722,6 @@
         max-width: 100% !important;
     }
     /* All sections - 1 card per row on mobile */
-    .experience-section .row .col-lg-6,
     .education-section .row .col-lg-6,
     .certifications-section .row .col-lg-6,
     .testimonials-section .row .col-lg-6,
@@ -987,14 +980,6 @@
 .experience-section .row {
     margin-left: 0 !important;
     margin-right: 0 !important;
-}
-
-.experience-section .col-12,
-.experience-section .col-md-6,
-.experience-section .col-md-3,
-.experience-section .col-md-9 {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
 }
 
 .experience-section .card:hover {

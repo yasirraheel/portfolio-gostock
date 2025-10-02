@@ -45,42 +45,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ url('public/css/portfolio.css') }}">
-    {{-- <style>
-        .home-cover {
-            background-image: url('{{ $heroBackground }}') !important;
-        }
-
-        /* Override global admin colors with user's custom colors on portfolio pages */
-        :root {
-            --color-default: {{ $user->portfolio_primary_color ?? '#268707' }} !important;
-        }
-
-        /* NUCLEAR OPTION: Force all sections to display 2 cards per row */
-        .experience-section .row .col-lg-6,
-        .education-section .row .col-lg-6,
-        .certifications-section .row .col-lg-6,
-        .testimonials-section .row .col-lg-6,
-        .projects-section .row .col-lg-6 {
-            flex: 0 0 50% !important;
-            max-width: 50% !important;
-            width: 50% !important;
-            display: block !important;
-            float: left !important;
-        }
-
-        @media (max-width: 767.98px) {
-            .experience-section .row .col-lg-6,
-            .education-section .row .col-lg-6,
-            .certifications-section .row .col-lg-6,
-            .testimonials-section .row .col-lg-6,
-            .projects-section .row .col-lg-6 {
-                flex: 0 0 100% !important;
-                max-width: 100% !important;
-                width: 100% !important;
-                float: none !important;
-            }
-        }
-    </style> --}}
+    
 @endsection
 
 @section('favicon')
