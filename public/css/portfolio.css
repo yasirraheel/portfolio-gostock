@@ -583,36 +583,51 @@
 }
 
 
-/* All Sections Container Edge-to-Edge */
+/* All Sections Container Edge-to-Edge - Exclude Skills Section */
 
 .experience-section.container,
 .education-section.container,
 .certifications-section.container,
 .testimonials-section.container,
 .projects-section.container,
-.custom-section.container,
-.skills-section.container {
+.custom-section.container {
     padding-left: 0 !important;
     padding-right: 0 !important;
     max-width: 100% !important;
 }
 
 
-/* All Sections Row Edge-to-Edge */
+/* Skills Section - Keep Bootstrap Container */
+
+.skills-section.container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    max-width: 1200px !important;
+}
+
+
+/* All Sections Row Edge-to-Edge - Exclude Skills Section */
 
 .experience-section .row,
 .education-section .row,
 .certifications-section .row,
 .testimonials-section .row,
 .projects-section .row,
-.custom-section .row,
-.skills-section .row {
+.custom-section .row {
     margin-left: 0 !important;
     margin-right: 0 !important;
 }
 
 
-/* All Sections Column Edge-to-Edge */
+/* Skills Section - Keep Bootstrap Row */
+
+.skills-section .row {
+    margin-left: -15px !important;
+    margin-right: -15px !important;
+}
+
+
+/* All Sections Column Edge-to-Edge - Exclude Skills Section */
 
 .experience-section .col-12,
 .experience-section .col-md-6,
@@ -627,11 +642,54 @@
 .projects-section .col-lg-6,
 .projects-section .col-md-12,
 .custom-section .col-lg-10,
-.custom-section .col-md-12,
-.skills-section .col-lg-4,
-.skills-section .col-md-4 {
+.custom-section .col-md-12 {
     padding-left: 0 !important;
     padding-right: 0 !important;
+}
+
+
+/* Skills Section - Keep Bootstrap Grid System */
+
+.skills-section .col-lg-4,
+.skills-section .col-md-4,
+.skills-section .col-12 {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+
+/* Skills Section - Ensure proper Bootstrap grid behavior */
+
+.skills-section .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-left: -15px !important;
+    margin-right: -15px !important;
+}
+
+.skills-section .col-lg-4 {
+    flex: 0 0 33.333333% !important;
+    max-width: 33.333333% !important;
+}
+
+.skills-section .col-md-4 {
+    flex: 0 0 33.333333% !important;
+    max-width: 33.333333% !important;
+}
+
+@media (max-width: 991.98px) {
+    .skills-section .col-lg-4 {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .skills-section .col-lg-4,
+    .skills-section .col-md-4 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
 }
 
 
@@ -697,34 +755,46 @@
 }
 
 
-/* Portfolio Section Containers - Match Home Page */
+/* Portfolio Section Containers - Match Home Page - Exclude Skills Section */
 
 .experience-section.container,
 .education-section.container,
 .certifications-section.container,
 .testimonials-section.container,
 .projects-section.container,
-.custom-section.container,
-.skills-section.container {
+.custom-section.container {
     padding: 3rem 0 !important;
 }
 
 
-/* Portfolio Section Rows - Match Home Page */
+/* Skills Section - Keep Bootstrap Container with proper padding */
+
+.skills-section.container {
+    padding: 3rem 15px !important;
+}
+
+
+/* Portfolio Section Rows - Match Home Page - Exclude Skills Section */
 
 .experience-section .row,
 .education-section .row,
 .certifications-section .row,
 .testimonials-section .row,
 .projects-section .row,
-.custom-section .row,
-.skills-section .row {
+.custom-section .row {
     margin: 0 !important;
     gap: 1rem !important;
 }
 
 
-/* Portfolio Section Columns - Match Home Page */
+/* Skills Section - Keep Bootstrap Row */
+
+.skills-section .row {
+    margin: 0 !important;
+}
+
+
+/* Portfolio Section Columns - Match Home Page - Exclude Skills Section */
 
 .experience-section .col-12,
 .experience-section .col-md-6,
@@ -739,10 +809,17 @@
 .projects-section .col-lg-6,
 .projects-section .col-md-12,
 .custom-section .col-lg-10,
-.custom-section .col-md-12,
-.skills-section .col-lg-4,
-.skills-section .col-md-4 {
+.custom-section .col-md-12 {
     padding: 0 !important;
+}
+
+
+/* Skills Section - Keep Bootstrap Grid System */
+
+.skills-section .col-lg-4,
+.skills-section .col-md-4,
+.skills-section .col-12 {
+    padding: 15px !important;
 }
 
 
@@ -763,9 +840,12 @@
     .certifications-section.container,
     .testimonials-section.container,
     .projects-section.container,
-    .custom-section.container,
-    .skills-section.container {
+    .custom-section.container {
         padding: 2rem 0 !important;
+    }
+    /* Skills Section - Keep proper mobile padding */
+    .skills-section.container {
+        padding: 2rem 15px !important;
     }
 }
 
@@ -1520,16 +1600,21 @@
         margin-top: -4px;
         /* Pull closer to the card above */
     }
-    /* Edge-to-edge mobile design for all sections */
+    /* Edge-to-edge mobile design for all sections - Exclude Skills Section */
     .experience-section.container,
     .education-section.container,
     .certifications-section.container,
     .testimonials-section.container,
     .projects-section.container,
-    .custom-section.container,
-    .skills-section.container {
+    .custom-section.container {
         padding-left: 8px !important;
         padding-right: 8px !important;
+        max-width: 100% !important;
+    }
+    /* Skills Section - Keep Bootstrap Container on mobile */
+    .skills-section.container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
         max-width: 100% !important;
     }
     .experience-section .row,
@@ -1537,10 +1622,14 @@
     .certifications-section .row,
     .testimonials-section .row,
     .projects-section .row,
-    .custom-section .row,
-    .skills-section .row {
+    .custom-section .row {
         margin-left: -4px !important;
         margin-right: -4px !important;
+    }
+    /* Skills Section - Keep Bootstrap Row on mobile */
+    .skills-section .row {
+        margin-left: -15px !important;
+        margin-right: -15px !important;
     }
     .experience-section .col-12,
     .experience-section .col-md-6,
@@ -1555,12 +1644,21 @@
     .projects-section .col-lg-6,
     .projects-section .col-md-12,
     .custom-section .col-lg-10,
-    .custom-section .col-md-12,
+    .custom-section .col-md-12 {
+        padding-left: 4px !important;
+        padding-right: 4px !important;
+    }
+    /* Skills Section - Keep proper spacing on mobile */
     .skills-section .col-lg-4,
     .skills-section .col-md-4,
     .skills-section .col-12 {
-        padding-left: 4px !important;
-        padding-right: 4px !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+    /* Skills Section - Mobile responsive grid */
+    .skills-section .row {
+        margin-left: -8px !important;
+        margin-right: -8px !important;
     }
     /* Remove px-5 class effects on mobile */
     .px-5 {
@@ -2018,7 +2116,7 @@ html {
         word-break: break-word;
         text-align: center;
     }
-
+    
     .portfolio-hero .typing-text {
         white-space: normal;
         word-break: break-word;
@@ -2027,7 +2125,7 @@ html {
         animation: none;
         overflow: visible;
     }
-
+    
     .portfolio-hero .typing-cursor {
         display: none;
     }
@@ -2036,7 +2134,7 @@ html {
     0% {
         width: 0;
     }
-
+    
     100% {
         width: calc(100% - 20px);
     }
@@ -2046,7 +2144,7 @@ html {
     50% {
         opacity: 1;
     }
-
+    
     51%,
     100% {
         opacity: 0;
@@ -2076,7 +2174,7 @@ html {
         opacity: 0;
         transform: translateY(30px);
     }
-
+    
     to {
         opacity: 1;
         transform: translateY(0);
@@ -2087,7 +2185,7 @@ html {
         opacity: 0;
         transform: translateY(-30px);
     }
-
+    
     to {
         opacity: 1;
         transform: translateY(0);
@@ -2098,7 +2196,7 @@ html {
         opacity: 0;
         transform: translateX(-30px);
     }
-
+    
     to {
         opacity: 1;
         transform: translateX(0);
@@ -2109,7 +2207,7 @@ html {
         opacity: 0;
         transform: translateX(30px);
     }
-
+    
     to {
         opacity: 1;
         transform: translateX(0);
@@ -2120,7 +2218,7 @@ html {
         opacity: 0;
         transform: scale(0.8);
     }
-
+    
     to {
         opacity: 1;
         transform: scale(1);
@@ -2130,11 +2228,11 @@ html {
     0% {
         transform: scale(1);
     }
-
+    
     50% {
         transform: scale(1.05);
     }
-
+    
     100% {
         transform: scale(1);
     }
@@ -2145,21 +2243,21 @@ html {
     .portfolio-hero .hero-content {
         text-align: center;
     }
-
+    
     .portfolio-hero .hero-actions {
         justify-content: center !important;
         flex-wrap: wrap;
     }
-
+    
     .portfolio-hero .hero-social {
         text-align: center;
         margin-top: 2rem;
     }
-
+    
     .portfolio-hero .contact-info {
         align-items: center !important;
     }
-
+    
     .portfolio-hero .contact-info-item {
         margin-left: auto !important;
         margin-right: auto !important;
@@ -2210,12 +2308,12 @@ html {
     .achievements-list li {
         margin-bottom: 0.5rem;
     }
-
+    
     .achievements-list .bi-check-circle-fill {
         font-size: 0.75rem;
         margin-top: 0.25rem;
     }
-
+    
     .achievements-list span {
         font-size: 0.8rem;
     }
@@ -2224,18 +2322,18 @@ html {
     .achievements-list li {
         margin-bottom: 0.4rem;
     }
-
+    
     .achievements-list .bi-check-circle-fill {
         font-size: 0.7rem;
         margin-right: 0.5rem;
     }
-
+    
     .achievements-list span {
         font-size: 0.75rem;
         line-height: 1.4;
     }
     /* Skills section edge-to-edge on small mobile */
-
+    
     .skills-section.container {
         width: 100vw !important;
         max-width: 100vw !important;
@@ -2245,11 +2343,11 @@ html {
         padding-right: 12px !important;
     }
     /* Ensure contact info is centered on small mobile */
-
+    
     .portfolio-hero .contact-info {
         align-items: center !important;
     }
-
+    
     .portfolio-hero .contact-info-item {
         margin-left: auto !important;
         margin-right: auto !important;
@@ -2293,7 +2391,7 @@ html {
         opacity: 0;
         transform: translateY(10px);
     }
-
+    
     to {
         opacity: 1;
         transform: translateY(0);
@@ -2318,16 +2416,16 @@ html {
         padding-left: 16px !important;
         padding-right: 16px !important;
     }
-
+    
     .projects-section .project-card {
         padding: 0.75rem 1rem 0.75rem 1rem !important;
         margin-bottom: 1rem !important;
     }
-
+    
     .projects-section .project-actions {
         padding-top: 0.5rem !important;
     }
-
+    
     .projects-section .project-actions .btn {
         font-size: 0.75rem !important;
         padding: 0.3rem 0.6rem !important;
@@ -2344,16 +2442,16 @@ html {
         padding-left: 12px !important;
         padding-right: 12px !important;
     }
-
+    
     .projects-section .project-card {
         padding: 0.5rem 0.75rem 0.5rem 0.75rem !important;
         margin-bottom: 0.75rem !important;
     }
-
+    
     .projects-section .project-actions {
         padding-top: 0.5rem !important;
     }
-
+    
     .projects-section .project-actions .btn {
         font-size: 0.7rem !important;
         padding: 0.25rem 0.5rem !important;

@@ -44,7 +44,7 @@
 @endphp
 
 @section('css')
-    <link rel="stylesheet" href="{{ url('public/css/portfolio.css') }}">
+    {{-- <link rel="stylesheet" href="{{ url('public/css/portfolio.css') }}"> --}}
     <style>
         .home-cover {
             background-image: url('{{ $heroBackground }}') !important;
@@ -369,7 +369,7 @@
         });
     </script>
 
-    <div class="container-fluid py-5 py-large">
+    <div class="container-fluid py-large">
 
         {{-- Skills Section --}}
         @if ($skills->count() > 0)
@@ -381,7 +381,7 @@
                     </p>
                 </div>
 
-                <div class="row g-4">
+                <div class="row g-lg-0">
                     @foreach ($skills->where('status', 'active') as $skill)
                         <div class="col-lg-4 col-md-4 col-12">
                             <div class="card h-100 border-0 shadow-sm">
