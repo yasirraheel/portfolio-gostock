@@ -54,6 +54,43 @@
         :root {
             --color-default: {{ $user->portfolio_primary_color ?? '#268707' }} !important;
         }
+
+        /* CRITICAL: Force all sections to display 2 cards per row on desktop */
+        @media (min-width: 992px) {
+            .experience-section .row .col-lg-6,
+            .education-section .row .col-lg-6,
+            .certifications-section .row .col-lg-6,
+            .testimonials-section .row .col-lg-6,
+            .projects-section .row .col-lg-6 {
+                flex: 0 0 50% !important;
+                max-width: 50% !important;
+                width: 50% !important;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .experience-section .row .col-lg-6,
+            .education-section .row .col-lg-6,
+            .certifications-section .row .col-lg-6,
+            .testimonials-section .row .col-lg-6,
+            .projects-section .row .col-lg-6 {
+                flex: 0 0 50% !important;
+                max-width: 50% !important;
+                width: 50% !important;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .experience-section .row .col-lg-6,
+            .education-section .row .col-lg-6,
+            .certifications-section .row .col-lg-6,
+            .testimonials-section .row .col-lg-6,
+            .projects-section .row .col-lg-6 {
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+        }
     </style>
 @endsection
 
@@ -431,9 +468,9 @@
                     </p>
                 </div>
 
-                <div class="row g-4">
+                <div class="row g-lg-0">
                     @foreach ($experiences->where('status', 'active') as $experience)
-                        <div class="col-lg-6 col-md-12">
+                        <div class="col-lg-6 col-md-6 col-12">
                             <div class="card h-100 border-0 shadow-sm">
                                 <div class="card-body p-4">
                                     {{-- Timeline Date Badge --}}
@@ -565,9 +602,9 @@
                     </p>
                 </div>
 
-                <div class="row">
+                <div class="row g-lg-0">
                     @foreach ($projects->take(6) as $project)
-                        <div class="col-lg-6 col-md-12 mb-4">
+                        <div class="col-lg-6 col-md-6 col-12 mb-4">
                             <div class="project-card">
                                 <div class="project-header d-flex align-items-center mb-3">
                                     @if ($project->main_image)
@@ -669,11 +706,9 @@
                     </p>
                 </div>
 
-                <div class="row">
-                    <div class="col-12">
-                        <div class="row g-4">
-                            @foreach ($educations->where('status', 'active') as $education)
-                                <div class="col-lg-6 col-md-12">
+                <div class="row g-lg-0">
+                    @foreach ($educations->where('status', 'active') as $education)
+                        <div class="col-lg-6 col-md-6 col-12">
                                     <div class="education-card border-0 shadow-sm h-100">
                                         <div class="education-header p-4">
                                             <div class="row align-items-center">
@@ -766,9 +801,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         @endif
@@ -783,9 +816,9 @@
                     </p>
                 </div>
 
-                <div class="row g-4">
+                <div class="row g-lg-0">
                     @foreach ($certifications->where('status', 'active') as $certification)
-                        <div class="col-lg-6 col-md-12">
+                        <div class="col-lg-6 col-md-6 col-12">
                             <div class="certification-card border-0 shadow-sm h-100">
                                 <div class="certification-header p-4">
                                     <div class="row align-items-center">
@@ -896,9 +929,9 @@
                     </p>
                 </div>
 
-                <div class="row g-4">
+                <div class="row g-lg-0">
                     @foreach ($testimonials->take(6) as $testimonial)
-                        <div class="col-lg-6 col-md-12">
+                        <div class="col-lg-6 col-md-6 col-12">
                             <div class="testimonial-card border-0 shadow-sm h-100">
                                 <div class="testimonial-header p-4">
                                     <div class="row align-items-center">
