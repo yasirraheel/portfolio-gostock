@@ -814,10 +814,6 @@
 
 /* Skills Section - Keep Bootstrap Row */
 
-.skills-section .row {
-    margin: 0 !important;
-}
-
 
 /* Portfolio Section Columns - Match Home Page - Exclude Skills Section */
 
@@ -1647,10 +1643,6 @@
         margin-right: -4px !important;
     } */
     /* Skills Section - Edge-to-Edge Row on mobile */
-    .skills-section .row {
-        margin-left: -8px !important;
-        margin-right: -8px !important;
-    }
     .education-section .col-lg-6,
     .education-section .col-md-12,
     .certifications-section .col-lg-6,
