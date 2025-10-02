@@ -92,7 +92,7 @@
 
 												<!-- Project Details -->
 												@if($project->description)
-													<p class="text-muted small mb-2">{{ Str::limit($project->description, 120) }}</p>
+													<div class="text-muted small mb-2">{!! Str::limit($project->description, 120) !!}</div>
 												@endif
 
 												<div class="mb-2">

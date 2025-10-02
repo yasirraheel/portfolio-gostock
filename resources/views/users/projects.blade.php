@@ -60,7 +60,7 @@
 											@endif
 										</p>
 										@if($project->description)
-											<p class="mb-2">{{ Str::limit($project->description, 200) }}</p>
+											<div class="mb-2">{!! Str::limit($project->description, 200) !!}</div>
 										@endif
 									</div>
 									<div class="col-lg-4 text-end">

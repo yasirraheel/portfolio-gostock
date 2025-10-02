@@ -614,7 +614,7 @@
                                         </div>
                                     </div>
                                     @if ($project->description)
-                                        <p class="card-text mb-3">{{ $project->description }}</p>
+                                        <div class="card-text mb-3">{!! $project->description !!}</div>
                                     @endif
 
                                     @if ($project->technologies_list && count($project->technologies_list) > 0)
