@@ -611,12 +611,12 @@
 }
 
 
-/* Skills Section - Keep Bootstrap Container */
+/* Skills Section - Edge-to-Edge Container */
 
 .skills-section.container {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
-    max-width: 1200px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: 100% !important;
 }
 
 
@@ -633,11 +633,11 @@
 }
 
 
-/* Skills Section - Keep Bootstrap Row */
+/* Skills Section - Edge-to-Edge Row */
 
 .skills-section .row {
-    margin-left: -15px !important;
-    margin-right: -15px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 
 
@@ -662,13 +662,13 @@
 }
 
 
-/* Skills Section - Keep Bootstrap Grid System */
+/* Skills Section - Edge-to-Edge Grid System */
 
 .skills-section .col-lg-4,
 .skills-section .col-md-4,
 .skills-section .col-12 {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
 }
 
 
@@ -677,8 +677,8 @@
 .skills-section .row {
     display: flex !important;
     flex-wrap: wrap !important;
-    margin-left: -15px !important;
-    margin-right: -15px !important;
+    margin-left: -8px !important;
+    margin-right: -8px !important;
 }
 
 .skills-section .col-lg-4 {
@@ -857,9 +857,9 @@
     .custom-section.container {
         padding: 2rem 0 !important;
     }
-    /* Skills Section - Keep proper mobile padding */
+    /* Skills Section - Edge-to-Edge mobile padding */
     .skills-section.container {
-        padding: 2rem 15px !important;
+        padding: 2rem 8px !important;
     }
 }
 
@@ -1625,10 +1625,10 @@
         padding-right: 8px !important;
         max-width: 100% !important;
     }
-    /* Skills Section - Keep Bootstrap Container on mobile */
+    /* Skills Section - Edge-to-Edge Container on mobile */
     .skills-section.container {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
         max-width: 100% !important;
     }
     .experience-section .row,
@@ -1640,10 +1640,10 @@
         margin-left: -4px !important;
         margin-right: -4px !important;
     }
-    /* Skills Section - Keep Bootstrap Row on mobile */
+    /* Skills Section - Edge-to-Edge Row on mobile */
     .skills-section .row {
-        margin-left: -15px !important;
-        margin-right: -15px !important;
+        margin-left: -8px !important;
+        margin-right: -8px !important;
     }
     .experience-section .col-12,
     .experience-section .col-md-6,
@@ -1662,17 +1662,17 @@
         padding-left: 4px !important;
         padding-right: 4px !important;
     }
-    /* Skills Section - Keep proper spacing on mobile */
+    /* Skills Section - Edge-to-Edge spacing on mobile */
     .skills-section .col-lg-4,
     .skills-section .col-md-4,
     .skills-section .col-12 {
-        padding-left: 8px !important;
-        padding-right: 8px !important;
+        padding-left: 4px !important;
+        padding-right: 4px !important;
     }
     /* Skills Section - Mobile responsive grid */
     .skills-section .row {
-        margin-left: -8px !important;
-        margin-right: -8px !important;
+        margin-left: -4px !important;
+        margin-right: -4px !important;
     }
     /* Remove px-5 class effects on mobile */
     .px-5 {
