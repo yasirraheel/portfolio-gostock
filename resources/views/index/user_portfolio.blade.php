@@ -1200,13 +1200,7 @@
         // FORCE 2 CARDS PER ROW - NUCLEAR OPTION
         document.addEventListener('DOMContentLoaded', function() {
             // Force all sections to display 2 cards per row
-            const sections = [
-                '.experience-section .row .col-lg-6',
-                '.education-section .row .col-lg-6', 
-                '.certifications-section .row .col-lg-6',
-                '.testimonials-section .row .col-lg-6',
-                '.projects-section .row .col-lg-6'
-            ];
+           
             
             sections.forEach(selector => {
                 const elements = document.querySelectorAll(selector);
