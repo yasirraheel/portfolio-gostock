@@ -661,6 +661,16 @@
     padding-right: 0 !important;
 }
 
+/* Force all sections to use 2 cards per row on desktop */
+.experience-section .col-lg-6,
+.education-section .col-lg-6,
+.certifications-section .col-lg-6,
+.testimonials-section .col-lg-6,
+.projects-section .col-lg-6 {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+}
+
 
 /* Skills Section - Edge-to-Edge Grid System */
 
@@ -696,11 +706,31 @@
         flex: 0 0 50% !important;
         max-width: 50% !important;
     }
+    
+    /* All sections - 2 cards per row on tablet */
+    .experience-section .col-lg-6,
+    .education-section .col-lg-6,
+    .certifications-section .col-lg-6,
+    .testimonials-section .col-lg-6,
+    .projects-section .col-lg-6 {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
 }
 
 @media (max-width: 767.98px) {
     .skills-section .col-lg-4,
     .skills-section .col-md-4 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* All sections - 1 card per row on mobile */
+    .experience-section .col-lg-6,
+    .education-section .col-lg-6,
+    .certifications-section .col-lg-6,
+    .testimonials-section .col-lg-6,
+    .projects-section .col-lg-6 {
         flex: 0 0 100% !important;
         max-width: 100% !important;
     }
@@ -825,6 +855,16 @@
 .custom-section .col-lg-10,
 .custom-section .col-md-12 {
     padding: 0 !important;
+}
+
+/* Force all sections to use 2 cards per row on desktop - Second instance */
+.experience-section .col-lg-6,
+.education-section .col-lg-6,
+.certifications-section .col-lg-6,
+.testimonials-section .col-lg-6,
+.projects-section .col-lg-6 {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
 }
 
 
