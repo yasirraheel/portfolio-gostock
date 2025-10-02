@@ -449,7 +449,7 @@
 
         {{-- Experience Section --}}
         @if ($experiences->count() > 0)
-            <div class="container px-5 mb-5">
+            <div class="container px-5 mb-5 experience-section">
                 <div class="btn-block text-center mb-5">
                     <h3 class="m-0">{{ __('misc.experience') }}</h3>
                     <p class="text-muted">
