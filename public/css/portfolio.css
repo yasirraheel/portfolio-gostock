@@ -622,7 +622,6 @@
 
 /* All Sections Row Edge-to-Edge - Exclude Skills Section */
 
-.certifications-section .row,
 .testimonials-section .row,
 .custom-section .row {
     margin-left: 0 !important;
@@ -813,7 +812,6 @@
 
 /* Portfolio Section Rows - Match Home Page - Exclude Skills Section */
 
-.certifications-section .row,
 .testimonials-section .row,
 .custom-section .row {
     margin: 0 !important;
@@ -1650,7 +1648,6 @@
         padding-right: 8px !important;
         max-width: 100% !important;
     }
-    .certifications-section .row,
     .testimonials-section .row,
     .custom-section .row {
         margin-left: -4px !important;
