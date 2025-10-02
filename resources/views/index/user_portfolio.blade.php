@@ -44,7 +44,7 @@
 @endphp
 
 @section('css')
-    {{-- <link rel="stylesheet" href="{{ url('public/css/portfolio.css') }}"> --}}
+    <link rel="stylesheet" href="{{ url('public/css/portfolio.css') }}">
     <style>
         .home-cover {
             background-image: url('{{ $heroBackground }}') !important;
