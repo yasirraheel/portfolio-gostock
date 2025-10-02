@@ -625,7 +625,6 @@
 .education-section .row,
 .certifications-section .row,
 .testimonials-section .row,
-.projects-section .row,
 .custom-section .row {
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -818,7 +817,6 @@
 .education-section .row,
 .certifications-section .row,
 .testimonials-section .row,
-.projects-section .row,
 .custom-section .row {
     margin: 0 !important;
     gap: 1rem !important;
@@ -1657,7 +1655,6 @@
     .education-section .row,
     .certifications-section .row,
     .testimonials-section .row,
-    .projects-section .row,
     .custom-section .row {
         margin-left: -4px !important;
         margin-right: -4px !important;
