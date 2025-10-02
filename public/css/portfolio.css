@@ -392,6 +392,44 @@
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
+    /* Minimal card body padding on small mobile */
+    .experience-section .card-body,
+    .education-section .card-body,
+    .certifications-section .card-body,
+    .testimonials-section .card-body,
+    .projects-section .card-body,
+    .custom-section .card-body,
+    .skills-section .card-body {
+        padding: 0.25rem !important;
+    }
+    /* Override Bootstrap p-4 class on mobile for projects */
+    .projects-section .card-body.p-4 {
+        padding: 0.25rem !important;
+    }
+    /* Override Bootstrap margin classes on small mobile for projects */
+    .projects-section .mb-4,
+    .projects-section .mb-3,
+    .projects-section .mb-2,
+    .projects-section .mb-1 {
+        margin-bottom: 0.25rem !important;
+    }
+    .projects-section .me-3,
+    .projects-section .me-2,
+    .projects-section .me-1 {
+        margin-right: 0.25rem !important;
+    }
+    .projects-section .ms-1 {
+        margin-left: 0.125rem !important;
+    }
+    /* Override badge and button padding on small mobile for projects */
+    .projects-section .badge {
+        padding: 0.25rem 0.5rem !important;
+        font-size: 0.7rem !important;
+    }
+    .projects-section .btn {
+        padding: 0.25rem 0.5rem !important;
+        font-size: 0.7rem !important;
+    }
 }
 
 .portfolio-hero .hero-bio-container:hover {
@@ -579,7 +617,7 @@
 
 @media (max-width: 768px) {
     .skills-section .card-body {
-        padding: 1.5rem !important;
+        padding: 0.5rem !important;
     }
     .skills-section .card-body i {
         font-size: 2rem !important;
@@ -1599,8 +1637,41 @@
         margin-bottom: 2rem !important;
     }
     .experience-section .card-body,
-    .education-section .card-body {
-        padding: 1.5rem !important;
+    .education-section .card-body,
+    .certifications-section .card-body,
+    .testimonials-section .card-body,
+    .projects-section .card-body,
+    .custom-section .card-body,
+    .skills-section .card-body {
+        padding: 0.5rem !important;
+    }
+    /* Override Bootstrap p-4 class on tablet for projects */
+    .projects-section .card-body.p-4 {
+        padding: 0.5rem !important;
+    }
+    /* Override Bootstrap margin classes on mobile for projects */
+    .projects-section .mb-4,
+    .projects-section .mb-3,
+    .projects-section .mb-2,
+    .projects-section .mb-1 {
+        margin-bottom: 0.5rem !important;
+    }
+    .projects-section .me-3,
+    .projects-section .me-2,
+    .projects-section .me-1 {
+        margin-right: 0.5rem !important;
+    }
+    .projects-section .ms-1 {
+        margin-left: 0.25rem !important;
+    }
+    /* Override badge and button padding on tablet for projects */
+    .projects-section .badge {
+        padding: 0.375rem 0.75rem !important;
+        font-size: 0.8rem !important;
+    }
+    .projects-section .btn {
+        padding: 0.375rem 0.75rem !important;
+        font-size: 0.8rem !important;
     }
     .experience-section .timeline-date,
     .education-section .timeline-date {
@@ -1985,7 +2056,7 @@ html {
         padding-right: 0 !important;
     }
     .projects-section .project-card {
-        padding: 0.75rem 1rem 0.75rem 1rem !important;
+        padding: 0.25rem !important;
         margin-bottom: 1rem !important;
     }
     .projects-section .project-actions {
@@ -2015,7 +2086,7 @@ html {
         padding-right: 0 !important;
     }
     .projects-section .project-card {
-        padding: 0.5rem 0.75rem 0.5rem 0.75rem !important;
+        padding: 0.25rem !important;
         margin-bottom: 0.75rem !important;
     }
     .projects-section .project-actions {
@@ -2564,7 +2635,7 @@ html {
         padding-right: 0 !important;
     }
     .projects-section .project-card {
-        padding: 0.75rem 1rem 0.75rem 1rem !important;
+        padding: 0.25rem !important;
         margin-bottom: 1rem !important;
     }
     .projects-section .project-actions {
@@ -2594,7 +2665,7 @@ html {
         padding-right: 0 !important;
     }
     .projects-section .project-card {
-        padding: 0.5rem 0.75rem 0.5rem 0.75rem !important;
+        padding: 0.25rem !important;
         margin-bottom: 0.75rem !important;
     }
     .projects-section .project-actions {
