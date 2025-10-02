@@ -622,7 +622,6 @@
 
 /* All Sections Row Edge-to-Edge - Exclude Skills Section */
 
-.experience-section .row,
 .education-section .row,
 .certifications-section .row,
 .testimonials-section .row,
@@ -816,7 +815,6 @@
 
 /* Portfolio Section Rows - Match Home Page - Exclude Skills Section */
 
-.experience-section .row,
 .education-section .row,
 .certifications-section .row,
 .testimonials-section .row,
@@ -874,7 +872,6 @@
 /* Mobile Responsiveness - Match Home Page */
 
 @media (max-width: 768px) {
-    .experience-section .card,
     .education-section .education-card,
     .certifications-section .certification-card,
     .testimonials-section .testimonial-card,
@@ -1657,7 +1654,6 @@
         padding-right: 8px !important;
         max-width: 100% !important;
     }
-    .experience-section .row,
     .education-section .row,
     .certifications-section .row,
     .testimonials-section .row,
