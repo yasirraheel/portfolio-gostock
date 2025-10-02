@@ -459,7 +459,7 @@
 
                 <div class="row g-lg-0">
                     @foreach ($experiences->where('status', 'active') as $experience)
-                        <div class="col-lg-6 col-md-6 col-12">
+                        <div>
                             <div class="card h-100 border-0 shadow-sm">
                                 <div class="card-body p-4">
                                     {{-- Timeline Date Badge --}}
