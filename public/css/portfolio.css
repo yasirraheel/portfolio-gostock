@@ -644,8 +644,10 @@
 .certifications-section .col-md-12,
 .testimonials-section .col-lg-6,
 .testimonials-section .col-md-12,
-.projects-section .col-lg-6,
-.projects-section .col-md-12,
+
+/* .projects-section .col-lg-6,
+.projects-section .col-md-12, */
+
 .custom-section .col-lg-10,
 .custom-section .col-md-12 {
     padding-left: 0 !important;
@@ -658,11 +660,12 @@
 .education-section .row .col-lg-6,
 .certifications-section .row .col-lg-6,
 .testimonials-section .row .col-lg-6,
-.projects-section .row .col-lg-6 {
+
+/* .projects-section .row .col-lg-6 {
     flex: 0 0 50% !important;
     max-width: 50% !important;
     width: 50% !important;
-}
+} */
 
 
 /* Skills Section - Edge-to-Edge Grid System */
@@ -816,8 +819,10 @@
 .certifications-section .col-md-12,
 .testimonials-section .col-lg-6,
 .testimonials-section .col-md-12,
-.projects-section .col-lg-6,
-.projects-section .col-md-12,
+
+/* .projects-section .col-lg-6,
+.projects-section .col-md-12, */
+
 .custom-section .col-lg-10,
 .custom-section .col-md-12 {
     padding: 0 !important;
@@ -829,11 +834,12 @@
 .education-section .row .col-lg-6,
 .certifications-section .row .col-lg-6,
 .testimonials-section .row .col-lg-6,
-.projects-section .row .col-lg-6 {
+
+/* .projects-section .row .col-lg-6 {
     flex: 0 0 50% !important;
     max-width: 50% !important;
     width: 50% !important;
-}
+} */
 
 
 /* Skills Section - Keep Bootstrap Grid System */
@@ -1642,8 +1648,8 @@
     .certifications-section .col-md-12,
     .testimonials-section .col-lg-6,
     .testimonials-section .col-md-12,
-    .projects-section .col-lg-6,
-    .projects-section .col-md-12,
+    /* .projects-section .col-lg-6,
+    .projects-section .col-md-12, */
     .custom-section .col-lg-10,
     .custom-section .col-md-12 {
         padding-left: 4px !important;
@@ -2412,11 +2418,11 @@ html {
     .education-section .row .col-lg-6,
     .certifications-section .row .col-lg-6,
     .testimonials-section .row .col-lg-6,
-    .projects-section .row .col-lg-6 {
+    /* .projects-section .row .col-lg-6 {
         flex: 0 0 50% !important;
         max-width: 50% !important;
         width: 50% !important;
-    }
+    } */
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
     .education-section .row .col-lg-6,
