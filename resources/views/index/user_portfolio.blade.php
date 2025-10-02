@@ -360,11 +360,11 @@
         });
     </script>
 
-    <div class="container-fluid py-large">
+    <div class="container-fluid">
 
         {{-- Skills Section --}}
         @if ($skills->count() > 0)
-            <div class="container px-5 mb-5 skills-section">
+            <div class="container px-1 mb-1 skills-section">
                 <div class="btn-block text-center mb-5">
                     <h3 class="m-0">{{ __('misc.skills') }}</h3>
                     <p class="text-muted">
