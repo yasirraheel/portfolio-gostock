@@ -55,29 +55,17 @@
             --color-default: {{ $user->portfolio_primary_color ?? '#268707' }} !important;
         }
 
-        /* CRITICAL: Force all sections to display 2 cards per row on desktop */
-        @media (min-width: 992px) {
-            .experience-section .row .col-lg-6,
-            .education-section .row .col-lg-6,
-            .certifications-section .row .col-lg-6,
-            .testimonials-section .row .col-lg-6,
-            .projects-section .row .col-lg-6 {
-                flex: 0 0 50% !important;
-                max-width: 50% !important;
-                width: 50% !important;
-            }
-        }
-
-        @media (min-width: 768px) and (max-width: 991.98px) {
-            .experience-section .row .col-lg-6,
-            .education-section .row .col-lg-6,
-            .certifications-section .row .col-lg-6,
-            .testimonials-section .row .col-lg-6,
-            .projects-section .row .col-lg-6 {
-                flex: 0 0 50% !important;
-                max-width: 50% !important;
-                width: 50% !important;
-            }
+        /* NUCLEAR OPTION: Force all sections to display 2 cards per row */
+        .experience-section .row .col-lg-6,
+        .education-section .row .col-lg-6,
+        .certifications-section .row .col-lg-6,
+        .testimonials-section .row .col-lg-6,
+        .projects-section .row .col-lg-6 {
+            flex: 0 0 50% !important;
+            max-width: 50% !important;
+            width: 50% !important;
+            display: block !important;
+            float: left !important;
         }
 
         @media (max-width: 767.98px) {
@@ -89,6 +77,7 @@
                 flex: 0 0 100% !important;
                 max-width: 100% !important;
                 width: 100% !important;
+                float: none !important;
             }
         }
     </style>
@@ -1227,6 +1216,29 @@
 
 @section('javascript')
     <script type="text/javascript">
+        // FORCE 2 CARDS PER ROW - NUCLEAR OPTION
+        document.addEventListener('DOMContentLoaded', function() {
+            // Force all sections to display 2 cards per row
+            const sections = [
+                '.experience-section .row .col-lg-6',
+                '.education-section .row .col-lg-6', 
+                '.certifications-section .row .col-lg-6',
+                '.testimonials-section .row .col-lg-6',
+                '.projects-section .row .col-lg-6'
+            ];
+            
+            sections.forEach(selector => {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(el => {
+                    el.style.flex = '0 0 50%';
+                    el.style.maxWidth = '50%';
+                    el.style.width = '50%';
+                    el.style.display = 'block';
+                    el.style.float = 'left';
+                });
+            });
+        });
+
         // Ensure avatar fallback works properly
         document.addEventListener('DOMContentLoaded', function() {
             const avatarImg = document.querySelector('.hero-avatar .avatar-image');
