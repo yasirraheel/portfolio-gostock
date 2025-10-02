@@ -622,7 +622,6 @@
 
 /* All Sections Row Edge-to-Edge - Exclude Skills Section */
 
-.testimonials-section .row,
 .custom-section .row {
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -811,12 +810,6 @@
 
 
 /* Portfolio Section Rows - Match Home Page - Exclude Skills Section */
-
-.testimonials-section .row,
-.custom-section .row {
-    margin: 0 !important;
-    gap: 1rem !important;
-}
 
 
 /* Skills Section - Keep Bootstrap Row */
@@ -1648,11 +1641,11 @@
         padding-right: 8px !important;
         max-width: 100% !important;
     }
-    .testimonials-section .row,
-    .custom-section .row {
+    /* .testimonials-section .row, */
+    /* .custom-section .row {
         margin-left: -4px !important;
         margin-right: -4px !important;
-    }
+    } */
     /* Skills Section - Edge-to-Edge Row on mobile */
     .skills-section .row {
         margin-left: -8px !important;

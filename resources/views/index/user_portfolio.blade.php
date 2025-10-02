@@ -548,7 +548,7 @@
 
         {{-- Projects Section --}}
         @if ($projects->count() > 0)
-            <div class="container px-5 mb-5 projects-section">
+            <div class="container px-5 mb-1 projects-section">
                 <div class="btn-block text-center mb-5">
                     <h3 class="m-0">{{ __('misc.projects') }}</h3>
                     <p class="text-muted">
@@ -556,7 +556,7 @@
                     </p>
                 </div>
 
-                <div class="row g-lg-0">
+                <div class="row g-4">
                     @foreach ($projects->take(6) as $project)
                         <div class="col-lg-6 col-md-6 col-12 mb-4">
                             <div class="project-card">
@@ -652,15 +652,15 @@
 
         {{-- Education Section --}}
         @if ($educations->count() > 0)
-            <div class="container px-5 mb-5 education-section">
-                <div class="btn-block text-center mb-5">
+            <div class="container px-1 mb-1 education-section">
+                <div class="btn-block text-center mb-1">
                     <h3 class="m-0">{{ __('misc.education') }}</h3>
                     <p class="text-muted">
                         {{ __('misc.my_educational_background') }}
                     </p>
                 </div>
 
-                <div class="row g-lg-0">
+                <div class="row g-4">
                     @foreach ($educations->where('status', 'active') as $education)
                         <div class="col-lg-6 col-md-6 col-12">
                                     <div class="education-card border-0 shadow-sm h-100">
@@ -762,7 +762,7 @@
 
         {{-- Certifications Section --}}
         @if ($certifications->count() > 0)
-            <div class="container px-5 mb-5 certifications-section">
+            <div class="container px-1 mb-1 certifications-section">
                 <div class="btn-block text-center mb-5">
                     <h3 class="m-0">{{ __('misc.certifications') }}</h3>
                     <p class="text-muted">
@@ -770,7 +770,7 @@
                     </p>
                 </div>
 
-                <div class="row g-lg-0">
+                <div class="row g-4">
                     @foreach ($certifications->where('status', 'active') as $certification)
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="certification-card border-0 shadow-sm h-100">
@@ -883,7 +883,7 @@
                     </p>
                 </div>
 
-                <div class="row g-lg-0">
+                <div class="row g-4">
                     @foreach ($testimonials->take(6) as $testimonial)
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="testimonial-card border-0 shadow-sm h-100">
