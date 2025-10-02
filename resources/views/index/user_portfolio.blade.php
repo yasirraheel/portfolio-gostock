@@ -45,7 +45,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ url('public/css/portfolio.css') }}">
-    <style>
+    {{-- <style>
         .home-cover {
             background-image: url('{{ $heroBackground }}') !important;
         }
@@ -80,7 +80,7 @@
                 float: none !important;
             }
         }
-    </style>
+    </style> --}}
 @endsection
 
 @section('favicon')
@@ -449,7 +449,7 @@
 
         {{-- Experience Section --}}
         @if ($experiences->count() > 0)
-            <div class="container px-5 mb-5 experience-section">
+            <div class="container px-5 mb-5">
                 <div class="btn-block text-center mb-5">
                     <h3 class="m-0">{{ __('misc.experience') }}</h3>
                     <p class="text-muted">
@@ -459,7 +459,7 @@
 
                 <div class="row g-lg-0">
                     @foreach ($experiences->where('status', 'active') as $experience)
-                        <div>
+                        <div class="col-lg-6 col-md-6 col-12">
                             <div class="card h-100 border-0 shadow-sm">
                                 <div class="card-body p-4">
                                     {{-- Timeline Date Badge --}}
