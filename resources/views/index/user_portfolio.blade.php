@@ -422,7 +422,7 @@
                     </p>
                 </div>
 
-                <div class="row g-lg-0">
+                <div class="row g-4">
                     @foreach ($experiences->where('status', 'active') as $experience)
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="card h-100 border-0 shadow-sm">
