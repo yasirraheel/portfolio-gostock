@@ -45,7 +45,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ url('public/css/portfolio.css') }}">
-    <style>
+    {{-- <style>
         .home-cover {
             background-image: url('{{ $heroBackground }}') !important;
         }
@@ -80,7 +80,7 @@
                 float: none !important;
             }
         }
-    </style>
+    </style> --}}
 @endsection
 
 @section('favicon')
