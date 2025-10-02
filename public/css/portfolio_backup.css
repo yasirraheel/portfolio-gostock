@@ -706,9 +706,9 @@
     .certifications-section .row .col-lg-6,
     .testimonials-section .row .col-lg-6,
     .projects-section .row .col-lg-6 {
-        flex: 0 0 calc(50% - 0.5rem) !important;
-        max-width: calc(50% - 0.5rem) !important;
-        width: calc(50% - 0.5rem) !important;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        width: 50% !important;
     }
 }
 
@@ -2473,31 +2473,9 @@ html {
     .certifications-section .row .col-lg-6,
     .testimonials-section .row .col-lg-6,
     .projects-section .row .col-lg-6 {
-        flex: 0 0 calc(50% - 0.5rem) !important;
-        max-width: calc(50% - 0.5rem) !important;
-        width: calc(50% - 0.5rem) !important;
-    }
-    /* Force projects section to use proper grid with gaps */
-    .projects-section .row {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        margin-left: -0.5rem !important;
-        margin-right: -0.5rem !important;
-    }
-    .projects-section .row .col-lg-6 {
-        padding-left: 0.5rem !important;
-        padding-right: 0.5rem !important;
-    }
-    /* Force education section to use proper grid with gaps */
-    .education-section .row {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        margin-left: -0.5rem !important;
-        margin-right: -0.5rem !important;
-    }
-    .education-section .row .col-lg-6 {
-        padding-left: 0.5rem !important;
-        padding-right: 0.5rem !important;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        width: 50% !important;
     }
 }
 
@@ -2506,31 +2484,9 @@ html {
     .certifications-section .row .col-lg-6,
     .testimonials-section .row .col-lg-6,
     .projects-section .row .col-lg-6 {
-        flex: 0 0 calc(50% - 0.5rem) !important;
-        max-width: calc(50% - 0.5rem) !important;
-        width: calc(50% - 0.5rem) !important;
-    }
-    /* Force projects section to use proper grid with gaps on tablet */
-    .projects-section .row {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        margin-left: -0.5rem !important;
-        margin-right: -0.5rem !important;
-    }
-    .projects-section .row .col-lg-6 {
-        padding-left: 0.5rem !important;
-        padding-right: 0.5rem !important;
-    }
-    /* Force education section to use proper grid with gaps on tablet */
-    .education-section .row {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        margin-left: -0.5rem !important;
-        margin-right: -0.5rem !important;
-    }
-    .education-section .row .col-lg-6 {
-        padding-left: 0.5rem !important;
-        padding-right: 0.5rem !important;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        width: 50% !important;
     }
 }
 
