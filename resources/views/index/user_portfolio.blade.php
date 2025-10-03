@@ -124,7 +124,7 @@
                                             <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center avatar-fallback"
                                                 style="width: 120px; height: 120px;
                                                        border: 4px solid {{ $user->portfolio_primary_color ?? 'rgba(255,255,255,0.2)' }};
-                                                       position: absolute; top: 0; left: 0; z-index: 1; display: none;">
+                                                       position: absolute; top: 0; left: 0; z-index: 1; display: none !important;">
                                                 <span class="fw-bold" style="font-size: 2.5rem;">{{ substr($user->name, 0, 2) }}</span>
                                             </div>
                                         </div>
@@ -1194,16 +1194,20 @@
             const avatarFallback = document.querySelector('.hero-avatar .avatar-fallback');
 
             if (avatarImg && avatarFallback) {
+                // Initially hide fallback if image exists
+                avatarFallback.style.display = 'none !important';
+                
                 // Check if image loaded successfully
                 avatarImg.addEventListener('load', function() {
                     // Image loaded successfully, ensure fallback is hidden
-                    avatarFallback.style.display = 'none';
+                    avatarImg.style.display = 'block';
+                    avatarFallback.style.display = 'none !important';
                 });
 
                 avatarImg.addEventListener('error', function() {
                     // Image failed to load, show fallback
                     this.style.display = 'none';
-                    avatarFallback.style.display = 'flex';
+                    avatarFallback.style.display = 'flex !important';
                 });
 
                 // Additional check after a short delay
@@ -1211,7 +1215,11 @@
                     if (avatarImg.complete && avatarImg.naturalHeight === 0) {
                         // Image failed to load
                         avatarImg.style.display = 'none';
-                        avatarFallback.style.display = 'flex';
+                        avatarFallback.style.display = 'flex !important';
+                    } else if (avatarImg.complete && avatarImg.naturalHeight > 0) {
+                        // Image loaded successfully
+                        avatarImg.style.display = 'block';
+                        avatarFallback.style.display = 'none !important';
                     }
                 }, 100);
             }
