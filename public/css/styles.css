@@ -17,7 +17,8 @@ html,
 body {
     height: 100%;
     overflow-x: hidden;
-    overflow-y: auto; /* Ensure scrollbar is always present when needed */
+    overflow-y: auto;
+    /* Ensure scrollbar is always present when needed */
 }
 
 
@@ -43,6 +44,7 @@ body.no-navbar {
 
 
 /* Navbar full width - scrollbar will naturally appear on top */
+
 #header.fixed-top {
     position: fixed !important;
     top: 0 !important;
@@ -198,8 +200,13 @@ input[type='file']:not(.custom-file) {
 }
 
 .home-cover {
-    padding: 40px 0;
-    /* Normal padding - navbar offset handled by body padding */
+    height: 850px; /* Fixed height matching recommended image size */
+    min-height: 850px;
+    max-height: 850px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cover-user {
@@ -209,8 +216,9 @@ input[type='file']:not(.custom-file) {
 
 @media screen and (min-width: 768px) {
     .home-cover {
-        padding: 200px 0 280px 0;
-        /* Normal responsive padding */
+        height: 850px; /* Maintain fixed height on desktop */
+        min-height: 850px;
+        max-height: 850px;
     }
     .cover-user {
         padding: 180px 0 280px 0;
@@ -1911,7 +1919,17 @@ span.highlight::after {
 /* Landing Page Styles */
 
 .min-vh-75 {
-    min-height: 75vh;
+    min-height: auto; /* Removed to allow hero section to control its own height */
+}
+
+/* Mobile hero section adjustment */
+@media (max-width: 767px) {
+    .home-cover {
+        height: auto !important;
+        min-height: 500px !important;
+        max-height: none !important;
+        padding: 60px 0 40px 0 !important;
+    }
 }
 
 
