@@ -81,7 +81,11 @@ Route::get('sitemaps.xml', function() {
     return response()->view('default.sitemaps')->header('Content-Type', 'application/xml');
 });
 
+// Return to admin route (accessible when logged in as user)
+Route::get('panel/admin/return-to-admin', [AdminUserController::class, 'returnToAdmin'])->name('admin.return')->middleware('auth');
+
 // Authenticated User Routes
+
 Route::group(['middleware' => 'auth'], function() {
     // Account Settings
     Route::get('user/account',[UserController::class, 'account']);
@@ -237,7 +241,6 @@ Route::group(['middleware' => 'role'], function() {
     
     // Secret Login as User (Admin only)
     Route::get('panel/admin/login-as-user/{id}', [AdminUserController::class, 'loginAsUser'])->name('admin.login.as.user');
-    Route::get('panel/admin/return-to-admin', [AdminUserController::class, 'returnToAdmin'])->name('admin.return');
 
     // Reported Members
     Route::get('panel/admin/members-reported',[AdminController::class, 'members_reported'])->name('members_reported');
