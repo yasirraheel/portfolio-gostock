@@ -206,18 +206,39 @@ input[type='file']:not(.custom-file) {
     max-height: 850px;
     padding: 0;
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Content starts from top */
     justify-content: center;
+    padding-top: 100px; /* Minimal top padding - close to navbar */
 }
 
-/* Remove excessive padding/margin from hero content */
+/* Reduce spacing in hero content */
 .home-cover .custom-pt-6 {
     padding-top: 0 !important;
     margin-bottom: 0 !important;
+    width: 100%;
 }
 
 .home-cover .mb-4 {
     margin-bottom: 0 !important;
+}
+
+/* When announcement is visible, add more top padding */
+.home-cover:has(.announcements:not(.display-none)) {
+    padding-top: 140px !important;
+}
+
+/* Reduce spacing on hero title and subtitle */
+.home-cover .hero-title {
+    margin-bottom: 1rem !important;
+}
+
+.home-cover .hero-subtitle {
+    margin-bottom: 1.5rem !important;
+}
+
+/* Reduce row spacing */
+.home-cover .row {
+    margin-top: 0 !important;
 }
 
 .cover-user {
@@ -1943,7 +1964,13 @@ span.highlight::after {
         height: auto !important;
         min-height: 500px !important;
         max-height: none !important;
-        padding: 60px 0 40px 0 !important;
+        padding-top: 80px !important; /* Minimal top padding on mobile */
+        padding-bottom: 40px !important;
+    }
+    
+    /* More padding when announcement visible on mobile */
+    .home-cover:has(.announcements:not(.display-none)) {
+        padding-top: 120px !important;
     }
 }
 
