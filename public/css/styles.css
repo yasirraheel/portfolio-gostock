@@ -49,8 +49,8 @@ body.no-navbar {
     left: 0 !important;
     right: auto !important;
     /* Key change: auto instead of 0 to not cover scrollbar */
-    width: calc(100% - 17px) !important;
-    /* Subtract scrollbar width (typically 17px on Windows) */
+    width: calc(100% - 2px) !important;
+    /* Very small gap (2px) - just enough to not cover scrollbar */
     max-width: none !important;
     z-index: 1050 !important;
 }
@@ -58,10 +58,10 @@ body.no-navbar {
 
 /* Alternative approach - let it be 100% but ensure scrollbar is always visible */
 
-@supports not (width: calc(100% - 17px)) {
+@supports not (width: calc(100% - 2px)) {
     #header.fixed-top {
         width: 100% !important;
-        right: 17px !important;
+        right: 2px !important;
         /* Push it away from scrollbar */
     }
 }
