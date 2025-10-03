@@ -204,7 +204,7 @@ input[type='file']:not(.custom-file) {
 }
 
 
-/* Reduce spacing in hero content */
+/* Adjust spacing in hero content */
 
 .home-cover .custom-pt-6 {
     padding-top: 0 !important;
@@ -212,8 +212,17 @@ input[type='file']:not(.custom-file) {
     width: 100%;
 }
 
-.home-cover .mb-4 {
-    margin-bottom: 0 !important;
+/* Add spacing between hero elements */
+.home-cover .hero-title {
+    margin-bottom: 1.5rem !important;
+}
+
+.home-cover .hero-subtitle {
+    margin-bottom: 1.5rem !important;
+}
+
+.home-cover .hero-buttons {
+    margin-top: 1rem !important;
 }
 
 
