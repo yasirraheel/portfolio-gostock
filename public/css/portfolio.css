@@ -43,7 +43,7 @@
 }
 
 
-/* Remove excessive spacing in hero content */
+/* Adjust spacing in hero content */
 
 .portfolio-hero.home-cover .container-fluid {
     padding: 0 !important;
@@ -55,6 +55,25 @@
     padding-top: 0 !important;
     margin-bottom: 0 !important;
     width: 100%;
+}
+
+/* Add spacing between portfolio hero elements */
+.portfolio-hero.home-cover .hero-name {
+    margin-bottom: 1.5rem !important;
+}
+
+.portfolio-hero.home-cover .hero-bio {
+    margin-bottom: 1.5rem !important;
+}
+
+.portfolio-hero.home-cover .hero-profile .d-flex,
+.portfolio-hero.home-cover .hero-stats {
+    margin-top: 1rem !important;
+}
+
+.portfolio-hero.home-cover .mb-3,
+.portfolio-hero.home-cover .mb-4 {
+    margin-bottom: 1.5rem !important;
 }
 
 .portfolio-hero.home-cover .container {
