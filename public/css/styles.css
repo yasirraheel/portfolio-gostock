@@ -16,13 +16,15 @@ html.loading {
 html {
     height: 100%;
     overflow-x: hidden;
-    overflow-y: scroll; /* Always show scrollbar space */
+    overflow-y: auto; /* Single scrollbar */
 }
 
 body {
     height: 100%;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: visible; /* No second scrollbar */
+    margin: 0;
+    padding: 0;
 }
 
 
