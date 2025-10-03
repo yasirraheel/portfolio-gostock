@@ -244,7 +244,7 @@ input[type='file']:not(.custom-file) {
 .home-cover,
 .cover-user {
     background: no-repeat center center #D1D1D1;
-    background-size: auto;
+    background-size: cover;
     position: relative;
 }
 
