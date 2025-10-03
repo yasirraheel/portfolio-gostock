@@ -19,13 +19,14 @@ body {
     overflow-x: hidden;
 }
 
-/* Fix main content to prevent navbar overlay */
-main {
-    padding-top: 80px; /* Account for fixed navbar height */
+/* Fix main content to prevent navbar overlay - CRITICAL FIX */
+/* The fixed-top navbar covers content, so we add top spacing */
+body {
+    padding-top: 76px; /* Height of fixed navbar (py-3 + logo height) */
 }
 
-/* Remove padding for pages without navbar */
-main.no-navbar {
+/* For pages without navbar (login, register) */
+body.no-navbar {
     padding-top: 0;
 }
 
@@ -174,24 +175,19 @@ input[type='file']:not(.custom-file) {
 }
 
 .home-cover {
-    padding: 0; /* Removed padding since main element now has padding-top */
-    margin-top: -80px; /* Compensate for main padding to make hero full height */
-    padding-top: 80px; /* Add padding inside to push content down */
+    padding: 40px 0; /* Normal padding - navbar offset handled by body padding */
 }
 
 .cover-user {
-    padding: 40px 0 120px 0; /* Reduced top padding since main has padding */
-    margin-top: -80px; /* Compensate for main padding */
+    padding: 120px 0; /* Normal padding - navbar offset handled by body padding */
 }
 
 @media screen and (min-width: 768px) {
     .home-cover {
-        padding: 200px 0 280px 0; /* Keep desktop padding as is */
-        margin-top: -80px; /* Compensate for main padding */
+        padding: 200px 0 280px 0; /* Normal responsive padding */
     }
     .cover-user {
-        padding: 180px 0 280px 0;
-        margin-top: -80px; /* Compensate for main padding */
+        padding: 180px 0 280px 0; /* Normal responsive padding */
     }
     .pt-6 {
         padding-top: 4.5rem!important;
