@@ -18,6 +18,7 @@ return array(
 	'view_site'                 =>      'View site',
 	'main_menu'                 =>      'Main Menu',
 	'success_update'            =>      'Changes saved successfully',
+	'success_delete'            =>      'User deleted successfully',
 	'more_info'                 =>      'More info',
 	'general_settings'          =>      'General Settings',
 	'pages'                     =>      'Pages',

@@ -125,6 +125,8 @@ class AdminUserController extends Controller {
 
 	 $this->deleteUser($id);
 
+	 \Session::flash('success_message', trans('admin.success_delete'));
+
       return redirect('panel/admin/members');
 
 	}//<--- End Method
@@ -159,13 +161,7 @@ class AdminUserController extends Controller {
 		}
 	}
 
-	// Downloads
-	$downloads = Downloads::where('user_id', '=', $id)->get();
-	if( isset( $downloads ) ){
-		foreach($downloads as $download){
-			$download->delete();
-		}
-	}
+	// Downloads functionality removed for universal starter kit
 
 	// Followers
 	$followers = Followers::where( 'follower', $id )->orwhere('following',$id)->get();
@@ -186,46 +182,7 @@ class AdminUserController extends Controller {
 		}
 	}
 
-	// Images Reported
-	$images_reporteds = ImagesReported::where('user_id', '=', $id)->get();
-
-	if(isset( $images_reporteds ) ){
-		foreach ($images_reporteds as $images_reported ) {
-				$images_reported->delete();
-			}// End
-	}
-
-	// Images
-    $images = Images::where('user_id', '=', $id)->get();
-
-	if(isset( $images )) {
-		foreach($images as $image) {
-
-			// Collections Images functionality removed for universal starter kit
-
-			//<---- ALL RESOLUTIONS IMAGES
-			$stocks = Stock::where('images_id', '=', $image->id)->get();
-
-			foreach($stocks as $stock) {
-
-				// Delete Stock
-  			Storage::delete(config('path.uploads').$stock->type.'/'.$stock->name);
-
-  			// Delete Stock Vector
-  			Storage::delete(config('path.files').$stock->name);
-
-				$stock->delete();
-			}
-
-			// Delete preview
-  		Storage::delete(config('path.preview').$image->preview);
-
-  		// Delete thumbnail
-  		Storage::delete(config('path.thumbnail').$image->thumbnail);
-
-			$image->delete();
-		}
-	}// End
+	// Images and Stock functionality removed for universal starter kit
 
 	// User Reported
 	$users_reporteds = UsersReported::where('user_id', '=', $id)->orWhere('id_reported', '=', $id)->get();
