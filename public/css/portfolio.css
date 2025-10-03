@@ -38,8 +38,9 @@
     align-items: flex-start !important;
     /* Content starts from top */
     justify-content: center !important;
-    padding-top: 140px !important;
-    /* Minimal gap to avoid overlap with navbar */
+    padding-top: 0 !important;
+    /* No gap - hero starts immediately after navbar */
+    margin-top: 0 !important;
 }
 
 
@@ -52,12 +53,14 @@
 }
 
 .portfolio-hero.home-cover .custom-pt-6 {
-    padding-top: 0 !important;
+    padding-top: 120px !important; /* Account for fixed navbar */
     margin-bottom: 0 !important;
     width: 100%;
 }
 
+
 /* Add spacing between portfolio hero elements */
+
 .portfolio-hero.home-cover .hero-name {
     margin-bottom: 1.5rem !important;
 }
@@ -97,8 +100,7 @@
         height: auto !important;
         min-height: 500px !important;
         max-height: none !important;
-        padding-top: 80px !important;
-        /* Minimal top padding on mobile */
+        padding-top: 0 !important; /* No gap on mobile */
         padding-bottom: 40px !important;
         background-size: cover !important;
         background-position: center center !important;
@@ -107,7 +109,7 @@
         padding: 0 !important;
     }
     .portfolio-hero.home-cover .custom-pt-6 {
-        padding: 0 !important;
+        padding-top: 100px !important; /* Account for mobile navbar */
     }
     .portfolio-hero.home-cover .container {
         padding: 20px 15px !important;
@@ -159,8 +161,11 @@
 
 @media (max-width: 576px) {
     .portfolio-hero.home-cover {
-        padding-top: 80px !important;
+        padding-top: 0 !important; /* No gap on small mobile */
         padding-bottom: 30px !important;
+    }
+    .portfolio-hero.home-cover .custom-pt-6 {
+        padding-top: 90px !important; /* Account for small mobile navbar */
     }
     .portfolio-hero.home-cover .container {
         padding: 15px 10px !important;
