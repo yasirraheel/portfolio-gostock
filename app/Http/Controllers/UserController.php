@@ -12,7 +12,6 @@ use Illuminate\Http\Request;
 use App\Models\AdminSettings;
 use App\Models\Notifications;
 use App\Models\UsersReported;
-use App\Models\CollectionsImages;
 use App\Models\ReferralTransactions;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;

@@ -131,22 +131,7 @@ class AdminUserController extends Controller {
 
 	public function userSuspended($id) {
 
-		// Collections
-	$collections = Collections::where('user_id', '=', $id)->get();
-
-	if( isset( $collections ) ){
-		foreach($collections as $collection){
-
-			// Collections
-		$collectionsImages = CollectionsImages::where('images_id', '=', $collection->id)->get();
-		 if( isset( $collectionsImages ) ){
-				foreach($collectionsImages as $collectionsImage) {
-					$collectionsImage->delete();
-				}
-			}
-   $collection->delete();
-		}
-	}
+		// Collections functionality removed for universal starter kit
 
 	// Comments Delete
 	$comments = Comments::where('user_id', '=', $id)->get();
@@ -216,13 +201,7 @@ class AdminUserController extends Controller {
 	if(isset( $images )) {
 		foreach($images as $image) {
 
-			// Collections Images
-		$collectionsImagesUsers = CollectionsImages::where('images_id', '=', $image->id)->get();
-		 if(isset( $collectionsImagesUsers ) ) {
-				foreach($collectionsImagesUsers as $collectionsImagesUser){
-					$collectionsImagesUser->delete();
-				}
-			}
+			// Collections Images functionality removed for universal starter kit
 
 			//<---- ALL RESOLUTIONS IMAGES
 			$stocks = Stock::where('images_id', '=', $image->id)->get();

@@ -309,28 +309,13 @@ class HomeController extends Controller
     }
   }
 
+  /* COMMENTED OUT - Collections functionality removed for universal starter kit
   public function collections(Request $request)
   {
-    $title = __('misc.collections') . ' - ';
-
-    $data = Collections::has('collectionImages')
-      ->where('type', 'public')
-      ->orderBy('id', 'desc')
-      ->with(['collectionImages' => function($q) {
-        $q->with(['stockCollection', 'images']);
-      } , 'creator'])
-      ->paginate(config('settings.result_request'));
-
-    if ($request->input('page') > $data->lastPage()) {
-      abort('404');
-    }
-
-    if (request()->ajax()) {
-      return view('includes.collections-grid', ['data' => $data])->render();
-    }
-
-    return view('default.collections', ['title' => $title, 'data' => $data]);
-  } //<--- End Method
+    // Collections functionality removed for universal starter kit
+    abort(404);
+  }
+  END COMMENTED OUT */ //<--- End Method
 
   public function contact()
   {
