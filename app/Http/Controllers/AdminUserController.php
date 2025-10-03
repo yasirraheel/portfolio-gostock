@@ -131,6 +131,70 @@ class AdminUserController extends Controller {
 
 	}//<--- End Method
 
+	/**
+	 * Login as a specific user (Admin only)
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function loginAsUser($id) {
+		
+		$user = User::findOrFail($id);
+		
+		// Security check - prevent admin from logging in as themselves
+		if ($user->id == Auth::user()->id) {
+			\Session::flash('error_message', trans('admin.cannot_login_as_self'));
+			return redirect('panel/admin/members');
+		}
+		
+		// Security check - prevent logging in as super admin (ID 1)
+		if ($user->id == 1) {
+			\Session::flash('error_message', trans('admin.cannot_login_as_super_admin'));
+			return redirect('panel/admin/members');
+		}
+		
+		// Store current admin ID in session for return functionality
+		\Session::put('admin_id', Auth::user()->id);
+		\Session::put('admin_name', Auth::user()->name);
+		
+		// Login as the selected user
+		Auth::login($user);
+		
+		\Session::flash('success_message', trans('admin.success_login_as_user', ['name' => $user->name]));
+		
+		return redirect('/');
+		
+	}//<--- End Method
+
+	/**
+	 * Return to admin account
+	 *
+	 * @return Response
+	 */
+	public function returnToAdmin() {
+		
+		$adminId = \Session::get('admin_id');
+		
+		if (!$adminId) {
+			\Session::flash('error_message', trans('admin.no_admin_session'));
+			return redirect('/');
+		}
+		
+		$admin = User::findOrFail($adminId);
+		
+		// Login as admin
+		Auth::login($admin);
+		
+		// Clear admin session data
+		\Session::forget('admin_id');
+		\Session::forget('admin_name');
+		
+		\Session::flash('success_message', trans('admin.success_return_admin'));
+		
+		return redirect('panel/admin/members');
+		
+	}//<--- End Method
+
 	public function userSuspended($id) {
 
 		// Collections functionality removed for universal starter kit

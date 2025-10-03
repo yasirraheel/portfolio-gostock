@@ -106,13 +106,20 @@
 
                     @if ($user->id <> auth()->user()->id && $user->id <> 1)
 
-                  <a href="{{ url('panel/admin/members/edit', $user->id) }}" class="text-reset fs-5 me-2">
+                  <a href="{{ url('panel/admin/members/edit', $user->id) }}" class="text-reset fs-5 me-2" title="{{ __('admin.edit') }}">
                          <i class="far fa-edit"></i>
+                       </a>
+
+                  <a href="{{ route('admin.login.as.user', $user->id) }}" 
+                     class="text-primary fs-5 me-2" 
+                     title="{{ __('admin.login_as_user') }}"
+                     onclick="return confirm('{{ __('admin.login_as_user_confirm') }}')">
+                         <i class="fas fa-user-secret"></i>
                        </a>
 
                 <form action="{{ route('user.destroy', $user->id) }}" method="POST" id="form{{ $user->id }}" class="d-inline-block align-top">
                   @csrf
-                  <button type="button" data-url="{{ $user->id }}" class="btn btn-link text-danger e-none fs-5 p-0 actionDelete">
+                  <button type="button" data-url="{{ $user->id }}" class="btn btn-link text-danger e-none fs-5 p-0 actionDelete" title="{{ __('admin.delete') }}">
                       <i class="bi-trash-fill"></i>
                   </button>
               </form>

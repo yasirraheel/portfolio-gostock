@@ -234,6 +234,10 @@ Route::group(['middleware' => 'role'], function() {
     Route::get('panel/admin/members/edit/{id}',[AdminUserController::class, 'edit']);
     Route::post('panel/admin/members/edit/{id}', [AdminUserController::class, 'update']);
     Route::post('panel/admin/members/{id}', [AdminUserController::class, 'destroy'])->name('user.destroy');
+    
+    // Secret Login as User (Admin only)
+    Route::get('panel/admin/login-as-user/{id}', [AdminUserController::class, 'loginAsUser'])->name('admin.login.as.user');
+    Route::get('panel/admin/return-to-admin', [AdminUserController::class, 'returnToAdmin'])->name('admin.return');
 
     // Reported Members
     Route::get('panel/admin/members-reported',[AdminController::class, 'members_reported'])->name('members_reported');

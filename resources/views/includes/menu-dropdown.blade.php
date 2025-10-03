@@ -3,6 +3,11 @@
   <li><hr class="dropdown-divider"></li>
 @endif
 
+@if (session('admin_id') && session('admin_name'))
+  <li><a class="dropdown-item text-warning fw-bold" href="{{ route('admin.return') }}"><i class="fas fa-user-secret me-2"></i> {{ __('admin.return_to_admin') }} ({{ session('admin_name') }})</a></li>
+  <li><hr class="dropdown-divider"></li>
+@endif
+
 <li>
 <a class="dropdown-item" href="{{ url('user/account') }}">
     <i class="bi bi-gear me-2"></i> {{ __('users.account_settings') }}
