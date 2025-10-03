@@ -21,18 +21,14 @@ body {
 
 
 /* Fix main content to prevent navbar overlay - CRITICAL FIX */
-
-
 /* The fixed-top navbar covers content, so we add top spacing */
+/* Only apply to pages with the fixed navbar (#header.fixed-top) */
 
-body {
-    padding-top: 76px;
-    /* Height of fixed navbar (py-3 + logo height) */
+body:has(#header.fixed-top) {
+    padding-top: 76px; /* Height of fixed navbar (py-3 + logo height) */
 }
 
-
-/* For pages without navbar (login, register) */
-
+/* For pages without navbar (login, register, admin) */
 body.no-navbar {
     padding-top: 0;
 }
