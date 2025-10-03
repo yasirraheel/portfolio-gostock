@@ -366,8 +366,8 @@
     }
     /* Reduce padding on hero container for tablets */
     .portfolio-hero .container.px-5 {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
     }
 }
 
@@ -380,17 +380,17 @@
         border-radius: 0 !important;
     }
     .portfolio-hero .hero-bio-container .hero-bio {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
     }
     /* Reduce padding on hero container for mobile */
     .portfolio-hero .container.px-5 {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
     }
     .portfolio-hero .hero-content {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
     }
     /* Minimal card body padding on small mobile */
     .experience-section .card-body,
@@ -400,11 +400,11 @@
     .projects-section .card-body,
     .custom-section .card-body,
     .skills-section .card-body {
-        padding: 0.25rem !important;
+        padding: 0.5rem !important;
     }
     /* Override Bootstrap p-4 class on mobile for projects */
     .projects-section .card-body.p-4 {
-        padding: 0.25rem !important;
+        padding: 0.5rem !important;
     }
     /* Override Bootstrap margin classes on small mobile for projects */
     .projects-section .mb-4,
@@ -1643,11 +1643,11 @@
     .projects-section .card-body,
     .custom-section .card-body,
     .skills-section .card-body {
-        padding: 0.5rem !important;
+        padding: 0.75rem !important;
     }
     /* Override Bootstrap p-4 class on tablet for projects */
     .projects-section .card-body.p-4 {
-        padding: 0.5rem !important;
+        padding: 0.75rem !important;
     }
     /* Override Bootstrap margin classes on mobile for projects */
     .projects-section .mb-4,
@@ -1718,8 +1718,8 @@
     .projects-section.container,
     .custom-section.container,
     .skills-section.container {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
         max-width: 100% !important;
     }
     .education-section .row,
@@ -1747,13 +1747,13 @@
     .skills-section .col-12,
     .experience-section .col-lg-6,
     .experience-section .col-md-12 {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
     }
     /* Remove px-5 class effects on mobile - make edge-to-edge */
     .px-5 {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
     }
     /* Ensure cards take full width with minimal margin - edge-to-edge on mobile */
     .experience-section .card,
@@ -2052,11 +2052,11 @@ html {
         max-width: 100vw !important;
         margin-left: calc(-50vw + 50%) !important;
         margin-right: calc(-50vw + 50%) !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
     }
     .projects-section .project-card {
-        padding: 0.25rem !important;
+        padding: 0.5rem !important;
         margin-bottom: 1rem !important;
     }
     .projects-section .project-actions {
@@ -2082,11 +2082,11 @@ html {
         max-width: 100vw !important;
         margin-left: calc(-50vw + 50%) !important;
         margin-right: calc(-50vw + 50%) !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
     }
     .projects-section .project-card {
-        padding: 0.25rem !important;
+        padding: 0.5rem !important;
         margin-bottom: 0.75rem !important;
     }
     .projects-section .project-actions {
@@ -2459,8 +2459,8 @@ html {
         max-width: 100vw !important;
         margin-left: calc(-50vw + 50%) !important;
         margin-right: calc(-50vw + 50%) !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
     }
     /* Ensure contact info is centered on small mobile */
     .portfolio-hero .contact-info {
@@ -2631,11 +2631,11 @@ html {
         max-width: 100vw !important;
         margin-left: calc(-50vw + 50%) !important;
         margin-right: calc(-50vw + 50%) !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
     }
     .projects-section .project-card {
-        padding: 0.25rem !important;
+        padding: 0.5rem !important;
         margin-bottom: 1rem !important;
     }
     .projects-section .project-actions {
@@ -2661,11 +2661,11 @@ html {
         max-width: 100vw !important;
         margin-left: calc(-50vw + 50%) !important;
         margin-right: calc(-50vw + 50%) !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
     }
     .projects-section .project-card {
-        padding: 0.25rem !important;
+        padding: 0.5rem !important;
         margin-bottom: 0.75rem !important;
     }
     .projects-section .project-actions {
