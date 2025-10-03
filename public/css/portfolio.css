@@ -1,59 +1,6 @@
 /* Portfolio Specific Styles */
 
 
-/* Override main styles.css home-cover padding for portfolio pages */
-
-.container-fluid.home-cover.portfolio-hero,
-.portfolio-hero.home-cover,
-.portfolio-hero {
-    padding: 0 !important;
-    margin: 0 !important;
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-    position: relative !important;
-    top: 0 !important;
-}
-
-/* Force hero to start from absolute top */
-.portfolio-hero.home-cover {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-    top: 0 !important;
-    position: relative !important;
-}
-
-
-/* Override original styles.css home-cover padding */
-
-.portfolio-hero.home-cover {
-    padding: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-
-/* Override media query padding from original styles.css */
-
-@media screen and (min-width: 768px) {
-    .portfolio-hero.home-cover,
-    .portfolio-hero {
-        padding: 0 !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-    }
-}
-
-/* Additional aggressive overrides to eliminate any gap */
-.portfolio-hero.home-cover,
-.container-fluid.home-cover.portfolio-hero {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-    top: 0 !important;
-    position: relative !important;
-    transform: translateY(0) !important;
-}
-
-
 /* Fix navbar z-index to ensure it stays on top */
 
 #header {
@@ -68,20 +15,6 @@
     padding-right: 0 !important;
 }
 
-/* Fix skills section overlap with hero */
-.skills-section {
-    margin-top: 60px !important;
-    padding-top: 40px !important;
-    position: relative !important;
-    z-index: 10 !important;
-}
-
-/* Ensure proper spacing after hero section */
-.container-fluid:has(.portfolio-hero) + .container-fluid {
-    margin-top: 60px !important;
-    padding-top: 40px !important;
-}
-
 .portfolio-content .container {
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -91,12 +24,7 @@
 
 /* Portfolio Hero Background - Match home page (850px height) */
 
-
-/* Override main styles.css for portfolio pages */
-
-.portfolio-hero.home-cover,
-.portfolio-hero,
-.container-fluid.home-cover.portfolio-hero {
+.portfolio-hero.home-cover {
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
@@ -110,13 +38,12 @@
     align-items: flex-start !important;
     /* Content starts from top */
     justify-content: center !important;
-    padding-top: 0 !important;
-    /* No gap - hero starts immediately after navbar */
-    margin-top: 0 !important;
+    padding-top: 100px !important;
+    /* Minimal top padding - close to navbar */
 }
 
 
-/* Adjust spacing in hero content */
+/* Remove excessive spacing in hero content */
 
 .portfolio-hero.home-cover .container-fluid {
     padding: 0 !important;
@@ -125,31 +52,9 @@
 }
 
 .portfolio-hero.home-cover .custom-pt-6 {
-    padding-top: 120px !important;
-    /* Account for fixed navbar */
+    padding-top: 0 !important;
     margin-bottom: 0 !important;
     width: 100%;
-}
-
-
-/* Add spacing between portfolio hero elements */
-
-.portfolio-hero.home-cover .hero-name {
-    margin-bottom: 1.5rem !important;
-}
-
-.portfolio-hero.home-cover .hero-bio {
-    margin-bottom: 1.5rem !important;
-}
-
-.portfolio-hero.home-cover .hero-profile .d-flex,
-.portfolio-hero.home-cover .hero-stats {
-    margin-top: 1rem !important;
-}
-
-.portfolio-hero.home-cover .mb-3,
-.portfolio-hero.home-cover .mb-4 {
-    margin-bottom: 1.5rem !important;
 }
 
 .portfolio-hero.home-cover .container {
@@ -173,8 +78,8 @@
         height: auto !important;
         min-height: 500px !important;
         max-height: none !important;
-        padding-top: 0 !important;
-        /* No gap on mobile */
+        padding-top: 80px !important;
+        /* Minimal top padding on mobile */
         padding-bottom: 40px !important;
         background-size: cover !important;
         background-position: center center !important;
@@ -183,8 +88,7 @@
         padding: 0 !important;
     }
     .portfolio-hero.home-cover .custom-pt-6 {
-        padding-top: 100px !important;
-        /* Account for mobile navbar */
+        padding: 0 !important;
     }
     .portfolio-hero.home-cover .container {
         padding: 20px 15px !important;
@@ -236,13 +140,8 @@
 
 @media (max-width: 576px) {
     .portfolio-hero.home-cover {
-        padding-top: 0 !important;
-        /* No gap on small mobile */
+        padding-top: 80px !important;
         padding-bottom: 30px !important;
-    }
-    .portfolio-hero.home-cover .custom-pt-6 {
-        padding-top: 90px !important;
-        /* Account for small mobile navbar */
     }
     .portfolio-hero.home-cover .container {
         padding: 15px 10px !important;
