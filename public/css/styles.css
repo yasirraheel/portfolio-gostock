@@ -43,7 +43,7 @@ body.no-navbar {
 }
 
 
-/* Navbar full width - scrollbar will naturally appear on top */
+/* Navbar full width - but leave space for scrollbar */
 
 #header.fixed-top {
     position: fixed !important;
@@ -53,6 +53,35 @@ body.no-navbar {
     width: 100% !important;
     max-width: 100% !important;
     z-index: 1050 !important;
+}
+
+/* Ensure scrollbar track and thumb are always visible above navbar */
+::-webkit-scrollbar {
+    width: 17px;
+    z-index: 9999;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.5);
+    border: 3px solid transparent;
+    background-clip: padding-box;
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
 }
 
 
@@ -206,12 +235,16 @@ input[type='file']:not(.custom-file) {
     max-height: 850px;
     padding: 0;
     display: flex;
-    align-items: flex-start; /* Content starts from top */
+    align-items: flex-start;
+    /* Content starts from top */
     justify-content: center;
-    padding-top: 100px; /* Minimal top padding - close to navbar */
+    padding-top: 100px;
+    /* Minimal top padding - close to navbar */
 }
 
+
 /* Reduce spacing in hero content */
+
 .home-cover .custom-pt-6 {
     padding-top: 0 !important;
     margin-bottom: 0 !important;
@@ -222,12 +255,16 @@ input[type='file']:not(.custom-file) {
     margin-bottom: 0 !important;
 }
 
+
 /* When announcement is visible, add more top padding */
+
 .home-cover:has(.announcements:not(.display-none)) {
     padding-top: 140px !important;
 }
 
+
 /* Reduce spacing on hero title and subtitle */
+
 .home-cover .hero-title {
     margin-bottom: 1rem !important;
 }
@@ -236,7 +273,9 @@ input[type='file']:not(.custom-file) {
     margin-bottom: 1.5rem !important;
 }
 
+
 /* Reduce row spacing */
+
 .home-cover .row {
     margin-top: 0 !important;
 }
@@ -1964,10 +2003,10 @@ span.highlight::after {
         height: auto !important;
         min-height: 500px !important;
         max-height: none !important;
-        padding-top: 80px !important; /* Minimal top padding on mobile */
+        padding-top: 80px !important;
+        /* Minimal top padding on mobile */
         padding-bottom: 40px !important;
     }
-    
     /* More padding when announcement visible on mobile */
     .home-cover:has(.announcements:not(.display-none)) {
         padding-top: 120px !important;
