@@ -43,45 +43,42 @@ body.no-navbar {
 }
 
 
-/* Navbar full width - but leave space for scrollbar */
+/* Navbar - leave gap for scrollbar to be fully visible */
 
 #header.fixed-top {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
+    right: 17px !important; /* Leave space for scrollbar */
+    width: calc(100% - 17px) !important;
+    max-width: calc(100% - 17px) !important;
     z-index: 1050 !important;
 }
 
-/* Ensure scrollbar track and thumb are always visible above navbar */
+/* Custom scrollbar styling for better visibility */
+
 ::-webkit-scrollbar {
     width: 17px;
-    z-index: 9999;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+    background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.3);
+    background: #888;
     border-radius: 10px;
-    border: 3px solid transparent;
-    background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.5);
-    border: 3px solid transparent;
-    background-clip: padding-box;
+    background: #555;
 }
 
 /* For Firefox */
+
 * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+    scrollbar-color: #888 #f1f1f1;
 }
 
 
