@@ -40,7 +40,7 @@
                 <div class="input-group mb-1">
                   <input name="logo" type="file" class="form-control custom-file rounded-pill">
                 </div>
-                <small class="d-block">{{ __('misc.recommended_size') }} 400x400 px (PNG)</small>
+                <small class="d-block">{{ __('misc.recommended_size') }} 400x400 px (PNG, JPG, GIF, WEBP, SVG)</small>
 		          </div>
 		        </div>
 
@@ -54,7 +54,7 @@
                 <div class="input-group mb-1">
                   <input name="logo_light" type="file" class="form-control custom-file rounded-pill">
                 </div>
-                <small class="d-block">{{ __('misc.recommended_size') }} 400x400 px (PNG)</small>
+                <small class="d-block">{{ __('misc.recommended_size') }} 400x400 px (PNG, JPG, GIF, WEBP, SVG)</small>
 		          </div>
 		        </div>
 
@@ -68,7 +68,7 @@
                 <div class="input-group mb-1">
                   <input name="favicon" type="file" class="form-control custom-file rounded-pill">
                 </div>
-                <small class="d-block">{{ __('misc.recommended_size') }} 48x48 px (PNG)</small>
+                <small class="d-block">{{ __('misc.recommended_size') }} 48x48 px (PNG, JPG, GIF, WEBP, ICO)</small>
 		          </div>
 		        </div>
 
@@ -82,7 +82,7 @@
                 <div class="input-group mb-1">
                   <input name="image_header" type="file" class="form-control custom-file rounded-pill">
                 </div>
-                <small class="d-block">{{ __('misc.recommended_size') }} 1280x850 px (JPG)</small>
+                <small class="d-block">{{ __('misc.recommended_size') }} 1280x850 px (JPG, PNG, GIF, WEBP)</small>
 		          </div>
 		        </div>
 
@@ -96,7 +96,7 @@
                 <div class="input-group mb-1">
                   <input name="img_section" type="file" class="form-control custom-file rounded-pill">
                 </div>
-                <small class="d-block">{{ __('misc.recommended_size') }} 800x600 px (JPG, PNG)</small>
+                <small class="d-block">{{ __('misc.recommended_size') }} 800x600 px (JPG, PNG, GIF, WEBP)</small>
 		          </div>
 		        </div>
 
@@ -110,7 +110,7 @@
                 <div class="input-group mb-1">
                   <input name="watermark" type="file" class="form-control custom-file rounded-pill">
                 </div>
-                <small class="d-block">{{ __('misc.recommended_size') }} 700px (PNG)</small>
+                <small class="d-block">{{ __('misc.recommended_size') }} 700px (PNG, JPG, GIF, WEBP)</small>
 								<small class="d-block fst-italic">* {{ __('misc.clean_cache_browser') }}</small>
 		          </div>
 		        </div>
@@ -125,7 +125,7 @@
                 <div class="input-group mb-1">
                   <input name="avatar" type="file" class="form-control custom-file rounded-pill">
                 </div>
-                <small class="d-block">{{ __('misc.recommended_size') }} 250x250 px (JPG)</small>
+                <small class="d-block">{{ __('misc.recommended_size') }} 250x250 px (JPG, PNG, GIF, WEBP)</small>
 		          </div>
 		        </div>
 
@@ -139,7 +139,7 @@
                 <div class="input-group mb-1">
                   <input name="cover" type="file" class="form-control custom-file rounded-pill">
                 </div>
-                <small class="d-block">{{ __('misc.recommended_size') }} 1280x850 px (JPG)</small>
+                <small class="d-block">{{ __('misc.recommended_size') }} 1280x850 px (JPG, PNG, GIF, WEBP)</small>
 		          </div>
 		        </div>
 
@@ -153,7 +153,7 @@
                 <div class="input-group mb-1">
                   <input name="default_portfolio_hero_image" type="file" class="form-control custom-file rounded-pill">
                 </div>
-                <small class="d-block">{{ __('misc.recommended_size') }} 1280x850 px (JPG) - Used as fallback when users haven't uploaded their own hero image</small>
+                <small class="d-block">{{ __('misc.recommended_size') }} 1280x850 px (JPG, PNG, GIF, WEBP) - Used as fallback when users haven't uploaded their own hero image</small>
 		          </div>
 		        </div>
 

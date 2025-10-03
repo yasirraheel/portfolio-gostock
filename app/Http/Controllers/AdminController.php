@@ -149,7 +149,7 @@ class AdminController extends Controller
 		$rules = [
 			'name'        => 'required',
 			'slug'        => 'required|ascii_only|unique:categories',
-			'thumbnail'   => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
+			'thumbnail'   => 'mimes:jpg,jpeg,png,gif,webp|dimensions:min_width=457,min_height=359',
 		];
 
 		$this->validate($request, $rules);
@@ -214,7 +214,7 @@ class AdminController extends Controller
 		$rules = [
 			'name'      => 'required',
 			'slug'      => 'required|ascii_only|unique:categories,slug,' . $request->id,
-			'thumbnail' => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
+			'thumbnail' => 'mimes:jpg,jpeg,png,gif,webp|dimensions:min_width=457,min_height=359',
 		];
 
 		$this->validate($request, $rules);
@@ -721,11 +721,15 @@ class AdminController extends Controller
 		$pathCategory = 'public/img-category/'; // Path Category
 
 		$rules = [
-			'logo'   => 'mimes:png',
-			'logo_light' => 'mimes:png',
-			'favicon'   => 'mimes:png',
-			'image_header'   => 'mimes:jpg,jpeg',
-			'img_section'   => 'mimes:jpg,jpeg,png',
+			'logo'   => 'mimes:png,jpg,jpeg,gif,webp,svg',
+			'logo_light' => 'mimes:png,jpg,jpeg,gif,webp,svg',
+			'favicon'   => 'mimes:png,jpg,jpeg,gif,webp,ico',
+			'image_header'   => 'mimes:jpg,jpeg,png,gif,webp',
+			'img_section'   => 'mimes:jpg,jpeg,png,gif,webp',
+			'watermark'   => 'mimes:png,jpg,jpeg,gif,webp',
+			'avatar'   => 'mimes:jpg,jpeg,png,gif,webp',
+			'cover'   => 'mimes:jpg,jpeg,png,gif,webp',
+			'default_portfolio_hero_image'   => 'mimes:jpg,jpeg,png,gif,webp',
 		];
 
 		$this->validate($request, $rules);
