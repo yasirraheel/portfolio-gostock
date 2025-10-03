@@ -1,6 +1,8 @@
 /* Portfolio Specific Styles */
 
+
 /* Override main styles.css home-cover padding for portfolio pages */
+
 .container-fluid.home-cover.portfolio-hero,
 .portfolio-hero.home-cover,
 .portfolio-hero {
@@ -8,16 +10,30 @@
     margin: 0 !important;
     padding-top: 0 !important;
     margin-top: 0 !important;
+    position: relative !important;
+    top: 0 !important;
 }
 
+/* Force hero to start from absolute top */
+.portfolio-hero.home-cover {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    top: 0 !important;
+    position: relative !important;
+}
+
+
 /* Override original styles.css home-cover padding */
+
 .portfolio-hero.home-cover {
     padding: 0 !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
 }
 
+
 /* Override media query padding from original styles.css */
+
 @media screen and (min-width: 768px) {
     .portfolio-hero.home-cover,
     .portfolio-hero {
@@ -26,6 +42,17 @@
         padding-bottom: 0 !important;
     }
 }
+
+/* Additional aggressive overrides to eliminate any gap */
+.portfolio-hero.home-cover,
+.container-fluid.home-cover.portfolio-hero {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    top: 0 !important;
+    position: relative !important;
+    transform: translateY(0) !important;
+}
+
 
 /* Fix navbar z-index to ensure it stays on top */
 
@@ -41,6 +68,20 @@
     padding-right: 0 !important;
 }
 
+/* Fix skills section overlap with hero */
+.skills-section {
+    margin-top: 60px !important;
+    padding-top: 40px !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+/* Ensure proper spacing after hero section */
+.container-fluid:has(.portfolio-hero) + .container-fluid {
+    margin-top: 60px !important;
+    padding-top: 40px !important;
+}
+
 .portfolio-content .container {
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -50,7 +91,9 @@
 
 /* Portfolio Hero Background - Match home page (850px height) */
 
+
 /* Override main styles.css for portfolio pages */
+
 .portfolio-hero.home-cover,
 .portfolio-hero,
 .container-fluid.home-cover.portfolio-hero {
