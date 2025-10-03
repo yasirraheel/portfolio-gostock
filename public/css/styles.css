@@ -13,12 +13,7 @@ html.loading {
     scroll-behavior: auto !important;
 }
 
-html {
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll; /* Force scrollbar to always be visible */
-}
-
+html,
 body {
     height: 100%;
     overflow-x: hidden;
@@ -44,22 +39,30 @@ body.no-navbar {
 
 
 /* Fix navbar to not cover scrollbar - CRITICAL FIX */
+
+
 /* The scrollbar is on the RIGHT side, so we need to prevent navbar from extending to right: 0 */
+
 #header.fixed-top {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
-    right: auto !important; /* Key change: auto instead of 0 to not cover scrollbar */
-    width: calc(100% - 17px) !important; /* Subtract scrollbar width (typically 17px on Windows) */
+    right: auto !important;
+    /* Key change: auto instead of 0 to not cover scrollbar */
+    width: calc(100% - 17px) !important;
+    /* Subtract scrollbar width (typically 17px on Windows) */
     max-width: none !important;
     z-index: 1050 !important;
 }
 
+
 /* Alternative approach - let it be 100% but ensure scrollbar is always visible */
+
 @supports not (width: calc(100% - 17px)) {
     #header.fixed-top {
         width: 100% !important;
-        right: 17px !important; /* Push it away from scrollbar */
+        right: 17px !important;
+        /* Push it away from scrollbar */
     }
 }
 
