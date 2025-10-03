@@ -329,22 +329,94 @@ class HomeController extends Controller
     $settings = AdminSettings::first();
     $input['_captcha'] = $settings->captcha;
 
+    // Enhanced spam protection
+    $spamScore = 0;
+    $spamReasons = [];
+
+    // Check for suspicious patterns
+    if (strlen($input['message'] ?? '') < 10) {
+      $spamScore += 3;
+      $spamReasons[] = 'Message too short';
+    }
+
+    if (str_word_count($input['message'] ?? '') < 5) {
+      $spamScore += 2;
+      $spamReasons[] = 'Very few words';
+    }
+
+    // Check for excessive links
+    $linkCount = preg_match_all('/https?:\/\/[^\s]+/', $input['message'] ?? '');
+    if ($linkCount > 2) {
+      $spamScore += 3;
+      $spamReasons[] = 'Too many links';
+    }
+
+    // Check for repeated characters
+    if (preg_match('/(.)\1{4,}/', $input['message'] ?? '')) {
+      $spamScore += 2;
+      $spamReasons[] = 'Repeated characters';
+    }
+
+    // Check honeypot field
+    if (!empty($input['website'])) {
+      return redirect('contact')
+        ->withInput()
+        ->withErrors(['spam' => 'Spam detected. Please try again.']);
+    }
+
+    // Check for suspicious email patterns
+    if (preg_match('/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/', $input['message'] ?? '')) {
+      $spamScore += 1;
+      $spamReasons[] = 'Email in message';
+    }
+
+    // Check for common spam words
+    $spamWords = ['viagra', 'casino', 'lottery', 'winner', 'congratulations', 'free money', 'click here', 'buy now'];
+    foreach ($spamWords as $word) {
+      if (stripos($input['message'] ?? '', $word) !== false) {
+        $spamScore += 2;
+        $spamReasons[] = 'Suspicious content';
+        break;
+      }
+    }
+
+    // Rate limiting check (simple implementation)
+    $ip = $request->ip();
+    $recentSubmissions = \DB::table('contact_submissions')
+      ->where('ip_address', $ip)
+      ->where('created_at', '>', now()->subMinutes(10))
+      ->count();
+
+    if ($recentSubmissions >= 3) {
+      return redirect('contact')
+        ->withInput()
+        ->withErrors(['rate_limit' => 'Too many submissions. Please wait before trying again.']);
+    }
+
     $errorMessages = [
       'g-recaptcha-response.required_if' => 'reCAPTCHA Error',
       'g-recaptcha-response.captcha' => 'reCAPTCHA Error',
+      'rate_limit' => 'Too many submissions. Please wait before trying again.',
     ];
 
     $validator = Validator::make($input, [
-      'full_name' => 'min:3|max:25',
-      'email'     => 'required|email',
-      'subject'     => 'required',
-      'message' => 'min:10|required',
+      'full_name' => 'required|min:2|max:50|regex:/^[a-zA-Z\s]+$/',
+      'email'     => 'required|email|max:100',
+      'subject'     => 'required|min:5|max:100',
+      'message' => 'required|min:10|max:2000',
       'g-recaptcha-response' => 'required_if:_captcha,==,on|captcha'
     ], $errorMessages);
 
     if ($validator->fails()) {
       return redirect('contact')
         ->withInput()->withErrors($validator);
+    }
+
+    // Block if spam score is too high
+    if ($spamScore >= 5) {
+      return redirect('contact')
+        ->withInput()
+        ->withErrors(['spam' => 'Message appears to be spam. Please revise and try again.']);
     }
 
     // Get portfolio user if portfolio_slug is provided
@@ -355,6 +427,17 @@ class HomeController extends Controller
                           ->orWhere('username', $input['portfolio_slug'])
                           ->first();
     }
+
+    // Log the submission for rate limiting
+    \DB::table('contact_submissions')->insert([
+      'ip_address' => $ip,
+      'email' => $input['email'],
+      'subject' => $input['subject'],
+      'spam_score' => $spamScore,
+      'spam_reasons' => implode(', ', $spamReasons),
+      'created_at' => now(),
+      'updated_at' => now()
+    ]);
 
     // SEND EMAIL TO ADMIN
     $fullname    = $input['full_name'];
@@ -372,7 +455,9 @@ class HomeController extends Controller
       'ip' => request()->ip(),
       'portfolio_user' => $portfolioUser,
       'is_portfolio_contact' => $portfolioUser ? true : false,
-      'is_hire_inquiry' => $isHireInquiry
+      'is_hire_inquiry' => $isHireInquiry,
+      'spam_score' => $spamScore,
+      'spam_reasons' => $spamReasons
     );
 
     // Send email to admin
@@ -427,6 +512,28 @@ class HomeController extends Controller
           $message->replyTo($email_user);
         }
       );
+    }
+
+    // Send acknowledgment email to the user who submitted the form
+    try {
+      Mail::send(
+        'emails.contact-acknowledgment',
+        $emailData,
+        function ($message) use (
+          $fullname,
+          $email_user,
+          $subject,
+          $smtp_from_email,
+          $title_site
+        ) {
+          $message->from($smtp_from_email, $title_site);
+          $message->subject('Thank you for contacting us - ' . $subject);
+          $message->to($email_user, $fullname);
+        }
+      );
+    } catch (\Exception $e) {
+      // Log the error but don't fail the entire process
+      \Log::error('Failed to send acknowledgment email: ' . $e->getMessage());
     }
 
     return redirect('contact')->with(['notification' => __('misc.send_contact_success')]);

@@ -68,12 +68,15 @@
           @if(request('hire'))
             <input type="hidden" name="hire_inquiry" value="1">
           @endif
+          
+          <!-- Honeypot field for spam protection -->
+          <input type="text" name="website" style="display:none !important" tabindex="-1" autocomplete="off">
           <div class="row">
             <div class="col-md-6">
               <!-- ***** Form Group ***** -->
               <div class="form-floating mb-3">
                 <input type="text" required class="form-control" id="inputname"
-                  value="{{auth()->user()->username ??  old('full_name')}}" name="full_name"
+                  value="{{ old('full_name') }}" name="full_name"
                   placeholder="{{ __('users.name') }}" title="{{ __('users.name') }}" autocomplete="off">
                 <label for="inputname">{{ __('users.name') }}</label>
               </div><!-- ***** Form Group ***** -->
@@ -83,7 +86,7 @@
               <!-- ***** Form Group ***** -->
               <div class="form-floating mb-3">
                 <input type="email" required class="form-control" id="inputemail"
-                  value="{{auth()->user()->email ??  old('email')}}" name="email"
+                  value="{{ old('email') }}" name="email"
                   placeholder="{{ __('auth.email') }}" title="{{ __('auth.email') }}" autocomplete="off">
                 <label for="inputemail">{{ __('auth.email') }}</label>
               </div><!-- ***** Form Group ***** -->
@@ -129,4 +132,65 @@
     </div><!-- row -->
   </div><!-- container -->
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    let submitAttempts = 0;
+    const maxAttempts = 3;
+
+    // Client-side spam protection
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Check honeypot field
+        const honeypot = form.querySelector('input[name="website"]');
+        if (honeypot.value !== '') {
+            alert('Spam detected. Please try again.');
+            return;
+        }
+
+        // Rate limiting check
+        submitAttempts++;
+        if (submitAttempts > maxAttempts) {
+            alert('Too many submission attempts. Please wait before trying again.');
+            return;
+        }
+
+        // Validate message length
+        const message = form.querySelector('textarea[name="message"]').value;
+        if (message.length < 10) {
+            alert('Message must be at least 10 characters long.');
+            return;
+        }
+
+        // Check for excessive links
+        const linkCount = (message.match(/https?:\/\/[^\s]+/g) || []).length;
+        if (linkCount > 2) {
+            alert('Too many links in message. Please reduce the number of links.');
+            return;
+        }
+
+        // Check for repeated characters
+        if (/(.)\1{4,}/.test(message)) {
+            alert('Message contains too many repeated characters.');
+            return;
+        }
+
+        // Disable submit button to prevent double submission
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sending...';
+
+        // Submit the form
+        form.submit();
+    });
+
+    // Reset submit button if form validation fails
+    form.addEventListener('invalid', function() {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '{{ __("auth.send") }}';
+    });
+});
+</script>
 @endsection
