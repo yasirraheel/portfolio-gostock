@@ -19,15 +19,33 @@ body {
     overflow-x: hidden;
 }
 
+
 /* Fix main content to prevent navbar overlay - CRITICAL FIX */
+
+
 /* The fixed-top navbar covers content, so we add top spacing */
+
 body {
-    padding-top: 76px; /* Height of fixed navbar (py-3 + logo height) */
+    padding-top: 76px;
+    /* Height of fixed navbar (py-3 + logo height) */
 }
 
+
 /* For pages without navbar (login, register) */
+
 body.no-navbar {
     padding-top: 0;
+}
+
+/* Fix navbar to not cover scrollbar */
+/* Force navbar to respect document width, not viewport width */
+#header.fixed-top {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    width: 100% !important; /* Use 100% instead of 100vw to avoid covering scrollbar */
+    max-width: none !important;
 }
 
 
@@ -175,19 +193,23 @@ input[type='file']:not(.custom-file) {
 }
 
 .home-cover {
-    padding: 40px 0; /* Normal padding - navbar offset handled by body padding */
+    padding: 40px 0;
+    /* Normal padding - navbar offset handled by body padding */
 }
 
 .cover-user {
-    padding: 120px 0; /* Normal padding - navbar offset handled by body padding */
+    padding: 120px 0;
+    /* Normal padding - navbar offset handled by body padding */
 }
 
 @media screen and (min-width: 768px) {
     .home-cover {
-        padding: 200px 0 280px 0; /* Normal responsive padding */
+        padding: 200px 0 280px 0;
+        /* Normal responsive padding */
     }
     .cover-user {
-        padding: 180px 0 280px 0; /* Normal responsive padding */
+        padding: 180px 0 280px 0;
+        /* Normal responsive padding */
     }
     .pt-6 {
         padding-top: 4.5rem!important;
