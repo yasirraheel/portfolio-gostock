@@ -200,13 +200,24 @@ input[type='file']:not(.custom-file) {
 }
 
 .home-cover {
-    height: 850px; /* Fixed height matching recommended image size */
+    height: 850px;
+    /* Fixed height matching recommended image size */
     min-height: 850px;
     max-height: 850px;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Remove excessive padding/margin from hero content */
+.home-cover .custom-pt-6 {
+    padding-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.home-cover .mb-4 {
+    margin-bottom: 0 !important;
 }
 
 .cover-user {
@@ -216,7 +227,8 @@ input[type='file']:not(.custom-file) {
 
 @media screen and (min-width: 768px) {
     .home-cover {
-        height: 850px; /* Maintain fixed height on desktop */
+        height: 850px;
+        /* Maintain fixed height on desktop */
         min-height: 850px;
         max-height: 850px;
     }
@@ -1919,10 +1931,13 @@ span.highlight::after {
 /* Landing Page Styles */
 
 .min-vh-75 {
-    min-height: auto; /* Removed to allow hero section to control its own height */
+    min-height: auto;
+    /* Removed to allow hero section to control its own height */
 }
 
+
 /* Mobile hero section adjustment */
+
 @media (max-width: 767px) {
     .home-cover {
         height: auto !important;
