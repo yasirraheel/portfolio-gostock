@@ -23,16 +23,14 @@ class SocialAccountService
       if (! $user) {
         //return 'Error! Your email is required, Go to app settings and delete our app and try again';
         if (! $providerUser->getEmail()) {
-          return redirect("login")->with(['login_required' => trans('error.error_required_mail')]);
-          exit;
+          return false; // Return false to indicate error
         }
 
         //Verify Email user
         $userEmail = User::whereEmail($providerUser->getEmail())->first();
 
         if ($userEmail) {
-          return redirect("login")->with(['login_required' => trans('error.mail_exists')]);
-          exit;
+          return false; // Return false to indicate error
         }
 
         $avatar = 'default.jpg';

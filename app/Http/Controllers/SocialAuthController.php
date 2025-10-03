@@ -19,18 +19,23 @@ class SocialAuthController extends Controller
       try {
           $user = $service->createOrGetUser(Socialite::driver($provider)->user(), $provider);
 
-          // Return Error missing Email User
-          if( !isset($user->id) ) {
-            return $user;
+          // Return Error missing Email User or other errors
+          if( !$user || !isset($user->id) ) {
+            return redirect('login')->with(['login_required' => 'Authentication failed. Please ensure your Google account has an email address and try again.']);
           } else {
             auth()->login($user);
+            
+            // Check if user is successfully logged in
+            if (auth()->check()) {
+              return redirect()->intended('/')->with(['success' => 'Successfully logged in with Google!']);
+            } else {
+              return redirect('login')->with(['login_required' => 'Login failed. Please try again.']);
+            }
           }
 
       } catch (\Exception $e) {
-           return redirect('login')->with(['login_required' => trans('misc.error').' - '.$e->getMessage() ]);
+           return redirect('login')->with(['login_required' => 'Authentication error: '.$e->getMessage() ]);
       }
-
-      return redirect()->to('/');
     }// End callback
 
 }//<-- End Class
