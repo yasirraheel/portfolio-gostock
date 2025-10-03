@@ -17,6 +17,7 @@ html,
 body {
     height: 100%;
     overflow-x: hidden;
+    overflow-y: auto; /* Ensure scrollbar is always present when needed */
 }
 
 
@@ -41,7 +42,7 @@ body.no-navbar {
 }
 
 
-/* Navbar full width - scrollbar appears OVER navbar with higher z-index */
+/* Navbar full width - scrollbar will naturally appear on top */
 #header.fixed-top {
     position: fixed !important;
     top: 0 !important;
@@ -49,24 +50,7 @@ body.no-navbar {
     right: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
-    z-index: 1040 !important; /* Lower than scrollbar */
-}
-
-/* Ensure scrollbar has higher z-index than navbar */
-html {
-    overflow-y: overlay; /* Modern browsers: scrollbar overlays content */
-}
-
-/* Fallback for browsers that don't support overlay */
-@supports not (overflow-y: overlay) {
-    html {
-        overflow-y: auto;
-    }
-}
-
-/* Force scrollbar to always be on top */
-::-webkit-scrollbar {
-    z-index: 9999 !important;
+    z-index: 1050 !important;
 }
 
 
