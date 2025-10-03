@@ -35,9 +35,11 @@
     margin: 0 !important;
     position: relative !important;
     display: flex !important;
-    align-items: flex-start !important; /* Content starts from top */
+    align-items: flex-start !important;
+    /* Content starts from top */
     justify-content: center !important;
-    padding-top: 100px !important; /* Minimal top padding - close to navbar */
+    padding-top: 140px !important;
+    /* Minimal gap to avoid overlap with navbar */
 }
 
 
@@ -76,7 +78,8 @@
         height: auto !important;
         min-height: 500px !important;
         max-height: none !important;
-        padding-top: 80px !important; /* Minimal top padding on mobile */
+        padding-top: 80px !important;
+        /* Minimal top padding on mobile */
         padding-bottom: 40px !important;
         background-size: cover !important;
         background-position: center center !important;

@@ -13,7 +13,8 @@ html.loading {
     scroll-behavior: auto !important;
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -40,6 +41,8 @@ body.no-navbar {
 
 
 /* No custom navbar width - let it be natural full width */
+
+
 /* Scrollbar will display naturally above fixed elements */
 
 
@@ -196,8 +199,8 @@ input[type='file']:not(.custom-file) {
     align-items: flex-start;
     /* Content starts from top */
     justify-content: center;
-    padding-top: 100px;
-    /* Minimal top padding - close to navbar */
+    padding-top: 140px;
+    /* Minimal gap to avoid overlap with navbar */
 }
 
 
