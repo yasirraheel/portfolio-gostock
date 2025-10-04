@@ -697,7 +697,7 @@
                                                 {{ __('misc.github') }}
                                             </a>
                                         @endif
-                                        @if($project->demo_url && $project->demo_url !== $project->project_url)
+                                        @if($project->demo_url)
                                             <a href="{{ $project->demo_url }}" target="_blank"
                                                 class="btn btn-sm btn-outline-success">
                                                 <i class="fas fa-play me-1"></i>

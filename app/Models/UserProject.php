@@ -56,9 +56,17 @@ class UserProject extends Model
         $start = Carbon::parse($this->start_date);
         $end = $this->end_date ? Carbon::parse($this->end_date) : Carbon::now();
 
-        $years = $start->diffInYears($end);
-        $months = $start->diffInMonths($end) % 12;
-        $days = $start->copy()->addYears($years)->addMonths($months)->diffInDays($end);
+        // Use diffInMonths to get total months, then calculate years and remaining months
+        $totalMonths = $start->diffInMonths($end);
+        $years = intval($totalMonths / 12);
+        $months = $totalMonths % 12;
+        
+        // If we have years and months, we don't need days
+        // Only show days if we have less than a month
+        $days = 0;
+        if ($totalMonths == 0) {
+            $days = $start->diffInDays($end);
+        }
 
         $duration = [];
         if ($years > 0) {
