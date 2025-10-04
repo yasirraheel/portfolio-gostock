@@ -45,7 +45,7 @@
 
 				<div class="card shadow-custom border-0 mt-3">
 					<div class="card-body p-lg-4">
-						<form method="POST" action="{{ route('user.projects.update') }}" enctype="multipart/form-data">
+						<form method="POST" action="{{ route('user.projects.update') }}" enctype="multipart/form-data" id="editProjectForm">
 							@csrf
 							<input type="hidden" name="id" value="{{ $project->id }}">
 
@@ -256,7 +256,7 @@
 
 							<div class="form-floating mb-3">
 								<input type="text" name="technologies" class="form-control @error('technologies') is-invalid @enderror"
-									   value="{{ old('technologies', implode(', ', $project->technologies_list)) }}" placeholder="Laravel, Vue.js, MySQL, etc." id="technologies">
+									   value="{{ old('technologies', $project->technologies ? implode(', ', $project->technologies_list) : '') }}" placeholder="Laravel, Vue.js, MySQL, etc." id="technologies">
 								<label for="technologies">{{ __('misc.technologies_skills_used') }}</label>
 								<div class="form-text text-muted">{{ __('misc.separate_with_commas') }}</div>
 								@error('technologies')
@@ -373,6 +373,13 @@ function updateCharCount() {
 // Initialize character count on page load
 document.addEventListener('DOMContentLoaded', function() {
     updateCharCount();
+    
+    // Add form submission debugging
+    document.getElementById('editProjectForm').addEventListener('submit', function(e) {
+        const technologiesField = document.getElementById('technologies');
+        console.log('Technologies field value:', technologiesField.value);
+        console.log('Form data being submitted:', new FormData(this));
+    });
 });
 
 document.getElementById('projectImages').addEventListener('change', function(e) {
