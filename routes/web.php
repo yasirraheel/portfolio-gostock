@@ -55,7 +55,14 @@ Route::post('password/reset', [ResetPasswordController::class, 'reset']);
 // Social Login
 Route::group(['middleware' => 'guest'], function() {
     Route::get('oauth/{provider}', [SocialAuthController::class, 'redirect'])->where('provider', '(facebook|google|twitter)$');
-    Route::get('oauth/{provider}/callback', [SocialAuthController::class, 'callback'])->where('provider', '(facebook|google|twitter)$');
+});
+
+// OAuth callback - allow both guest and authenticated users
+Route::get('oauth/{provider}/callback', [SocialAuthController::class, 'callback'])->where('provider', '(facebook|google|twitter)$');
+
+// Test route to verify OAuth callback is working
+Route::get('test-oauth', function() {
+    return response()->json(['status' => 'OAuth routes are working', 'timestamp' => now()]);
 });
 
 // Public Routes
@@ -238,7 +245,7 @@ Route::group(['middleware' => 'role'], function() {
     Route::get('panel/admin/members/edit/{id}',[AdminUserController::class, 'edit']);
     Route::post('panel/admin/members/edit/{id}', [AdminUserController::class, 'update']);
     Route::post('panel/admin/members/{id}', [AdminUserController::class, 'destroy'])->name('user.destroy');
-    
+
     // Secret Login as User (Admin only)
     Route::get('panel/admin/login-as-user/{id}', [AdminUserController::class, 'loginAsUser'])->name('admin.login.as.user');
 

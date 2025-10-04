@@ -15,6 +15,13 @@ class SocialAuthController extends Controller
     }
     // callback function
     public function callback(SocialAccountService $service ,Request $request, $provider){
+      
+      // Debug logging
+      \Log::info('OAuth Callback Hit', [
+        'provider' => $provider,
+        'request_data' => $request->all(),
+        'user_agent' => $request->userAgent()
+      ]);
 
       try {
           $user = $service->createOrGetUser(Socialite::driver($provider)->user(), $provider);
