@@ -881,6 +881,7 @@ return array(
 	'role' => 'Role',
 	'client_name' => 'Client Name',
 	'separate_with_commas' => 'Separate with commas',
+	'characters' => 'characters',
 
 	// Project Type Translations
 	'personal' => 'Personal',

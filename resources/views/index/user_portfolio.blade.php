@@ -611,7 +611,7 @@
                                     {{-- Project Description --}}
                                     @if($project->description)
                                         <div class="card-text mb-3">
-                                            <p class="text-muted small mb-0">{{ Str::limit(strip_tags($project->description), 150) }}</p>
+                                            <p class="text-muted small mb-0">{{ strip_tags($project->description) }}</p>
                                         </div>
                                     @endif
 

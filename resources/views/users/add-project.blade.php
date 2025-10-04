@@ -80,8 +80,12 @@
 
 							<div class="form-floating mb-3">
 								<textarea name="description" class="form-control @error('description') is-invalid @enderror"
-										  style="height: 120px" id="description" placeholder="{{ __('misc.describe_your_project') }}">{{ old('description') }}</textarea>
+										  style="height: 120px" id="description" placeholder="{{ __('misc.describe_your_project') }}" 
+										  maxlength="200" oninput="updateCharCount()">{{ old('description') }}</textarea>
 								<label for="description">{{ __('misc.project_description') }}</label>
+								<div class="form-text">
+									<span id="charCount">0</span>/200 {{ __('misc.characters') }}
+								</div>
 								@error('description')
 									<div class="invalid-feedback">{{ $message }}</div>
 								@enderror
@@ -304,6 +308,28 @@
 </section>
 
 <script>
+// Character count for description
+function updateCharCount() {
+    const textarea = document.getElementById('description');
+    const charCount = document.getElementById('charCount');
+    const currentLength = textarea.value.length;
+    
+    charCount.textContent = currentLength;
+    
+    if (currentLength > 200) {
+        charCount.style.color = 'red';
+    } else if (currentLength > 180) {
+        charCount.style.color = 'orange';
+    } else {
+        charCount.style.color = 'inherit';
+    }
+}
+
+// Initialize character count on page load
+document.addEventListener('DOMContentLoaded', function() {
+    updateCharCount();
+});
+
 document.getElementById('projectImages').addEventListener('change', function(e) {
     const files = e.target.files;
     const preview = document.getElementById('imagePreview');
