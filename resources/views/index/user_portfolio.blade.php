@@ -561,95 +561,144 @@
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="card h-100 border-0 shadow-sm">
                                 <div class="card-body p-4">
-                                    {{-- Project Date Badge --}}
-                                    <div class="text-center mb-4">
-                                        <span class="badge px-3 py-2 fs-6 mb-2"
-                                            style="background-color: {{ $user->portfolio_primary_color ?? '#007bff' }} !important; color: white;">
+                                    {{-- Project Header with Status and Featured Badge --}}
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <div class="d-flex flex-wrap gap-2">
+                                            <span class="badge badge-{{ $project->status_color }} px-3 py-2">
+                                                <i class="bi bi-circle-fill me-1" style="font-size: 0.5rem;"></i>
+                                                {{ $project->status_display }}
+                                            </span>
+                                            @if($project->featured)
+                                                <span class="badge bg-warning text-dark px-3 py-2">
+                                                    <i class="fas fa-star me-1"></i>{{ __('misc.featured') }}
+                                                </span>
+                                            @endif
+                                        </div>
+                                        <div class="text-muted small">
                                             {{ $project->formatted_start_date }} - {{ $project->formatted_end_date }}
-                                        </span>
-                                        <div class="text-muted small">{{ $project->duration }}</div>
+                                        </div>
                                     </div>
 
-                                    {{-- Project Image and Info --}}
-                                    <div class="d-flex align-items-start mb-3">
-                                        @if ($project->main_image)
-                                            <img src="{{ asset('storage/' . $project->main_image) }}"
-                                                class="rounded me-3"
-                                                style="width: 60px; height: 60px; object-fit: cover;"
-                                                alt="{{ $project->project_name }}">
-                                        @else
-                                            <div class="text-white rounded me-3 d-flex align-items-center justify-content-center"
-                                                style="width: 60px; height: 60px; min-width: 60px; font-size: 1.5rem; background-color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
-                                                <i class="fas fa-project-diagram"></i>
+                                    {{-- Project Images Display --}}
+                                    @if($project->hasImages())
+                                        <div class="mb-3">
+                                            <div class="row g-2">
+                                                @foreach($project->project_images_list as $index => $image)
+                                                    <div class="col-{{ count($project->project_images_list) > 1 ? '6' : '12' }}">
+                                                        <img src="{{ url('public/portfolio_assets', $image) }}" 
+                                                             class="img-fluid rounded" 
+                                                             style="width: 100%; height: 120px; object-fit: cover;" 
+                                                             alt="Project image {{ $index + 1 }}">
+                                                    </div>
+                                                @endforeach
                                             </div>
-                                        @endif
+                                        </div>
+                                    @endif
 
-                                        <div class="flex-grow-1">
-                                            <h5 class="card-title mb-1 fw-bold">{{ $project->project_name }}</h5>
-                                            <h6 class="card-subtitle mb-2"
-                                                style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
-                                                @if ($project->project_url)
-                                                    <a href="{{ $project->project_url }}"
-                                                        target="_blank" class="text-decoration-none"
-                                                        style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
-                                                        {{ $project->project_type_display ?? 'Project' }}
-                                                        <i class="bi bi-box-arrow-up-right ms-1 small"></i>
-                                                    </a>
-                                                @else
-                                                    {{ $project->project_type_display ?? 'Project' }}
-                                                @endif
-                                            </h6>
+                                    {{-- Project Title and Type --}}
+                                    <div class="mb-3">
+                                        <h5 class="card-title mb-1 fw-bold">{{ $project->project_name }}</h5>
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <span class="badge bg-primary">{{ $project->project_type_display }}</span>
+                                            @if($project->client_name)
+                                                <span class="badge bg-outline-secondary text-muted">
+                                                    <i class="bi bi-building me-1"></i>{{ $project->client_name }}
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
 
-                                            <div class="d-flex flex-wrap gap-2 mb-2">
-                                                <span class="badge bg-secondary">{{ $project->status_display }}</span>
-                                                @if ($project->client_name)
-                                                    <span class="badge bg-outline-secondary text-muted">
-                                                        <i class="bi bi-building me-1"></i>{{ $project->client_name }}
-                                                    </span>
+                                    {{-- Project Description --}}
+                                    @if($project->description)
+                                        <div class="card-text mb-3">
+                                            <p class="text-muted small mb-0">{!! Str::limit($project->description, 150) !!}</p>
+                                        </div>
+                                    @endif
+
+                                    {{-- Team Information --}}
+                                    @if($project->role || $project->team_size)
+                                        <div class="mb-3">
+                                            <div class="row g-2">
+                                                @if($project->role)
+                                                    <div class="col-6">
+                                                        <small class="text-muted d-block">{{ __('misc.role') }}</small>
+                                                        <span class="fw-semibold">{{ $project->role }}</span>
+                                                    </div>
                                                 @endif
-                                                @if ($project->project_type)
-                                                    <span class="badge bg-info">{{ $project->project_type_display }}</span>
+                                                @if($project->team_size)
+                                                    <div class="col-6">
+                                                        <small class="text-muted d-block">{{ __('misc.team_size') }}</small>
+                                                        <span class="fw-semibold">{{ $project->team_size }} {{ $project->team_size == 1 ? __('misc.person') : __('misc.people') }}</span>
+                                                    </div>
                                                 @endif
                                             </div>
                                         </div>
-                                    </div>
-                                    @if ($project->description)
-                                        <div class="card-text mb-3">{!! $project->description !!}</div>
                                     @endif
 
-                                    @if ($project->technologies_list && count($project->technologies_list) > 0)
+                                    {{-- Key Features --}}
+                                    @if($project->key_features)
                                         <div class="mb-3">
-                                            <h6 class="fw-semibold mb-2">Technologies Used:</h6>
+                                            <h6 class="fw-semibold mb-2 text-primary">
+                                                <i class="bi bi-star me-1"></i>{{ __('misc.key_features') }}
+                                            </h6>
+                                            <p class="text-muted small mb-0">{!! Str::limit($project->key_features, 100) !!}</p>
+                                        </div>
+                                    @endif
+
+                                    {{-- Technologies Used --}}
+                                    @if($project->technologies_list && count($project->technologies_list) > 0)
+                                        <div class="mb-3">
+                                            <h6 class="fw-semibold mb-2 text-primary">
+                                                <i class="bi bi-code-slash me-1"></i>{{ __('misc.technologies_used') }}
+                                            </h6>
                                             <div class="d-flex flex-wrap gap-1">
-                                                @foreach ($project->technologies_list as $tech)
+                                                @foreach($project->technologies_list as $tech)
                                                     <span class="badge bg-light text-dark border">{{ $tech }}</span>
                                                 @endforeach
                                             </div>
                                         </div>
                                     @endif
 
-                                    <div class="d-flex flex-wrap gap-2">
-                                        @if ($project->project_url)
+                                    {{-- Challenges Solved --}}
+                                    @if($project->challenges_solved)
+                                        <div class="mb-3">
+                                            <h6 class="fw-semibold mb-2 text-success">
+                                                <i class="bi bi-trophy me-1"></i>{{ __('misc.challenges_solved') }}
+                                            </h6>
+                                            <p class="text-muted small mb-0">{!! Str::limit($project->challenges_solved, 100) !!}</p>
+                                        </div>
+                                    @endif
+
+                                    {{-- Project Links --}}
+                                    <div class="d-flex flex-wrap gap-2 mt-auto">
+                                        @if($project->project_url)
                                             <a href="{{ $project->project_url }}" target="_blank"
-                                                class="btn btn-sm btn-outline-primary me-2">
+                                                class="btn btn-sm btn-outline-primary">
                                                 <i class="fas fa-external-link-alt me-1"></i>
-                                                Live Demo
+                                                {{ __('misc.view_project') }}
                                             </a>
                                         @endif
-                                        @if ($project->github_url)
+                                        @if($project->github_url)
                                             <a href="{{ $project->github_url }}" target="_blank"
-                                                class="btn btn-sm btn-outline-secondary me-2">
+                                                class="btn btn-sm btn-outline-dark">
                                                 <i class="fab fa-github me-1"></i>
-                                                Code
+                                                {{ __('misc.github') }}
                                             </a>
                                         @endif
-                                        @if ($project->demo_url && $project->demo_url !== $project->project_url)
+                                        @if($project->demo_url && $project->demo_url !== $project->project_url)
                                             <a href="{{ $project->demo_url }}" target="_blank"
-                                                class="btn btn-sm btn-outline-info">
+                                                class="btn btn-sm btn-outline-success">
                                                 <i class="fas fa-play me-1"></i>
-                                                Demo
+                                                {{ __('misc.demo') }}
                                             </a>
                                         @endif
+                                    </div>
+
+                                    {{-- Duration Display --}}
+                                    <div class="text-center mt-3">
+                                        <small class="text-muted">
+                                            <i class="bi bi-clock me-1"></i>{{ $project->duration }}
+                                        </small>
                                     </div>
                                 </div>
                             </div>
