@@ -1665,7 +1665,7 @@ class UserController extends Controller
 	{
 		$rules = [
 			'project_name' => 'required|string|max:255',
-			'description' => 'nullable|string|max:200',
+			'description' => 'nullable|string|max:350',
 			'project_type' => 'required|in:personal,professional,open_source,freelance,startup,academic,other',
 			'status' => 'required|in:planning,in_progress,completed,on_hold,cancelled',
 			'start_date' => 'nullable|date',
@@ -1727,7 +1727,7 @@ class UserController extends Controller
 		$rules = [
 			'id' => 'required|exists:user_projects,id',
 			'project_name' => 'required|string|max:255',
-			'description' => 'nullable|string|max:200',
+			'description' => 'nullable|string|max:350',
 			'project_type' => 'required|in:personal,professional,open_source,freelance,startup,academic,other',
 			'status' => 'required|in:planning,in_progress,completed,on_hold,cancelled',
 			'start_date' => 'nullable|date',

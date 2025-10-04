@@ -81,10 +81,10 @@
 							<div class="form-floating mb-3">
 								<textarea name="description" class="form-control @error('description') is-invalid @enderror"
 										  style="height: 120px" id="description" placeholder="{{ __('misc.describe_your_project') }}" 
-										  maxlength="200" oninput="updateCharCount()">{{ old('description') }}</textarea>
+										  maxlength="350" oninput="updateCharCount()">{{ old('description') }}</textarea>
 								<label for="description">{{ __('misc.project_description') }}</label>
 								<div class="form-text">
-									<span id="charCount">0</span>/200 {{ __('misc.characters') }}
+									<span id="charCount">0</span>/350 {{ __('misc.characters') }}
 								</div>
 								@error('description')
 									<div class="invalid-feedback">{{ $message }}</div>
@@ -316,9 +316,9 @@ function updateCharCount() {
     
     charCount.textContent = currentLength;
     
-    if (currentLength > 200) {
+    if (currentLength > 350) {
         charCount.style.color = 'red';
-    } else if (currentLength > 180) {
+    } else if (currentLength > 315) {
         charCount.style.color = 'orange';
     } else {
         charCount.style.color = 'inherit';
