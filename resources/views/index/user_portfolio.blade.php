@@ -45,7 +45,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ url('public/css/portfolio.css') }}">
-    
+
 @endsection
 
 @section('favicon')
@@ -568,7 +568,7 @@
                                             <span class="badge bg-{{ $project->status_color }} px-3 py-2 rounded-pill">
                                                 <i class="bi bi-circle-fill me-1" style="font-size: 0.5rem;"></i>
                                                 {{ $project->status_display }}
-                                            </span>
+                                        </span>
                                             @if($project->featured)
                                                 <span class="badge bg-warning text-dark px-3 py-2 rounded-pill">
                                                     <i class="fas fa-star me-1"></i>{{ __('misc.featured') }}
@@ -587,27 +587,27 @@
                                             <div class="row g-2">
                                                 @foreach($project->project_images_list as $index => $image)
                                                     <div class="col-{{ count($project->project_images_list) > 1 ? '6' : '12' }} col-md-{{ count($project->project_images_list) > 1 ? '6' : '12' }}">
-                                                        <img src="{{ url('public/portfolio_assets', $image) }}" 
-                                                             class="img-fluid rounded shadow-sm" 
-                                                             style="width: 100%; height: 150px; object-fit: contain; background-color: #f8f9fa; border: 1px solid #e9ecef;" 
+                                                        <img src="{{ url('public/portfolio_assets', $image) }}"
+                                                             class="img-fluid rounded shadow-sm"
+                                                             style="width: 100%; height: 150px; object-fit: contain; background-color: #f8f9fa; border: 1px solid #e9ecef;"
                                                              alt="Project image {{ $index + 1 }}"
                                                              loading="lazy">
                                                     </div>
                                                 @endforeach
                                             </div>
-                                        </div>
-                                    @endif
+                                            </div>
+                                        @endif
 
                                     {{-- Project Title and Type --}}
                                     <div class="mb-3">
-                                        <h5 class="card-title mb-1 fw-bold">{{ $project->project_name }}</h5>
-                                        <div class="d-flex flex-wrap gap-2 mb-2">
+                                            <h5 class="card-title mb-1 fw-bold">{{ $project->project_name }}</h5>
+                                            <div class="d-flex flex-wrap gap-2 mb-2">
                                             <span class="badge bg-primary">{{ $project->project_type_display }}</span>
                                             @if($project->client_name)
-                                                <span class="badge bg-outline-secondary text-muted">
-                                                    <i class="bi bi-building me-1"></i>{{ $project->client_name }}
-                                                </span>
-                                            @endif
+                                                    <span class="badge bg-outline-secondary text-muted">
+                                                        <i class="bi bi-building me-1"></i>{{ $project->client_name }}
+                                                    </span>
+                                                @endif
                                         </div>
                                     </div>
 
@@ -616,7 +616,7 @@
                                         <div class="card-text mb-3">
                                             <p class="text-muted small mb-0">{{ strip_tags($project->description) }}</p>
                                         </div>
-                                    @endif
+                                                @endif
 
                                     {{-- Team Information --}}
                                     @if($project->role || $project->team_size)
@@ -626,15 +626,15 @@
                                                     <div class="col-6">
                                                         <small class="text-muted d-block">{{ __('misc.role') }}</small>
                                                         <span class="fw-semibold">{{ $project->role }}</span>
-                                                    </div>
+                                            </div>
                                                 @endif
                                                 @if($project->team_size)
                                                     <div class="col-6">
                                                         <small class="text-muted d-block">{{ __('misc.team_size') }}</small>
                                                         <span class="fw-semibold">{{ $project->team_size }} {{ $project->team_size == 1 ? 'person' : 'people' }}</span>
-                                                    </div>
+                                        </div>
                                                 @endif
-                                            </div>
+                                    </div>
                                         </div>
                                     @endif
 
@@ -1109,7 +1109,7 @@
         @endif
     </div><!-- container photos -->
 
-   
+
 
     @if ($settings->show_counter == 'on')
         <section class="section py-4 bg-dark text-white counter-stats">
@@ -1238,8 +1238,8 @@
         // FORCE 2 CARDS PER ROW - NUCLEAR OPTION
         document.addEventListener('DOMContentLoaded', function() {
             // Force all sections to display 2 cards per row
-           
-            
+
+
             sections.forEach(selector => {
                 const elements = document.querySelectorAll(selector);
                 elements.forEach(el => {
@@ -1260,7 +1260,7 @@
             if (avatarImg && avatarFallback) {
                 // Initially hide fallback if image exists
                 avatarFallback.style.display = 'none !important';
-                
+
                 // Check if image loaded successfully
                 avatarImg.addEventListener('load', function() {
                     // Image loaded successfully, ensure fallback is hidden
