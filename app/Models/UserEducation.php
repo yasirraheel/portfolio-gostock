@@ -55,6 +55,7 @@ class UserEducation extends Model
     {
         return match($this->education_level) {
             'high_school' => 'High School',
+            'intermediate' => 'Intermediate',
             'associate' => 'Associate Degree',
             'bachelor' => 'Bachelor\'s Degree',
             'master' => 'Master\'s Degree',

@@ -62,6 +62,7 @@
 										<select name="education_level" class="form-select @error('education_level') is-invalid @enderror" required id="education_level">
 											<option value="">{{ __('misc.select_education_level') }}</option>
 											<option value="high_school" {{ old('education_level', $education->education_level) == 'high_school' ? 'selected' : '' }}>{{ __('misc.high_school') }}</option>
+											<option value="intermediate" {{ old('education_level', $education->education_level) == 'intermediate' ? 'selected' : '' }}>{{ __('misc.intermediate') }}</option>
 											<option value="associate" {{ old('education_level', $education->education_level) == 'associate' ? 'selected' : '' }}>{{ __('misc.associate_degree') }}</option>
 											<option value="bachelor" {{ old('education_level', $education->education_level) == 'bachelor' ? 'selected' : '' }}>{{ __('misc.bachelor_degree') }}</option>
 											<option value="master" {{ old('education_level', $education->education_level) == 'master' ? 'selected' : '' }}>{{ __('misc.master_degree') }}</option>

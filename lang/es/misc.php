@@ -766,6 +766,7 @@ return array(
 	'education_level' => 'Nivel Educativo',
 	'select_education_level' => 'Seleccionar Nivel Educativo',
 	'high_school' => 'Educación Secundaria',
+	'intermediate' => 'Intermedio',
 	'associate_degree' => 'Grado Asociado',
 	'bachelor_degree' => 'Licenciatura',
 	'master_degree' => 'Maestría',
