@@ -562,8 +562,9 @@
                             <div class="card h-100 border-0 shadow-sm">
                                 <div class="card-body p-4">
                                     {{-- Project Header with Status and Featured Badge --}}
-                                    <div class="d-flex justify-content-between align-items-start mb-3">
-                                        <div class="d-flex flex-wrap gap-2">
+                                    <div class="mb-3">
+                                        {{-- Status and Featured Badges Row --}}
+                                        <div class="d-flex flex-wrap gap-2 mb-2">
                                             <span class="badge bg-{{ $project->status_color }} px-3 py-2 rounded-pill">
                                                 <i class="bi bi-circle-fill me-1" style="font-size: 0.5rem;"></i>
                                                 {{ $project->status_display }}
@@ -574,7 +575,8 @@
                                                 </span>
                                             @endif
                                         </div>
-                                        <div class="text-muted small">
+                                        {{-- Duration Row --}}
+                                        <div class="text-muted small text-center">
                                             {{ $project->formatted_start_date }} - {{ $project->formatted_end_date }}
                                         </div>
                                     </div>
@@ -587,7 +589,7 @@
                                                     <div class="col-{{ count($project->project_images_list) > 1 ? '6' : '12' }} col-md-{{ count($project->project_images_list) > 1 ? '6' : '12' }}">
                                                         <img src="{{ url('public/portfolio_assets', $image) }}" 
                                                              class="img-fluid rounded shadow-sm" 
-                                                             style="width: 100%; height: 150px; object-fit: cover; border: 1px solid #e9ecef;" 
+                                                             style="width: 100%; height: 150px; object-fit: contain; background-color: #f8f9fa; border: 1px solid #e9ecef;" 
                                                              alt="Project image {{ $index + 1 }}"
                                                              loading="lazy">
                                                     </div>
