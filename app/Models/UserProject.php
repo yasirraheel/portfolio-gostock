@@ -71,7 +71,7 @@ class UserProject extends Model
             $duration[] = $days . ' ' . ($days == 1 ? 'day' : 'days');
         }
 
-        return empty($duration) ? '1 day' : implode(' ', $duration);
+        return empty($duration) ? '1 day' : implode(', ', $duration);
     }
 
     public function getStatusDisplayAttribute()

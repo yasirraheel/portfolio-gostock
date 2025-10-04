@@ -564,12 +564,12 @@
                                     {{-- Project Header with Status and Featured Badge --}}
                                     <div class="d-flex justify-content-between align-items-start mb-3">
                                         <div class="d-flex flex-wrap gap-2">
-                                            <span class="badge badge-{{ $project->status_color }} px-3 py-2">
+                                            <span class="badge bg-{{ $project->status_color }} px-3 py-2 rounded-pill">
                                                 <i class="bi bi-circle-fill me-1" style="font-size: 0.5rem;"></i>
                                                 {{ $project->status_display }}
                                             </span>
                                             @if($project->featured)
-                                                <span class="badge bg-warning text-dark px-3 py-2">
+                                                <span class="badge bg-warning text-dark px-3 py-2 rounded-pill">
                                                     <i class="fas fa-star me-1"></i>{{ __('misc.featured') }}
                                                 </span>
                                             @endif
@@ -611,7 +611,7 @@
                                     {{-- Project Description --}}
                                     @if($project->description)
                                         <div class="card-text mb-3">
-                                            <p class="text-muted small mb-0">{!! Str::limit($project->description, 150) !!}</p>
+                                            <p class="text-muted small mb-0">{{ Str::limit(strip_tags($project->description), 150) }}</p>
                                         </div>
                                     @endif
 
@@ -628,7 +628,7 @@
                                                 @if($project->team_size)
                                                     <div class="col-6">
                                                         <small class="text-muted d-block">{{ __('misc.team_size') }}</small>
-                                                        <span class="fw-semibold">{{ $project->team_size }} {{ $project->team_size == 1 ? __('misc.person') : __('misc.people') }}</span>
+                                                        <span class="fw-semibold">{{ $project->team_size }} {{ $project->team_size == 1 ? 'person' : 'people' }}</span>
                                                     </div>
                                                 @endif
                                             </div>
@@ -641,7 +641,13 @@
                                             <h6 class="fw-semibold mb-2 text-primary">
                                                 <i class="bi bi-star me-1"></i>{{ __('misc.key_features') }}
                                             </h6>
-                                            <p class="text-muted small mb-0">{!! Str::limit($project->key_features, 100) !!}</p>
+                                            <ul class="text-muted small mb-0 ps-3">
+                                                @foreach(explode("\n", strip_tags($project->key_features)) as $feature)
+                                                    @if(trim($feature))
+                                                        <li>{{ trim($feature) }}</li>
+                                                    @endif
+                                                @endforeach
+                                            </ul>
                                         </div>
                                     @endif
 
@@ -649,7 +655,7 @@
                                     @if($project->technologies_list && count($project->technologies_list) > 0)
                                         <div class="mb-3">
                                             <h6 class="fw-semibold mb-2 text-primary">
-                                                <i class="bi bi-code-slash me-1"></i>{{ __('misc.technologies_used') }}
+                                                <i class="bi bi-code-slash me-1"></i>{{ __('misc.technologies_skills_used') }}
                                             </h6>
                                             <div class="d-flex flex-wrap gap-1">
                                                 @foreach($project->technologies_list as $tech)
@@ -665,7 +671,13 @@
                                             <h6 class="fw-semibold mb-2 text-success">
                                                 <i class="bi bi-trophy me-1"></i>{{ __('misc.challenges_solved') }}
                                             </h6>
-                                            <p class="text-muted small mb-0">{!! Str::limit($project->challenges_solved, 100) !!}</p>
+                                            <ul class="text-muted small mb-0 ps-3">
+                                                @foreach(explode("\n", strip_tags($project->challenges_solved)) as $challenge)
+                                                    @if(trim($challenge))
+                                                        <li>{{ trim($challenge) }}</li>
+                                                    @endif
+                                                @endforeach
+                                            </ul>
                                         </div>
                                     @endif
 
