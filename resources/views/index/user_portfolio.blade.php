@@ -584,11 +584,12 @@
                                         <div class="mb-3">
                                             <div class="row g-2">
                                                 @foreach($project->project_images_list as $index => $image)
-                                                    <div class="col-{{ count($project->project_images_list) > 1 ? '6' : '12' }}">
+                                                    <div class="col-{{ count($project->project_images_list) > 1 ? '6' : '12' }} col-md-{{ count($project->project_images_list) > 1 ? '6' : '12' }}">
                                                         <img src="{{ url('public/portfolio_assets', $image) }}" 
-                                                             class="img-fluid rounded" 
-                                                             style="width: 100%; height: 120px; object-fit: cover;" 
-                                                             alt="Project image {{ $index + 1 }}">
+                                                             class="img-fluid rounded shadow-sm" 
+                                                             style="width: 100%; height: 150px; object-fit: cover; border: 1px solid #e9ecef;" 
+                                                             alt="Project image {{ $index + 1 }}"
+                                                             loading="lazy">
                                                     </div>
                                                 @endforeach
                                             </div>
@@ -685,21 +686,21 @@
                                     <div class="d-flex flex-wrap gap-2 mt-auto">
                                         @if($project->project_url)
                                             <a href="{{ $project->project_url }}" target="_blank"
-                                                class="btn btn-sm btn-outline-primary">
+                                                class="btn btn-sm btn-outline-primary border">
                                                 <i class="fas fa-external-link-alt me-1"></i>
                                                 {{ __('misc.view_project') }}
                                             </a>
                                         @endif
                                         @if($project->github_url)
                                             <a href="{{ $project->github_url }}" target="_blank"
-                                                class="btn btn-sm btn-outline-dark">
+                                                class="btn btn-sm btn-dark text-white border">
                                                 <i class="fab fa-github me-1"></i>
                                                 {{ __('misc.github') }}
                                             </a>
                                         @endif
                                         @if($project->demo_url)
                                             <a href="{{ $project->demo_url }}" target="_blank"
-                                                class="btn btn-sm btn-outline-success">
+                                                class="btn btn-sm btn-outline-success border">
                                                 <i class="fas fa-play me-1"></i>
                                                 {{ __('misc.demo') }}
                                             </a>
