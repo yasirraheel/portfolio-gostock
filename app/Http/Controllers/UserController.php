@@ -1389,7 +1389,7 @@ class UserController extends Controller
 			'institution_name' => 'required|string|max:200',
 			'degree' => 'required|string|max:200',
 			'field_of_study' => 'nullable|string|max:200',
-			'education_level' => 'required|in:high_school,intermediate,associate,bachelor,master,doctorate,diploma,certificate,professional',
+			'education_level' => 'required|in:high_school,intermediate,associate,bachelor,master,doctorate,diploma,certificate,other',
 			'start_date' => 'required|date',
 			'end_date' => 'nullable|date|after:start_date',
 			'is_current' => 'boolean',
@@ -1405,6 +1405,9 @@ class UserController extends Controller
 		$request->validate($rules);
 
 		$data = $request->except('logo');
+		
+		// Handle checkbox - explicitly set is_current based on form submission
+		$data['is_current'] = $request->has('is_current') ? true : false;
 
 		// Handle logo upload
 		if ($request->hasFile('logo')) {
@@ -1422,7 +1425,7 @@ class UserController extends Controller
 		}
 
 		// If currently studying, set end_date to null
-		if ($request->is_current) {
+		if ($data['is_current']) {
 			$data['end_date'] = null;
 		}
 
@@ -1438,7 +1441,7 @@ class UserController extends Controller
 			'institution_name' => 'required|string|max:200',
 			'degree' => 'required|string|max:200',
 			'field_of_study' => 'nullable|string|max:200',
-			'education_level' => 'required|in:high_school,intermediate,associate,bachelor,master,doctorate,diploma,certificate,professional',
+			'education_level' => 'required|in:high_school,intermediate,associate,bachelor,master,doctorate,diploma,certificate,other',
 			'start_date' => 'required|date',
 			'end_date' => 'nullable|date|after:start_date',
 			'is_current' => 'boolean',
@@ -1455,6 +1458,9 @@ class UserController extends Controller
 
 		$education = auth()->user()->educations()->findOrFail($request->id);
 		$data = $request->except(['logo', 'id']);
+		
+		// Handle checkbox - explicitly set is_current based on form submission
+		$data['is_current'] = $request->has('is_current') ? true : false;
 
 		// Handle logo upload
 		if ($request->hasFile('logo')) {
@@ -1476,7 +1482,7 @@ class UserController extends Controller
 		}
 
 		// If currently studying, set end_date to null
-		if ($request->is_current) {
+		if ($data['is_current']) {
 			$data['end_date'] = null;
 		}
 
