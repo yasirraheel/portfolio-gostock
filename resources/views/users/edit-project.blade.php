@@ -373,13 +373,6 @@ function updateCharCount() {
 // Initialize character count on page load
 document.addEventListener('DOMContentLoaded', function() {
     updateCharCount();
-    
-    // Add form submission debugging
-    document.getElementById('editProjectForm').addEventListener('submit', function(e) {
-        const technologiesField = document.getElementById('technologies');
-        console.log('Technologies field value:', technologiesField.value);
-        console.log('Form data being submitted:', new FormData(this));
-    });
 });
 
 document.getElementById('projectImages').addEventListener('change', function(e) {

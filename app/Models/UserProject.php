@@ -125,7 +125,16 @@ class UserProject extends Model
 
     public function getTechnologiesListAttribute()
     {
-        return is_array($this->technologies) ? $this->technologies : [];
+        if (is_array($this->technologies)) {
+            return $this->technologies;
+        }
+        
+        if (is_string($this->technologies) && !empty($this->technologies)) {
+            $decoded = json_decode($this->technologies, true);
+            return is_array($decoded) ? $decoded : [];
+        }
+        
+        return [];
     }
 
     public function getProjectImagesListAttribute()

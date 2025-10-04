@@ -1699,10 +1699,8 @@ class UserController extends Controller
 		if ($request->has('technologies')) {
 			$technologies = array_map('trim', explode(',', $request->technologies));
 			$projectData['technologies'] = json_encode(array_filter($technologies));
-			\Log::info('Technologies saved: ' . $projectData['technologies']);
 		} else {
 			$projectData['technologies'] = null;
-			\Log::info('No technologies field found in request');
 		}
 
 		// Handle image uploads
@@ -1728,8 +1726,6 @@ class UserController extends Controller
 
 	public function projectsUpdate(Request $request)
 	{
-		\Log::info('Projects Update Request Data:', $request->all());
-		
 		$rules = [
 			'id' => 'required|exists:user_projects,id',
 			'project_name' => 'required|string|max:255',
@@ -1768,10 +1764,8 @@ class UserController extends Controller
 		if ($request->has('technologies')) {
 			$technologies = array_map('trim', explode(',', $request->technologies));
 			$projectData['technologies'] = json_encode(array_filter($technologies));
-			\Log::info('Technologies saved: ' . $projectData['technologies']);
 		} else {
 			$projectData['technologies'] = null;
-			\Log::info('No technologies field found in request');
 		}
 
 		// Handle image deletions and uploads
