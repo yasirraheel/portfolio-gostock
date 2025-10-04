@@ -560,9 +560,9 @@
                     @foreach ($projects->take(6) as $project)
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="card h-100 border-0 shadow-sm">
-                                <div class="card-body p-4">
+                                <div class="card-body p-2">
                                     {{-- Project Header with Status and Featured Badge --}}
-                                    <div class="mb-3">
+                                    <div class="mb-2">
                                         {{-- Status and Featured Badges Row --}}
                                         <div class="d-flex flex-wrap gap-2 mb-2">
                                             <span class="badge bg-{{ $project->status_color }} px-3 py-2 rounded-pill">
@@ -583,7 +583,7 @@
 
                                     {{-- Project Images Display --}}
                                     @if($project->hasImages())
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                             <div class="row g-2">
                                                 @foreach($project->project_images_list as $index => $image)
                                                     <div class="col-{{ count($project->project_images_list) > 1 ? '6' : '12' }} col-md-{{ count($project->project_images_list) > 1 ? '6' : '12' }}">
@@ -599,7 +599,7 @@
                                         @endif
 
                                     {{-- Project Title and Type --}}
-                                    <div class="mb-3">
+                                    <div class="mb-2">
                                             <h5 class="card-title mb-1 fw-bold">{{ $project->project_name }}</h5>
                                             <div class="d-flex flex-wrap gap-2 mb-2">
                                             <span class="badge bg-primary">{{ $project->project_type_display }}</span>
@@ -613,14 +613,14 @@
 
                                     {{-- Project Description --}}
                                     @if($project->description)
-                                        <div class="card-text mb-3">
+                                        <div class="card-text mb-2">
                                             <p class="text-muted small mb-0">{{ strip_tags($project->description) }}</p>
                                         </div>
                                                 @endif
 
                                     {{-- Team Information --}}
                                     @if($project->role || $project->team_size)
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                             <div class="row g-2">
                                                 @if($project->role)
                                                     <div class="col-6">
@@ -640,7 +640,7 @@
 
                                     {{-- Key Features --}}
                                     @if($project->key_features)
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                             <h6 class="fw-semibold mb-2 text-primary">
                                                 <i class="bi bi-star me-1"></i>{{ __('misc.key_features') }}
                                             </h6>
@@ -656,7 +656,7 @@
 
                                     {{-- Technologies Used --}}
                                     @if($project->technologies_list && count($project->technologies_list) > 0)
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                             <h6 class="fw-semibold mb-2 text-primary">
                                                 <i class="bi bi-code-slash me-1"></i>{{ __('misc.technologies_skills_used') }}
                                             </h6>
@@ -670,7 +670,7 @@
 
                                     {{-- Challenges Solved --}}
                                     @if($project->challenges_solved)
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                             <h6 class="fw-semibold mb-2 text-success">
                                                 <i class="bi bi-trophy me-1"></i>{{ __('misc.challenges_solved') }}
                                             </h6>
