@@ -1799,7 +1799,7 @@ class UserController extends Controller
 
 		$project->update($projectData);
 
-		return redirect()->route('user.projects')->withSuccessMessage(__('misc.success_project_updated'));
+		return redirect()->route('user.projects.edit', $project->id)->withSuccessMessage(__('misc.success_project_updated'));
 	}
 
 	public function projectsDestroy($id)
