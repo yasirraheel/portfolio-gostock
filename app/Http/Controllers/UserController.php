@@ -1696,9 +1696,11 @@ class UserController extends Controller
 		$projectData['featured'] = $request->has('featured') ? true : false;
 
 		// Handle technologies
-		if ($request->technologies) {
+		if ($request->has('technologies')) {
 			$technologies = array_map('trim', explode(',', $request->technologies));
 			$projectData['technologies'] = json_encode(array_filter($technologies));
+		} else {
+			$projectData['technologies'] = null;
 		}
 
 		// Handle image uploads
@@ -1759,9 +1761,11 @@ class UserController extends Controller
 		$projectData['featured'] = $request->has('featured') ? true : false;
 
 		// Handle technologies
-		if ($request->technologies) {
+		if ($request->has('technologies')) {
 			$technologies = array_map('trim', explode(',', $request->technologies));
 			$projectData['technologies'] = json_encode(array_filter($technologies));
+		} else {
+			$projectData['technologies'] = null;
 		}
 
 		// Handle image deletions and uploads
