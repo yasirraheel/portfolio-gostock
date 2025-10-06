@@ -340,23 +340,7 @@
             transition: transform 0.3s ease;
         }
 
-        /* Ensure proper text colors for education and certification cards */
-        .education-card .education-degree,
-        .education-card .education-institution,
-        .certification-card .certification-name,
-        .certification-card .certification-organization {
-            color: #212529 !important;
-        }
-
-        .education-card .education-degree,
-        .certification-card .certification-name {
-            font-weight: 600;
-        }
-
-        .education-card .education-institution,
-        .certification-card .certification-organization {
-            font-weight: 500;
-        }
+        /* Education and certification cards now use Bootstrap card classes for theme consistency */
     </style>
 
     <script>
@@ -861,8 +845,8 @@
                                                     @endif
                                                 </div>
                                                 <div class="col">
-                                                    <h4 class="education-degree mb-1">{{ $education->full_degree }}</h4>
-                                                    <h5 class="education-institution mb-2"
+                                                    <h4 class="card-title education-degree mb-1 fw-bold">{{ $education->full_degree }}</h4>
+                                                    <h5 class="card-subtitle education-institution mb-2"
                                                         style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
                                                         @if ($education->website)
                                                             <a href="{{ $education->website }}" target="_blank"
@@ -971,8 +955,8 @@
                                             @endif
                                         </div>
                                         <div class="col">
-                                            <h4 class="certification-name mb-1">{{ $certification->name }}</h4>
-                                            <h5 class="certification-organization mb-2"
+                                            <h4 class="card-title certification-name mb-1 fw-bold">{{ $certification->name }}</h4>
+                                            <h5 class="card-subtitle certification-organization mb-2"
                                                 style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
                                                 @if ($certification->credential_url)
                                                     <a href="{{ $certification->credential_url }}" target="_blank"
