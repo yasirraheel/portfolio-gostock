@@ -340,7 +340,18 @@
             transition: transform 0.3s ease;
         }
 
-        /* Education and certification cards now use Bootstrap card classes for theme consistency */
+        /* Ensure proper background and text colors for education and certification cards */
+        .education-card,
+        .certification-card {
+            background-color: #ffffff !important;
+        }
+        
+        .education-card .card-title,
+        .education-card .card-subtitle,
+        .certification-card .card-title,
+        .certification-card .card-subtitle {
+            color: #212529 !important;
+        }
     </style>
 
     <script>
@@ -830,7 +841,7 @@
                     @foreach ($educations->where('status', 'active') as $education)
                         <div class="col-lg-6 col-md-6 col-12">
                                     <div class="card education-card border-0 shadow-sm h-100">
-                                        <div class="education-header p-4">
+                                        <div class="card-body p-4">
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     @if ($education->logo)
@@ -872,11 +883,11 @@
                                                             {{ $education->duration }}
                                                         </div>
                                                     </div>
-                                                </div>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <div class="education-body p-4 pt-0">
+                                    <div class="pt-0">
                                             <div class="education-badges mb-3">
                                                 <span class="badge bg-secondary me-2 mb-2">
                                                     <i
@@ -940,7 +951,7 @@
                     @foreach ($certifications->where('status', 'active') as $certification)
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="card certification-card border-0 shadow-sm h-100">
-                                <div class="certification-header p-4">
+                                <div class="card-body p-4">
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             @if ($certification->organization_logo)
