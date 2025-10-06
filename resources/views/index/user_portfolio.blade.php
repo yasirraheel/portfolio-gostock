@@ -339,6 +339,21 @@
             transform: translateY(-5px);
             transition: transform 0.3s ease;
         }
+
+        /* Hero section layout */
+        .hero-content .row {
+            justify-content: center;
+        }
+        
+        .hero-content .col-lg-8 {
+            max-width: 66.666667%;
+            flex: 0 0 66.666667%;
+        }
+        
+        .hero-content .col-lg-4 {
+            max-width: 33.333333%;
+            flex: 0 0 33.333333%;
+        }
     </style>
 
     <script>
