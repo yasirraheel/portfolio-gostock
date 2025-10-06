@@ -339,6 +339,24 @@
             transform: translateY(-5px);
             transition: transform 0.3s ease;
         }
+
+        /* Ensure proper text colors for education and certification cards */
+        .education-card .education-degree,
+        .education-card .education-institution,
+        .certification-card .certification-name,
+        .certification-card .certification-organization {
+            color: #212529 !important;
+        }
+
+        .education-card .education-degree,
+        .certification-card .certification-name {
+            font-weight: 600;
+        }
+
+        .education-card .education-institution,
+        .certification-card .certification-organization {
+            font-weight: 500;
+        }
     </style>
 
     <script>
@@ -827,7 +845,7 @@
                 <div class="row g-4">
                     @foreach ($educations->where('status', 'active') as $education)
                         <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="education-card border-0 shadow-sm h-100">
+                                    <div class="card education-card border-0 shadow-sm h-100">
                                         <div class="education-header p-4">
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
@@ -937,7 +955,7 @@
                 <div class="row g-4">
                     @foreach ($certifications->where('status', 'active') as $certification)
                         <div class="col-lg-6 col-md-6 col-12">
-                            <div class="certification-card border-0 shadow-sm h-100">
+                            <div class="card certification-card border-0 shadow-sm h-100">
                                 <div class="certification-header p-4">
                                     <div class="row align-items-center">
                                         <div class="col-auto">
