@@ -272,9 +272,12 @@
         .experience-section .card,
         .projects-section .card,
         .education-section .education-card,
-        .testimonials-section .testimonial-card {
+        .testimonials-section .testimonial-card,
+        .certifications-section .certification-card {
+            opacity: 0;
+            transform: translateY(50px);
             animation: slideInUp 0.6s ease-out;
-            animation-fill-mode: both;
+            animation-fill-mode: forwards;
         }
 
         .skills-section .card:nth-child(1) { animation-delay: 0.1s; }
@@ -308,6 +311,13 @@
         .testimonials-section .testimonial-card:nth-child(5) { animation-delay: 0.5s; }
         .testimonials-section .testimonial-card:nth-child(6) { animation-delay: 0.6s; }
 
+        .certifications-section .certification-card:nth-child(1) { animation-delay: 0.1s; }
+        .certifications-section .certification-card:nth-child(2) { animation-delay: 0.2s; }
+        .certifications-section .certification-card:nth-child(3) { animation-delay: 0.3s; }
+        .certifications-section .certification-card:nth-child(4) { animation-delay: 0.4s; }
+        .certifications-section .certification-card:nth-child(5) { animation-delay: 0.5s; }
+        .certifications-section .certification-card:nth-child(6) { animation-delay: 0.6s; }
+
         @keyframes slideInUp {
             from {
                 opacity: 0;
@@ -324,7 +334,8 @@
         .experience-section .card:hover,
         .projects-section .card:hover,
         .education-section .education-card:hover,
-        .testimonials-section .testimonial-card:hover {
+        .testimonials-section .testimonial-card:hover,
+        .certifications-section .certification-card:hover {
             transform: translateY(-5px);
             transition: transform 0.3s ease;
         }
@@ -916,9 +927,9 @@
         {{-- Certifications Section --}}
         @if ($certifications->count() > 0)
             <div class="container px-1 mb-1 certifications-section">
-                <div class="btn-block text-center mb-5">
-                    <h3 class="m-0">{{ __('misc.certifications') }}</h3>
-                    <p class="text-muted">
+                <div class="btn-block text-center mb-5 animate-fade-in">
+                    <h3 class="m-0" style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">{{ __('misc.certifications') }}</h3>
+                    <p style="color: {{ $user->portfolio_primary_color ?? '#007bff' }}; opacity: 0.8;">
                         {{ __('misc.my_professional_certifications') }}
                     </p>
                 </div>
