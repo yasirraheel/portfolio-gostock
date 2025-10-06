@@ -1,5 +1,5 @@
-<header class="py-3 shadow-sm fixed-top bg-white" id="header">
-        <div class="container-fluid d-flex align-items-center px-2 px-lg-4 gap-2 gap-lg-3">
+<header class="shadow-sm fixed-top bg-white" id="header" style="height: 60px;">
+        <div class="container-fluid d-flex align-items-stretch px-2 px-lg-4 gap-2 gap-lg-3 h-100">
 
             @php
                 // Determine which logos to show and where to link
@@ -46,12 +46,12 @@
                 }
             </style>
             @endif
-            <a href="{{ $linkDestination }}" class="d-flex align-items-center link-dark text-decoration-none fw-bold display-6">
-                <img src="{{ url($logoPath, $logoDark) }}" class="logoMain d-none d-lg-block" width="110" />
-                <img src="{{ url($logoPath, $logoLight) }}" class="logoLight d-none d-lg-block" width="110" />
+            <a href="{{ $linkDestination }}" class="d-flex align-items-center link-dark text-decoration-none fw-bold display-6 h-100" style="padding: 0; margin: 0;">
+                <img src="{{ url($logoPath, $logoDark) }}" class="logoMain d-none d-lg-block" style="height: 100%; width: auto; object-fit: contain;" />
+                <img src="{{ url($logoPath, $logoLight) }}" class="logoLight d-none d-lg-block" style="height: 100%; width: auto; object-fit: contain;" />
               </a>
 
-          <div class="d-flex align-items-center ms-auto">
+          <div class="d-flex align-items-center ms-auto h-100">
 
             <!-- Start Nav -->
             <ul class="nav d-flex align-items-center mb-0 navbar-session d-none d-lg-flex">
