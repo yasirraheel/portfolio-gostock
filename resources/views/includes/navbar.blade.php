@@ -1,4 +1,4 @@
-<header class="shadow-sm fixed-top bg-white" id="header" style="height: 60px;">
+<header class="fixed-top bg-white" id="header" style="height: 60px; z-index: 1000;">
         <div class="container-fluid d-flex align-items-stretch px-2 px-lg-4 gap-2 gap-lg-3 h-100">
 
             @php
