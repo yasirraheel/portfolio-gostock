@@ -339,41 +339,6 @@
             transform: translateY(-5px);
             transition: transform 0.3s ease;
         }
-
-        /* Force proper styling for education and certification cards */
-        .education-card,
-        .certification-card {
-            background-color: #ffffff !important;
-            color: #212529 !important;
-        }
-        
-        .education-card *,
-        .certification-card * {
-            color: #212529 !important;
-        }
-        
-        .education-card .card-title,
-        .education-card .card-subtitle,
-        .certification-card .card-title,
-        .certification-card .card-subtitle {
-            color: #212529 !important;
-            font-weight: 600 !important;
-        }
-        
-        .education-card .card-subtitle,
-        .certification-card .card-subtitle {
-            font-weight: 500 !important;
-        }
-        
-        /* Override any theme colors */
-        .education-card h4,
-        .education-card h5,
-        .education-card h6,
-        .certification-card h4,
-        .certification-card h5,
-        .certification-card h6 {
-            color: #212529 !important;
-        }
     </style>
 
     <script>
@@ -492,7 +457,7 @@
         @if ($skills->count() > 0)
             <div class="container px-1 mb-1 skills-section">
                 <div class="btn-block text-center mb-1 animate-fade-in">
-                    <h3 class="m-0" >{{ __('misc.skills') }}</h3>
+                    <h3 class="m-0" style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">{{ __('misc.skills') }}</h3>
                     <p class="fw-bold" style="color: #6c757d; font-size: 1.1rem;">
                         {{ __('misc.my_professional_skills') }}
                     </p>
@@ -506,7 +471,7 @@
                                     @if ($skill->fas_icon)
                                         <div class="mb-3">
                                             <i class="{{ $skill->fas_icon }} fa-3x"
-></i>
+                                                style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};"></i>
                                         </div>
                                     @endif
 
@@ -542,7 +507,7 @@
         @if ($experiences->count() > 0)
             <div class="container px-1 mb-1 experience-section">
                 <div class="btn-block text-center mb-2 animate-fade-in">
-                    <h3 class="m-0" >{{ __('misc.experience') }}</h3>
+                    <h3 class="m-0" style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">{{ __('misc.experience') }}</h3>
                     <p class="fw-bold" style="color: #6c757d; font-size: 1.1rem;">
                         {{ __('misc.my_professional_experience') }}
                     </p>
@@ -579,11 +544,11 @@
                                         <div class="flex-grow-1">
                                             <h5 class="card-title mb-1 fw-bold">{{ $experience->job_title }}</h5>
                                             <h6 class="card-subtitle mb-2"
->
+                                                style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
                                                 @if ($experience->company_website)
                                                     <a href="{{ $experience->company_website }}"
                                                         target="_blank" class="text-decoration-none"
->
+                                                        style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
                                                         {{ $experience->company_name }}
                                                         <i class="bi bi-box-arrow-up-right ms-1 small"></i>
                                                     </a>
@@ -676,7 +641,7 @@
         @if ($projects->count() > 0)
             <div class="container px-1 mb-1 projects-section">
                 <div class="btn-block text-center mb-2 animate-fade-in">
-                    <h3 class="m-0" >{{ __('misc.projects') }}</h3>
+                    <h3 class="m-0" style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">{{ __('misc.projects') }}</h3>
                     <p class="fw-bold" style="color: #6c757d; font-size: 1.1rem;">
                         {{ __('misc.my_featured_projects') }}
                     </p>
@@ -853,7 +818,7 @@
         @if ($educations->count() > 0)
             <div class="container px-1 mb-1 education-section">
                 <div class="btn-block text-center mb-1 animate-fade-in">
-                    <h3 class="m-0" >{{ __('misc.education') }}</h3>
+                    <h3 class="m-0" style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">{{ __('misc.education') }}</h3>
                     <p class="fw-bold" style="color: #6c757d; font-size: 1.1rem;">
                         {{ __('misc.my_educational_background') }}
                     </p>
@@ -862,8 +827,8 @@
                 <div class="row g-4">
                     @foreach ($educations->where('status', 'active') as $education)
                         <div class="col-lg-6 col-md-6 col-12">
-                                    <div class="card education-card border-0 shadow-sm h-100">
-                                        <div class="card-body p-4">
+                                    <div class="education-card border-0 shadow-sm h-100">
+                                        <div class="education-header p-4">
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     @if ($education->logo)
@@ -878,11 +843,13 @@
                                                     @endif
                                                 </div>
                                                 <div class="col">
-                                                    <h4 class="card-title education-degree mb-1 fw-bold">{{ $education->full_degree }}</h4>
-                                                    <h5 class="card-subtitle education-institution mb-2">
+                                                    <h4 class="education-degree mb-1">{{ $education->full_degree }}</h4>
+                                                    <h5 class="education-institution mb-2"
+                                                        style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
                                                         @if ($education->website)
                                                             <a href="{{ $education->website }}" target="_blank"
-                                                                class="text-decoration-none">
+                                                                class="text-decoration-none"
+                                                                style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
                                                                 <i
                                                                     class="bi bi-building me-2"></i>{{ $education->institution_name }}
                                                                 <i class="bi bi-box-arrow-up-right ms-1 small"></i>
@@ -903,11 +870,11 @@
                                                             {{ $education->duration }}
                                                         </div>
                                                     </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="pt-0">
+                                        <div class="education-body p-4 pt-0">
                                             <div class="education-badges mb-3">
                                                 <span class="badge bg-secondary me-2 mb-2">
                                                     <i
@@ -961,7 +928,7 @@
         @if ($certifications->count() > 0)
             <div class="container px-1 mb-1 certifications-section">
                 <div class="btn-block text-center mb-5 animate-fade-in">
-                    <h3 class="m-0" >{{ __('misc.certifications') }}</h3>
+                    <h3 class="m-0" style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">{{ __('misc.certifications') }}</h3>
                     <p class="fw-bold" style="color: #6c757d; font-size: 1.1rem;">
                         {{ __('misc.my_professional_certifications') }}
                     </p>
@@ -970,8 +937,8 @@
                 <div class="row g-4">
                     @foreach ($certifications->where('status', 'active') as $certification)
                         <div class="col-lg-6 col-md-6 col-12">
-                            <div class="card certification-card border-0 shadow-sm h-100">
-                                <div class="card-body p-4">
+                            <div class="certification-card border-0 shadow-sm h-100">
+                                <div class="certification-header p-4">
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             @if ($certification->organization_logo)
@@ -986,13 +953,13 @@
                                             @endif
                                         </div>
                                         <div class="col">
-                                            <h4 class="card-title certification-name mb-1 fw-bold">{{ $certification->name }}</h4>
-                                            <h5 class="card-subtitle certification-organization mb-2"
->
+                                            <h4 class="certification-name mb-1">{{ $certification->name }}</h4>
+                                            <h5 class="certification-organization mb-2"
+                                                style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
                                                 @if ($certification->credential_url)
                                                     <a href="{{ $certification->credential_url }}" target="_blank"
                                                         class="text-decoration-none"
->
+                                                        style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
                                                         <i
                                                             class="bi bi-building me-2"></i>{{ $certification->issuing_organization }}
                                                         <i class="bi bi-box-arrow-up-right ms-1 small"></i>
@@ -1074,7 +1041,7 @@
         @if ($testimonials->count() > 0)
             <div class="container px-5 mb-5 testimonials-section">
                 <div class="btn-block text-center mb-5 animate-fade-in">
-                    <h3 class="m-0" >{{ __('misc.testimonials') }}</h3>
+                    <h3 class="m-0" style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">{{ __('misc.testimonials') }}</h3>
                     <p class="fw-bold" style="color: #6c757d; font-size: 1.1rem;">
                         {{ __('misc.what_clients_say_about_me') }}
                     </p>
@@ -1100,13 +1067,13 @@
                                         <div class="col">
                                             <h4 class="client-name mb-1">{{ $testimonial->client_name }}</h4>
                                             <h5 class="client-position mb-2"
->
+                                                style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
                                                 {{ $testimonial->client_position }}
                                                 @if ($testimonial->company_name)
                                                     @if ($testimonial->client_website)
                                                         <a href="{{ $testimonial->client_website }}" target="_blank"
                                                             class="text-decoration-none ms-2"
->
+                                                            style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">
                                                             @ {{ $testimonial->company_name }}
                                                             <i class="bi bi-box-arrow-up-right ms-1 small"></i>
                                                         </a>
