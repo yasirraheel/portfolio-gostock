@@ -458,7 +458,7 @@
             <div class="container px-1 mb-1 skills-section">
                 <div class="btn-block text-center mb-1 animate-fade-in">
                     <h3 class="m-0" style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">{{ __('misc.skills') }}</h3>
-                    <p style="color: {{ $user->portfolio_primary_color ?? '#007bff' }}; opacity: 0.8;">
+                    <p class="fw-bold" style="color: #6c757d; font-size: 1.1rem;">
                         {{ __('misc.my_professional_skills') }}
                     </p>
                 </div>
@@ -508,7 +508,7 @@
             <div class="container px-1 mb-1 experience-section">
                 <div class="btn-block text-center mb-2 animate-fade-in">
                     <h3 class="m-0" style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">{{ __('misc.experience') }}</h3>
-                    <p style="color: {{ $user->portfolio_primary_color ?? '#007bff' }}; opacity: 0.8;">
+                    <p class="fw-bold" style="color: #6c757d; font-size: 1.1rem;">
                         {{ __('misc.my_professional_experience') }}
                     </p>
                 </div>
@@ -642,7 +642,7 @@
             <div class="container px-1 mb-1 projects-section">
                 <div class="btn-block text-center mb-2 animate-fade-in">
                     <h3 class="m-0" style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">{{ __('misc.projects') }}</h3>
-                    <p style="color: {{ $user->portfolio_primary_color ?? '#007bff' }}; opacity: 0.8;">
+                    <p class="fw-bold" style="color: #6c757d; font-size: 1.1rem;">
                         {{ __('misc.my_featured_projects') }}
                     </p>
                 </div>
@@ -819,7 +819,7 @@
             <div class="container px-1 mb-1 education-section">
                 <div class="btn-block text-center mb-1 animate-fade-in">
                     <h3 class="m-0" style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">{{ __('misc.education') }}</h3>
-                    <p style="color: {{ $user->portfolio_primary_color ?? '#007bff' }}; opacity: 0.8;">
+                    <p class="fw-bold" style="color: #6c757d; font-size: 1.1rem;">
                         {{ __('misc.my_educational_background') }}
                     </p>
                 </div>
@@ -929,7 +929,7 @@
             <div class="container px-1 mb-1 certifications-section">
                 <div class="btn-block text-center mb-5 animate-fade-in">
                     <h3 class="m-0" style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">{{ __('misc.certifications') }}</h3>
-                    <p style="color: {{ $user->portfolio_primary_color ?? '#007bff' }}; opacity: 0.8;">
+                    <p class="fw-bold" style="color: #6c757d; font-size: 1.1rem;">
                         {{ __('misc.my_professional_certifications') }}
                     </p>
                 </div>
@@ -1042,7 +1042,7 @@
             <div class="container px-5 mb-5 testimonials-section">
                 <div class="btn-block text-center mb-5 animate-fade-in">
                     <h3 class="m-0" style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">{{ __('misc.testimonials') }}</h3>
-                    <p style="color: {{ $user->portfolio_primary_color ?? '#007bff' }}; opacity: 0.8;">
+                    <p class="fw-bold" style="color: #6c757d; font-size: 1.1rem;">
                         {{ __('misc.what_clients_say_about_me') }}
                     </p>
                 </div>
