@@ -108,7 +108,7 @@
 
                 <div class="hero-content">
                     <div class="row align-items-center">
-                        <div class="col-lg-8">
+                        <div class="col-12">
                             <div
                                 class="d-flex align-items-center mb-4 hero-profile d-lg-flex d-block text-lg-start text-center">
                                 <div class="hero-avatar me-lg-4 mx-auto mx-lg-0 mb-3 mb-lg-0">
@@ -189,12 +189,12 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-4">
-                            <div class="hero-social text-lg-end">
+                        <div class="col-12">
+                            <div class="hero-social text-center">
                                 @if ($user->linkedin || $user->facebook || $user->twitter || $user->instagram)
                                     <div class="mb-4">
                                         <p class="text-white-50 mb-3 fw-semibold">Connect with me:</p>
-                                        <div class="d-flex justify-content-lg-end justify-content-center gap-3 mb-3">
+                                        <div class="d-flex justify-content-center gap-3 mb-3">
                                             @if ($user->linkedin)
                                                 <a href="{{ $user->linkedin }}" target="_blank"
                                                     class="text-white fs-3 social-link">
@@ -345,14 +345,9 @@
             justify-content: center;
         }
         
-        .hero-content .col-lg-8 {
-            max-width: 66.666667%;
-            flex: 0 0 66.666667%;
-        }
-        
-        .hero-content .col-lg-4 {
-            max-width: 33.333333%;
-            flex: 0 0 33.333333%;
+        .hero-content .col-12 {
+            max-width: 100%;
+            flex: 0 0 100%;
         }
     </style>
 
