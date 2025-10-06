@@ -102,7 +102,7 @@
 
 @section('content')
     <div class="container-fluid home-cover portfolio-hero" style="background-image: url('{{ $heroBackground }}');">
-        <div class="mb-4 position-relative custom-pt-6">
+        <div class="mb-4 position-relative" style="padding-top: 60px;">
             <div class="container px-5">
 
 

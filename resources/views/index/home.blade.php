@@ -72,7 +72,7 @@
 @section('content')
 <!-- Hero Section -->
 <div class="container-fluid home-cover">
-      <div class="mb-4 position-relative custom-pt-6">
+      <div class="mb-4 position-relative" style="padding-top: 60px;">
         <div class="container px-2 px-lg-4">
           @if ($settings->announcement != '' && $settings->announcement_show == 'all'
               || $settings->announcement != '' && $settings->announcement_show == 'users' && auth()->check())
