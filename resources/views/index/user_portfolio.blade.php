@@ -250,6 +250,86 @@
         </div>
     </div><!-- container-fluid -->
 
+    <style>
+        /* Animation styles for portfolio sections */
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Staggered animation for section cards */
+        .skills-section .card,
+        .experience-section .card,
+        .projects-section .card,
+        .education-section .education-card,
+        .testimonials-section .testimonial-card {
+            animation: slideInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .skills-section .card:nth-child(1) { animation-delay: 0.1s; }
+        .skills-section .card:nth-child(2) { animation-delay: 0.2s; }
+        .skills-section .card:nth-child(3) { animation-delay: 0.3s; }
+        .skills-section .card:nth-child(4) { animation-delay: 0.4s; }
+        .skills-section .card:nth-child(5) { animation-delay: 0.5s; }
+        .skills-section .card:nth-child(6) { animation-delay: 0.6s; }
+
+        .experience-section .card:nth-child(1) { animation-delay: 0.1s; }
+        .experience-section .card:nth-child(2) { animation-delay: 0.2s; }
+        .experience-section .card:nth-child(3) { animation-delay: 0.3s; }
+        .experience-section .card:nth-child(4) { animation-delay: 0.4s; }
+
+        .projects-section .card:nth-child(1) { animation-delay: 0.1s; }
+        .projects-section .card:nth-child(2) { animation-delay: 0.2s; }
+        .projects-section .card:nth-child(3) { animation-delay: 0.3s; }
+        .projects-section .card:nth-child(4) { animation-delay: 0.4s; }
+        .projects-section .card:nth-child(5) { animation-delay: 0.5s; }
+        .projects-section .card:nth-child(6) { animation-delay: 0.6s; }
+
+        .education-section .education-card:nth-child(1) { animation-delay: 0.1s; }
+        .education-section .education-card:nth-child(2) { animation-delay: 0.2s; }
+        .education-section .education-card:nth-child(3) { animation-delay: 0.3s; }
+        .education-section .education-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .testimonials-section .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+        .testimonials-section .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+        .testimonials-section .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+        .testimonials-section .testimonial-card:nth-child(4) { animation-delay: 0.4s; }
+        .testimonials-section .testimonial-card:nth-child(5) { animation-delay: 0.5s; }
+        .testimonials-section .testimonial-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hover animations for cards */
+        .skills-section .card:hover,
+        .experience-section .card:hover,
+        .projects-section .card:hover,
+        .education-section .education-card:hover,
+        .testimonials-section .testimonial-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+    </style>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Typing animation for name
@@ -365,9 +445,9 @@
         {{-- Skills Section --}}
         @if ($skills->count() > 0)
             <div class="container px-1 mb-1 skills-section">
-                <div class="btn-block text-center mb-1">
-                    <h3 class="m-0">{{ __('misc.skills') }}</h3>
-                    <p class="text-muted">
+                <div class="btn-block text-center mb-1 animate-fade-in">
+                    <h3 class="m-0" style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">{{ __('misc.skills') }}</h3>
+                    <p style="color: {{ $user->portfolio_primary_color ?? '#007bff' }}; opacity: 0.8;">
                         {{ __('misc.my_professional_skills') }}
                     </p>
                 </div>
@@ -415,9 +495,9 @@
         {{-- Experience Section --}}
         @if ($experiences->count() > 0)
             <div class="container px-1 mb-1 experience-section">
-                <div class="btn-block text-center mb-2">
-                    <h3 class="m-0">{{ __('misc.experience') }}</h3>
-                    <p class="text-muted">
+                <div class="btn-block text-center mb-2 animate-fade-in">
+                    <h3 class="m-0" style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">{{ __('misc.experience') }}</h3>
+                    <p style="color: {{ $user->portfolio_primary_color ?? '#007bff' }}; opacity: 0.8;">
                         {{ __('misc.my_professional_experience') }}
                     </p>
                 </div>
@@ -549,9 +629,9 @@
         {{-- Projects Section --}}
         @if ($projects->count() > 0)
             <div class="container px-1 mb-1 projects-section">
-                <div class="btn-block text-center mb-2">
-                    <h3 class="m-0">{{ __('misc.projects') }}</h3>
-                    <p class="text-muted">
+                <div class="btn-block text-center mb-2 animate-fade-in">
+                    <h3 class="m-0" style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">{{ __('misc.projects') }}</h3>
+                    <p style="color: {{ $user->portfolio_primary_color ?? '#007bff' }}; opacity: 0.8;">
                         {{ __('misc.my_featured_projects') }}
                     </p>
                 </div>
@@ -726,9 +806,9 @@
         {{-- Education Section --}}
         @if ($educations->count() > 0)
             <div class="container px-1 mb-1 education-section">
-                <div class="btn-block text-center mb-1">
-                    <h3 class="m-0">{{ __('misc.education') }}</h3>
-                    <p class="text-muted">
+                <div class="btn-block text-center mb-1 animate-fade-in">
+                    <h3 class="m-0" style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">{{ __('misc.education') }}</h3>
+                    <p style="color: {{ $user->portfolio_primary_color ?? '#007bff' }}; opacity: 0.8;">
                         {{ __('misc.my_educational_background') }}
                     </p>
                 </div>
@@ -949,9 +1029,9 @@
         {{-- Testimonials Section --}}
         @if ($testimonials->count() > 0)
             <div class="container px-5 mb-5 testimonials-section">
-                <div class="btn-block text-center mb-5">
-                    <h3 class="m-0">{{ __('misc.testimonials') }}</h3>
-                    <p class="text-muted">
+                <div class="btn-block text-center mb-5 animate-fade-in">
+                    <h3 class="m-0" style="color: {{ $user->portfolio_primary_color ?? '#007bff' }};">{{ __('misc.testimonials') }}</h3>
+                    <p style="color: {{ $user->portfolio_primary_color ?? '#007bff' }}; opacity: 0.8;">
                         {{ __('misc.what_clients_say_about_me') }}
                     </p>
                 </div>
