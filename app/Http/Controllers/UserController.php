@@ -1405,7 +1405,7 @@ class UserController extends Controller
 		$request->validate($rules);
 
 		$data = $request->except('logo');
-		
+
 		// Handle checkbox - explicitly set is_current based on form submission
 		$data['is_current'] = $request->has('is_current') ? true : false;
 
@@ -1458,7 +1458,7 @@ class UserController extends Controller
 
 		$education = auth()->user()->educations()->findOrFail($request->id);
 		$data = $request->except(['logo', 'id']);
-		
+
 		// Handle checkbox - explicitly set is_current based on form submission
 		$data['is_current'] = $request->has('is_current') ? true : false;
 
