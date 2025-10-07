@@ -1,4 +1,4 @@
-<header class="fixed-top bg-white py-3" id="header" style="height: 60px; z-index: 1000;">
+<header class="fixed-top bg-white py-1" id="header" style="height: 60px; z-index: 1000;">
         <div class="container-fluid d-flex align-items-stretch px-2 px-lg-4 gap-2 gap-lg-3 h-100">
 
             @php
