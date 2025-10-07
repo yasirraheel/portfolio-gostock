@@ -344,7 +344,7 @@
         .hero-content .row {
             justify-content: center;
         }
-        
+
         .hero-content .col-12 {
             max-width: 100%;
             flex: 0 0 100%;
@@ -542,7 +542,7 @@
                                         @if ($experience->company_logo)
                                             <img src="{{ url('public/portfolio_assets', $experience->company_logo) }}"
                                                 class="rounded me-3"
-                                                style="width: 60px; height: 60px; object-fit: cover;"
+                                                style="width: 60px; height: 60px; object-fit: cover; padding: 2px;"
                                                 alt="{{ $experience->company_name }}">
                                         @else
                                             <div class="text-white rounded me-3 d-flex align-items-center justify-content-center"
@@ -844,6 +844,7 @@
                                                     @if ($education->logo)
                                                         <img src="{{ url('public/portfolio_assets', $education->logo) }}"
                                                             class="institution-logo"
+                                                            style="padding: 2px;"
                                                             alt="{{ $education->institution_name }}">
                                                     @else
                                                         <div class="institution-logo-fallback"
@@ -954,6 +955,7 @@
                                             @if ($certification->organization_logo)
                                                 <img src="{{ url('public/portfolio_assets', $certification->organization_logo) }}"
                                                     class="organization-logo"
+                                                    style="padding: 2px;"
                                                     alt="{{ $certification->issuing_organization }}">
                                             @else
                                                 <div class="organization-logo-fallback"
