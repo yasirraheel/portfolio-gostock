@@ -542,7 +542,7 @@
                                         @if ($experience->company_logo)
                                             <img src="{{ url('public/portfolio_assets', $experience->company_logo) }}"
                                                 class="rounded me-3"
-                                                style="width: 60px; height: 60px; object-fit: cover; padding: 2px;"
+                                                style="width: 60px; height: 60px; object-fit: cover;"
                                                 alt="{{ $experience->company_name }}">
                                         @else
                                             <div class="text-white rounded me-3 d-flex align-items-center justify-content-center"
