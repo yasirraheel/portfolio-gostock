@@ -844,7 +844,7 @@
                                                     @if ($education->logo)
                                                         <img src="{{ url('public/portfolio_assets', $education->logo) }}"
                                                             class="institution-logo"
-                                                            style="padding: 2px;"
+
                                                             alt="{{ $education->institution_name }}">
                                                     @else
                                                         <div class="institution-logo-fallback"
@@ -955,7 +955,7 @@
                                             @if ($certification->organization_logo)
                                                 <img src="{{ url('public/portfolio_assets', $certification->organization_logo) }}"
                                                     class="organization-logo"
-                                                    style="padding: 2px;"
+
                                                     alt="{{ $certification->issuing_organization }}">
                                             @else
                                                 <div class="organization-logo-fallback"
