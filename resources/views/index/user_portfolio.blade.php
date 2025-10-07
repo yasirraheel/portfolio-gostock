@@ -101,7 +101,7 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid portfolio-hero" style="background-image: url('{{ $heroBackground }}');">
+    <div class="container-fluid home-cover portfolio-hero" style="background-image: url('{{ $heroBackground }}'); margin-top: 60px;">
         <div class="mb-4 position-relative">
             <div class="container px-5">
 
@@ -844,7 +844,6 @@
                                                     @if ($education->logo)
                                                         <img src="{{ url('public/portfolio_assets', $education->logo) }}"
                                                             class="institution-logo"
-
                                                             alt="{{ $education->institution_name }}">
                                                     @else
                                                         <div class="institution-logo-fallback"
@@ -955,7 +954,6 @@
                                             @if ($certification->organization_logo)
                                                 <img src="{{ url('public/portfolio_assets', $certification->organization_logo) }}"
                                                     class="organization-logo"
-
                                                     alt="{{ $certification->issuing_organization }}">
                                             @else
                                                 <div class="organization-logo-fallback"

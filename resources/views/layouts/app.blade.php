@@ -11,7 +11,7 @@
 
     <title>{{ Helper::getNotify() }}@section('title')@show{{Helper::titleSite()}}</title>
 
-    {{-- @include('includes.css_general') --}}
+    @include('includes.css_general')
 
     @if ($settings->status_pwa)
       @laravelPWA
