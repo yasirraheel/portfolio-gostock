@@ -101,7 +101,7 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid home-cover portfolio-hero" style="background-image: url('{{ $heroBackground }}');">
+    <div class="container-fluid portfolio-hero" style="background-image: url('{{ $heroBackground }}');">
         <div class="mb-4 position-relative">
             <div class="container px-5">
 
