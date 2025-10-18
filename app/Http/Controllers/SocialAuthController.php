@@ -5,13 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\SocialAccountService;
-use Socialite; // socialite namespace
+use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Log;
 
 class SocialAuthController extends Controller
 {
     // redirect function
     public function redirect($provider){
-      return Socialite::driver($provider)->redirect();
+      // Log configured redirect and the actual URL Socialite will send to
+      $configured = config('services.' . $provider . '.redirect');
+      $driver = Socialite::driver($provider);
+      $response = $driver->redirect();
+      // Try to get the target URL from the RedirectResponse if available
+      $target = method_exists($response, 'getTargetUrl') ? $response->getTargetUrl() : null;
+      Log::info('OAuth redirect initiated', [
+        'provider' => $provider,
+        'configured_redirect' => $configured,
+        'target_url' => $target,
+        'app_url_env' => env('APP_URL')
+      ]);
+
+      return $response;
     }
     // callback function
     public function callback(SocialAccountService $service ,Request $request, $provider){
