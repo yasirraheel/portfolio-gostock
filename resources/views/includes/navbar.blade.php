@@ -46,7 +46,7 @@
                 }
             </style>
             @endif
-            <a href="{{ $linkDestination }}" class="d-flex align-items-center link-dark text-decoration-none fw-bold display-6 h-100" style="padding: 1px; margin: 0;">
+                <a href="{{ $linkDestination }}" class="d-flex align-items-center link-dark text-decoration-none fw-bold display-6 h-100" style="padding: 1px; margin: 0;">
                 <img src="{{ url($logoPath, $logoDark) }}" class="logoMain d-none d-lg-block" style="height: 100%; width: auto; object-fit: contain;" />
                 <img src="{{ url($logoPath, $logoLight) }}" class="logoLight d-none d-lg-block" style="height: 100%; width: auto; object-fit: contain;" />
               </a>
