@@ -39,19 +39,19 @@ return [
     'facebook' => [
       'client_id' => env('FACEBOOK_CLIENT_ID'),
       'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
-      'redirect' => rtrim(env('APP_URL'), '/') . '/oauth/facebook/callback',
+      'redirect' => env('APP_URL').'/oauth/facebook/callback',
       ],
 
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => rtrim(env('APP_URL'), '/') . '/oauth/google/callback',
+        'redirect' => env('APP_URL').'/oauth/google/callback',
     ],
 
     'twitter' => [
         'client_id' => env('TWITTER_CLIENT_ID'),
         'client_secret' => env('TWITTER_CLIENT_SECRET'),
-        'redirect' => rtrim(env('APP_URL'), '/') . '/oauth/twitter/callback',
+        'redirect' => env('APP_URL').'/oauth/twitter/callback',
     ],
 
 ];
